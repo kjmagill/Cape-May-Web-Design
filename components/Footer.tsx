@@ -24,6 +24,8 @@ const Footer: React.FC = () => {
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">LinkedIn</a>
                 </div>
                 <div className="flex justify-center items-center space-x-4 mb-6 text-sm">
+                    <a href="/blog" className="hover:text-cyan-400 transition-colors">Blog</a>
+                    <span className="text-slate-600">|</span>
                     <a href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
                     <span className="text-slate-600">|</span>
                     <a href="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</a>

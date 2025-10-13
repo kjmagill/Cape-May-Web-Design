@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, CheckCircleIcon } from './icons';
+import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, CheckCircleIcon, MapPinIcon, PhoneIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 type FormState = {
@@ -164,9 +164,9 @@ const Contact: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-4xl font-extrabold text-white">Let's Build Something Together</h2>
+                    <h2 className="text-4xl font-extrabold text-white">Ready to Grow Your Cape May Business?</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">
-                        Have a project in mind? We'd love to hear about it. Feel free to fill out the form below or give us a call at <a href="tel:6093006464" className="text-cyan-400 hover:underline">(609) 300-6464</a>.
+                        Tell us about your project. We'll provide a free, no-obligation quote and a clear strategy to help you achieve your goals online.
                     </p>
                 </div>
                 <div 
@@ -175,42 +175,75 @@ const Contact: React.FC = () => {
                     }`}
                     style={{ transitionDelay: '200ms' }}
                 >
-                    {formStatus === 'success' ? (
-                        <div className="text-center py-10 transition-all duration-300 ease-in-out">
-                            <CheckCircleIcon className="w-16 h-16 mx-auto text-green-400" />
-                            <h3 className="text-2xl font-bold text-white mt-4">Thank you!</h3>
-                            <p className="text-slate-300 mt-2">Your message has been sent successfully. We'll be in touch soon.</p>
+                    <div className="grid md:grid-cols-2 md:gap-x-12">
+                        {/* Left Column: Contact Info */}
+                        <div className="mb-12 md:mb-0">
+                            <h3 className="text-2xl font-bold text-white mb-3">Contact Information</h3>
+                            <p className="text-slate-400 mb-8">
+                                We're here to help. Reach out to us anytime and we'll happily answer your questions.
+                            </p>
+                            <ul className="space-y-6">
+                                <li className="flex items-start space-x-4">
+                                    <div className="mt-1 flex-shrink-0"><PhoneIcon className="w-5 h-5 text-cyan-400"/></div>
+                                    <div>
+                                        <span className="text-white font-semibold">Phone</span><br/>
+                                        <a href="tel:6093006464" className="text-slate-300 hover:text-cyan-400 transition-colors">(609) 300-6464</a>
+                                    </div>
+                                </li>
+                                <li className="flex items-start space-x-4">
+                                    <div className="mt-1 flex-shrink-0"><EnvelopeIcon className="w-5 h-5 text-cyan-400"/></div>
+                                    <div>
+                                        <span className="text-white font-semibold">Email</span><br/>
+                                        <a href="mailto:capemaywebdev@gmail.com" className="text-slate-300 hover:text-cyan-400 transition-colors">capemaywebdev@gmail.com</a>
+                                    </div>
+                                </li>
+                                <li className="flex items-start space-x-4">
+                                    <div className="mt-1 flex-shrink-0"><MapPinIcon className="w-5 h-5 text-cyan-400"/></div>
+                                    <div>
+                                        <span className="text-white font-semibold">Service Area</span><br/>
+                                        <span className="text-slate-300">Proudly serving Cape May, The Wildwoods, Ocean City, Sea Isle City, Avalon, Stone Harbor, and all of Cape May County.</span>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    ) : (
-                        <form onSubmit={handleSubmit} noValidate>
-                            <div className="grid md:grid-cols-2 gap-8">
-                                {renderInput('name', 'Your Name', 'text', UserIcon)}
-                                {renderInput('email', 'Your Email', 'email', EnvelopeIcon)}
-                            </div>
-                            <div className="mt-8">
-                                {renderInput('message', 'Your Message', 'text', null, true)}
-                            </div>
-                            <div className="mt-8 text-center">
-                                <button 
-                                    type="submit" 
-                                    className="group w-48 justify-center flex items-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
-                                    disabled={formStatus === 'submitting' || !isFormValid}
-                                >
-                                    {formStatus === 'submitting' ? (
-                                        <>
-                                            <SpinnerIcon className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
-                                            Sending...
-                                        </>
-                                    ) : (
-                                        <span className="flex items-center space-x-2">
-                                            <span>Send Message</span>
-                                            <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                                        </span>
-                                    )}
-                                </button>
-                            </div>
-                        </form>
-                    )}
+                        {/* Right Column: Form */}
+                        <div>
+                             {formStatus === 'success' ? (
+                                <div className="text-center h-full flex flex-col justify-center items-center py-10 transition-all duration-300 ease-in-out">
+                                    <CheckCircleIcon className="w-16 h-16 mx-auto text-green-400" />
+                                    <h3 className="text-2xl font-bold text-white mt-4">Thank you!</h3>
+                                    <p className="text-slate-300 mt-2">Your message has been sent successfully. We'll be in touch soon.</p>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} noValidate>
+                                    <div className="flex flex-col space-y-6">
+                                        {renderInput('name', 'Your Name', 'text', UserIcon)}
+                                        {renderInput('email', 'Your Email', 'email', EnvelopeIcon)}
+                                        {renderInput('message', 'Your Message', 'text', null, true)}
+                                    </div>
+                                    <div className="mt-6">
+                                        <button 
+                                            type="submit" 
+                                            className="group w-full justify-center flex items-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
+                                            disabled={formStatus === 'submitting' || !isFormValid}
+                                        >
+                                            {formStatus === 'submitting' ? (
+                                                <>
+                                                    <SpinnerIcon className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
+                                                    Sending...
+                                                </>
+                                            ) : (
+                                                <span className="flex items-center space-x-2">
+                                                    <span>Send Message</span>
+                                                    <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                                                </span>
+                                            )}
+                                        </button>
+                                    </div>
+                                </form>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

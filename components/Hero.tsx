@@ -15,30 +15,30 @@ const Hero: React.FC = () => {
             <div className="relative z-10">
                 <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4">
                     <span className={`block transition-all duration-500 ease-out delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-                        Crafting <span className="text-cyan-400">Digital Experiences</span>
+                        More Than a Website.
                     </span>
-                    <span className={`block transition-all duration-500 ease-out delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-                        in Cape May
+                    <span className={`block text-cyan-400 transition-all duration-500 ease-out delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+                        A Growth Engine.
                     </span>
                 </h1>
                 <p
-                    className={`text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8 transition-all duration-500 ease-out delay-300 ${
+                    className={`text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8 transition-all duration-500 ease-out delay-400 ${
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
                     }`}
                 >
-                    We build beautiful, high-performance websites that capture the essence of your brand and grow your business.
+                    We build strategic, performance-driven websites that don't just look great—they deliver measurable results and fuel your business growth.
                 </p>
                 <div
-                    className={`flex justify-center space-x-4 transition-all duration-500 ease-out delay-400 ${
+                    className={`flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 transition-all duration-500 ease-out delay-500 ${
                         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-5 scale-95'
                     }`}
                 >
-                    <a href="#portfolio" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-500/30">
-                        <span>View Our Work</span>
+                    <a href="#contact" className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-500/30">
+                        <span>Discover Your Growth Potential</span>
                         <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
-                    <a href="#contact" className="bg-transparent border-2 border-slate-600 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
-                        Contact Us
+                    <a href="#portfolio" className="w-full sm:w-auto bg-transparent border-2 border-slate-600 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
+                        View Our Work
                     </a>
                 </div>
             </div>

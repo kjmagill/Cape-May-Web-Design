@@ -19,17 +19,17 @@ const Services: React.FC = () => {
         {
             icon: <CodeIcon className="w-12 h-12" />,
             title: 'Custom Web Design',
-            description: 'Stunning, responsive websites tailored to your brand. From simple portfolios to complex web applications, we bring your vision to life.',
+            description: 'Stunning, responsive websites tailored to your Cape May brand. We build sites that not only look great but also convert visitors into customers.',
         },
         {
             icon: <ShoppingCartIcon className="w-12 h-12" />,
             title: 'E-commerce Solutions',
-            description: 'Robust and scalable online stores that provide a seamless shopping experience, driving sales and customer loyalty.',
+            description: 'Sell online with a powerful e-commerce platform designed for Cape May businesses. We build secure, user-friendly online stores that drive sales.',
         },
         {
             icon: <ChartBarIcon className="w-12 h-12" />,
             title: 'SEO & Marketing',
-            description: 'Boost your online visibility and attract more customers with our data-driven SEO strategies and digital marketing campaigns.',
+            description: 'Get found by more local customers. Our targeted SEO and digital marketing strategies are designed to boost your visibility in Cape May and beyond.',
         },
     ];
 
@@ -45,8 +45,8 @@ const Services: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-4xl font-extrabold text-white">Our Expertise</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We provide a complete suite of services to establish and grow your online presence.</p>
+                    <h2 className="text-4xl font-extrabold text-white">Our Cape May Web Design Services</h2>
+                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">From stunning designs to powerful marketing, we offer everything your Cape May County business needs to succeed online.</p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {servicesData.map((service, index) => (

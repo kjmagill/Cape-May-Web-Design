@@ -18,18 +18,18 @@ const WhyChooseUs: React.FC = () => {
     const features = [
         {
             icon: <MapPinIcon className="w-8 h-8" />,
-            title: 'Local Cape May Expertise',
-            description: "We're not just developers; we're your neighbors. We understand the unique market and charm of Cape May, helping you connect with the community.",
+            title: 'Truly Local Expertise',
+            description: "We're based right here in Cape May. We understand the local market, the tourist seasons, and what makes a shore town business thrive online.",
         },
         {
             icon: <SparklesIcon className="w-8 h-8" />,
-            title: 'Personalized, Boutique Service',
-            description: "You're more than just a project. We work closely with you, offering dedicated support and a personalized strategy from start to finish.",
+            title: 'Dedicated, Personalized Service',
+            description: "You're not just another client. We work directly with you to understand your unique goals, ensuring a final product that truly represents your brand.",
         },
         {
             icon: <BullseyeIcon className="w-8 h-8" />,
-            title: 'Commitment to Your Success',
-            description: 'We build websites that get results. Our focus is on creating a powerful online asset that drives growth and achieves your business goals.',
+            title: 'Focused on Your Results',
+            description: 'Our primary goal is your success. We design websites that don\'t just look good—they attract customers, generate leads, and grow your bottom line.',
         },
     ];
 
@@ -46,8 +46,8 @@ const WhyChooseUs: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-4xl font-extrabold text-white">Why Choose Us?</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">Your partner in digital excellence, right here in Cape May.</p>
+                    <h2 className="text-4xl font-extrabold text-white">The Cape May Advantage</h2>
+                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're more than a web design agency; we're your local partner dedicated to the success of businesses in our community.</p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {features.map((feature, index) => (

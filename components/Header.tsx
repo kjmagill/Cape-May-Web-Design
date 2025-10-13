@@ -29,6 +29,7 @@ const Header: React.FC = () => {
         { name: 'Why Us', href: '#why-us' },
         { name: 'Portfolio', href: '#portfolio' },
         { name: 'Testimonials', href: '#testimonials' },
+        { name: 'Blog', href: '/blog' },
     ];
 
     const handleLinkClick = () => {
@@ -39,7 +40,7 @@ const Header: React.FC = () => {
         <>
             <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <a href="#home" className="flex items-center space-x-3 z-[60]">
+                    <a href="/#home" className="flex items-center space-x-3 z-[60]">
                         <CapeMayLogo className="w-10 h-10" />
                         <span className="text-xl font-bold text-white tracking-wider">Cape May Web Design</span>
                     </a>
@@ -60,7 +61,7 @@ const Header: React.FC = () => {
                             <PhoneIcon className="w-5 h-5" />
                             <span>(609) 300-6464</span>
                         </a>
-                        <a href="#contact" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105">
+                        <a href="/#contact" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105">
                            <span>Get a Quote</span>
                            <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>

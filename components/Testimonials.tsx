@@ -49,8 +49,8 @@ const Testimonials: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-4xl font-extrabold text-white">What Our Clients Say</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're proud to have built strong relationships with businesses in our community.</p>
+                    <h2 className="text-4xl font-extrabold text-white">Trusted by Businesses in Cape May</h2>
+                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">Hear directly from local business owners about how our work has impacted their success.</p>
                 </div>
                 <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
                     {testimonialsData.map((testimonial, index) => (
