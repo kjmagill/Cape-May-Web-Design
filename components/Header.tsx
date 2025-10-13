@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CapeMayLogo, PhoneIcon } from './icons';
+import { CapeMayLogo, PhoneIcon, ArrowRightIcon } from './icons';
 
 const Header: React.FC = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -61,8 +61,9 @@ const Header: React.FC = () => {
                             <PhoneIcon className="w-5 h-5" />
                             <span>(609) 300-6464</span>
                         </a>
-                        <a href="#contact" className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105">
-                            Get a Quote
+                        <a href="#contact" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105">
+                           <span>Get a Quote</span>
+                           <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                     </nav>
                     <button 
@@ -108,8 +109,9 @@ const Header: React.FC = () => {
                             </a>
                         </li>
                         <li>
-                            <a href="#contact" onClick={handleLinkClick} className="mt-6 w-full text-center bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-block">
-                                Get a Quote
+                            <a href="#contact" onClick={handleLinkClick} className="mt-6 group w-full text-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center space-x-2">
+                                <span>Get a Quote</span>
+                                <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                             </a>
                         </li>
                     </ul>

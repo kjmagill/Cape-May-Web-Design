@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { SpinnerIcon } from './icons';
+import { SpinnerIcon, ArrowRightIcon } from './icons';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Contact: React.FC = () => {
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1 });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -16,7 +18,13 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <section id="contact" className="py-20 bg-slate-800">
+        <section 
+            id="contact" 
+            ref={sectionRef}
+            className={`py-20 bg-slate-800 transition-all duration-1000 ease-out ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-extrabold text-white">Let's Build Something Together</h2>
@@ -43,7 +51,7 @@ const Contact: React.FC = () => {
                         <div className="mt-8 text-center">
                             <button 
                                 type="submit" 
-                                className="w-48 justify-center flex items-center bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-75 disabled:cursor-not-allowed"
+                                className="group w-48 justify-center flex items-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-75 disabled:cursor-not-allowed"
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? (
@@ -52,7 +60,10 @@ const Contact: React.FC = () => {
                                         Sending...
                                     </>
                                 ) : (
-                                    'Send Message'
+                                    <span className="flex items-center space-x-2">
+                                        <span>Send Message</span>
+                                        <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                                    </span>
                                 )}
                             </button>
                         </div>

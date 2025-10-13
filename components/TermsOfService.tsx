@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import { ArrowLeftIcon } from './icons';
 
 const TermsOfService: React.FC = () => {
     return (
@@ -38,8 +39,9 @@ const TermsOfService: React.FC = () => {
                         </p>
 
                         <div className="text-center mt-12">
-                            <a href="/" className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-block">
-                                Back to Home
+                            <a href="/" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                                <ArrowLeftIcon className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
+                                <span>Back to Home</span>
                             </a>
                         </div>
                     </div>
