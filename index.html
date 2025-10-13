@@ -3,40 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cape May Web Design | Crafting Digital Experiences</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Cape May Web Design | Custom Websites for Local Businesses</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/"
-  }
-}
-</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-  .font-oswald {
-    font-family: 'Oswald', sans-serif;
-  }
-  @keyframes draw-circle {
-    to {
-      stroke-dashoffset: 0;
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey. We craft digital experiences that deliver measurable results and fuel your growth." />
+    <meta name="keywords" content="web design, cape may, new jersey, south jersey, local business website, e-commerce, seo, web development" />
+    <link rel="canonical" href="https://www.capemaywebdesign.com/" />
+
+    <!-- Open Graph Meta Tags (for social sharing) -->
+    <meta property="og:title" content="Cape May Web Design | Custom Websites for Local Businesses" />
+    <meta property="og:description" content="We build strategic, performance-driven websites that deliver measurable results and fuel your business growth." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    <meta property="og:url" content="https://www.capemaywebdesign.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cape May Web Design" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cape May Web Design | Custom Websites for Local Businesses" />
+    <meta name="twitter:description" content="We build strategic, performance-driven websites that deliver measurable results and fuel your business growth." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+
+    <!-- Theme Color for browsers -->
+    <meta name="theme-color" content="#06b6d4">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://aistudiocdn.com/react@^19.2.0",
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+          "react/": "https://aistudiocdn.com/react@^19.2.0/"
+        }
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      .font-oswald {
+        font-family: 'Oswald', sans-serif;
+      }
+      @keyframes draw-circle {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+      @keyframes draw-check {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Cape May Web Design",
+      "description": "Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey.",
+      "url": "https://www.capemaywebdesign.com/",
+      "logo": "https://www.capemaywebdesign.com/logo.svg",
+      "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "telephone": "+1-609-300-6464",
+      "email": "capemaywebdev@gmail.com",
+      "serviceType": "Web Design",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Cape May County",
+        "geo": {
+          "@type": "GeoShape",
+          "addressCountry": "US",
+          "addressRegion": "NJ"
+        }
+      },
+      "openingHours": "Mo-Fr 09:00-17:00",
+      "priceRange": "$$"
     }
-  }
-  @keyframes draw-check {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-</style>
-</head>
+    </script>
+  </head>
   <body class="bg-slate-900 text-slate-200">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
