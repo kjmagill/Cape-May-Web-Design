@@ -38,9 +38,9 @@ const Header: React.FC = () => {
 
     return (
         <>
-            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
+            <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-30' : 'z-50'} ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <a href="/#home" className="flex items-center space-x-3 z-[60]">
+                    <a href="/#home" className="flex items-center space-x-3">
                         <CapeMayLogo className="w-10 h-10" />
                         <span className="font-oswald text-xl font-bold text-white tracking-wider uppercase">Cape May Web Design</span>
                     </a>
@@ -66,25 +66,26 @@ const Header: React.FC = () => {
                            <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                     </nav>
-                    <button 
-                        className="lg:hidden text-white z-[60]" 
-                        onClick={() => setIsMenuOpen(!isMenuOpen)} 
-                        aria-label="Toggle navigation menu" 
-                        aria-expanded={isMenuOpen} 
-                        aria-controls="mobile-menu"
-                    >
-                        {isMenuOpen ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                            </svg>
-                        ) : (
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                            </svg>
-                        )}
-                    </button>
                 </div>
             </header>
+
+            <button 
+                className="fixed top-5 right-6 lg:hidden text-white z-[60]" 
+                onClick={() => setIsMenuOpen(!isMenuOpen)} 
+                aria-label="Toggle navigation menu" 
+                aria-expanded={isMenuOpen} 
+                aria-controls="mobile-menu"
+            >
+                {isMenuOpen ? (
+                    <svg xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                )}
+            </button>
 
             {/* Mobile Menu Panel */}
             <div 

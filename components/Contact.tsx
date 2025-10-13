@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, CheckCircleIcon, MapPinIcon, PhoneIcon } from './icons';
+import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, AnimatedCheckCircleIcon, MapPinIcon, PhoneIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 type FormState = {
@@ -210,7 +210,7 @@ const Contact: React.FC = () => {
                         <div>
                              {formStatus === 'success' ? (
                                 <div className="text-center h-full flex flex-col justify-center items-center py-10 transition-all duration-300 ease-in-out">
-                                    <CheckCircleIcon className="w-16 h-16 mx-auto text-green-400" />
+                                    <AnimatedCheckCircleIcon className="w-20 h-20 mx-auto" />
                                     <h3 className="text-2xl font-bold text-white mt-4">Thank you!</h3>
                                     <p className="text-slate-300 mt-2">Your message has been sent successfully. We'll be in touch soon.</p>
                                 </div>

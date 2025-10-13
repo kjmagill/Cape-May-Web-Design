@@ -387,3 +387,34 @@ export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
         z"/>
     </svg>
 );
+
+export const AnimatedCheckCircleIcon: React.FC<IconProps> = ({ className }) => (
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <circle 
+            cx="26" 
+            cy="26" 
+            r="25" 
+            fill="none" 
+            className="stroke-green-400"
+            strokeWidth="2"
+            style={{
+                strokeDasharray: 157,
+                strokeDashoffset: 157,
+                animation: 'draw-circle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards'
+            }}
+        />
+        <path 
+            fill="none" 
+            className="stroke-green-400"
+            strokeWidth="3" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            style={{
+                strokeDasharray: 48,
+                strokeDashoffset: 48,
+                animation: 'draw-check 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards'
+            }}
+        />
+    </svg>
+);
