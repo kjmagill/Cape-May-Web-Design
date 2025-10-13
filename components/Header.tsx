@@ -19,7 +19,6 @@ const Header: React.FC = () => {
         } else {
             document.body.style.overflow = 'auto';
         }
-        // Cleanup function to reset overflow when component unmounts
         return () => {
             document.body.style.overflow = 'auto';
         };
@@ -95,20 +94,30 @@ const Header: React.FC = () => {
             >
                 <nav className="pt-28 p-8 h-full flex flex-col">
                     <ul className="flex flex-col items-center text-center space-y-6">
-                        {navLinks.map((link) => (
-                            <li key={link.name}>
+                        {navLinks.map((link, index) => (
+                            <li 
+                                key={link.name}
+                                className={`transition-all duration-200 ease-in-out ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
+                                style={{ transitionDelay: `${isMenuOpen ? 150 + index * 50 : 0}ms` }}
+                            >
                                 <a href={link.href} onClick={handleLinkClick} className="text-2xl text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 block">
                                     {link.name}
                                 </a>
                             </li>
                         ))}
-                         <li className="pt-4">
+                         <li 
+                            className={`pt-4 transition-all duration-200 ease-in-out ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
+                            style={{ transitionDelay: `${isMenuOpen ? 150 + navLinks.length * 50 : 0}ms` }}
+                        >
                             <a href="tel:6093006464" onClick={handleLinkClick} className="text-xl text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 flex items-center space-x-3">
                                 <PhoneIcon className="w-6 h-6" />
                                 <span>(609) 300-6464</span>
                             </a>
                         </li>
-                        <li>
+                        <li
+                            className={`transition-all duration-200 ease-in-out ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}
+                            style={{ transitionDelay: `${isMenuOpen ? 150 + (navLinks.length + 1) * 50 : 0}ms` }}
+                        >
                             <a href="#contact" onClick={handleLinkClick} className="mt-6 group w-full text-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center space-x-2">
                                 <span>Get a Quote</span>
                                 <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />

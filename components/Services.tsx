@@ -3,8 +3,8 @@ import { CodeIcon, ShoppingCartIcon, ChartBarIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 hover:border-cyan-500 transition-all duration-300 transform hover:-translate-y-2">
-        <div className="mb-4 text-cyan-400">
+    <div className="group bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 hover:border-cyan-500 transition-all duration-300 transform hover:-translate-y-2">
+        <div className="mb-4 text-cyan-400 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
             {icon}
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>

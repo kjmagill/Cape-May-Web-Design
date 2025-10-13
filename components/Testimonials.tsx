@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const TestimonialCard: React.FC<{ quote: string; name: string; company: string }> = ({ quote, name, company }) => (
-    <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 flex flex-col h-full">
+    <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 flex flex-col h-full transition-all duration-300 transform hover:-translate-y-2 hover:border-cyan-500">
         <p className="text-slate-300 italic mb-6 flex-grow">"{quote}"</p>
         <div className="flex items-center">
             <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center font-bold text-white mr-4 flex-shrink-0">

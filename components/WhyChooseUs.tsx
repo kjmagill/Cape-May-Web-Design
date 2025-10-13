@@ -3,8 +3,8 @@ import { SparklesIcon, MapPinIcon, BullseyeIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className="bg-slate-900/70 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-700 text-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-cyan-500/10">
-        <div className="mx-auto mb-6 text-cyan-400 w-16 h-16 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700">
+    <div className="group bg-slate-900/70 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-700 text-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-cyan-500/10">
+        <div className="mx-auto mb-6 text-cyan-400 w-16 h-16 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
             {icon}
         </div>
         <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
