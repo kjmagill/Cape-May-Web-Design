@@ -1,5 +1,5 @@
 import React from 'react';
-import { LighthouseIcon, SparklesIcon, ChartBarIcon } from './icons';
+import { SparklesIcon, MapPinIcon, BullseyeIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
@@ -17,7 +17,7 @@ const WhyChooseUs: React.FC = () => {
 
     const features = [
         {
-            icon: <LighthouseIcon className="w-8 h-8" />,
+            icon: <MapPinIcon className="w-8 h-8" />,
             title: 'Local Cape May Expertise',
             description: "We're not just developers; we're your neighbors. We understand the unique market and charm of Cape May, helping you connect with the community.",
         },
@@ -27,7 +27,7 @@ const WhyChooseUs: React.FC = () => {
             description: "You're more than just a project. We work closely with you, offering dedicated support and a personalized strategy from start to finish.",
         },
         {
-            icon: <ChartBarIcon className="w-8 h-8" />,
+            icon: <BullseyeIcon className="w-8 h-8" />,
             title: 'Commitment to Your Success',
             description: 'We build websites that get results. Our focus is on creating a powerful online asset that drives growth and achieves your business goals.',
         },

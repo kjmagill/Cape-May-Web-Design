@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string }> = ({ imgUrl, title, category }) => (
-    <div className="group relative overflow-hidden rounded-lg shadow-lg">
+    <div className="group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3]">
         <img src={imgUrl} alt={title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-500 flex flex-col justify-end p-6">
             <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">{title}</h3>

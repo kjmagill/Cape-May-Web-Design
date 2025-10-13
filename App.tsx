@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 const LandingPage: React.FC = () => (
   <div className="bg-slate-900 min-h-screen">
@@ -22,6 +23,7 @@ const LandingPage: React.FC = () => (
       <Contact />
     </main>
     <Footer />
+    <ScrollToTopButton />
   </div>
 );
 
