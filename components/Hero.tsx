@@ -14,10 +14,10 @@ const Hero: React.FC = () => {
                     We build beautiful, high-performance websites that capture the essence of your brand and grow your business.
                 </p>
                 <div className="flex justify-center space-x-4">
-                    <a href="#portfolio" className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30">
+                    <a href="#portfolio" className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-500/30">
                         View Our Work
                     </a>
-                    <a href="#contact" className="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                    <a href="#contact" className="bg-slate-700 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">
                         Contact Us
                     </a>
                 </div>

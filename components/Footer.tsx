@@ -1,5 +1,5 @@
 import React from 'react';
-import { CapeMayLogo } from './icons';
+import { CapeMayLogo, PhoneIcon } from './icons';
 
 const Footer: React.FC = () => {
     return (
@@ -12,6 +12,12 @@ const Footer: React.FC = () => {
                 <p className="mb-4">
                     Building beautiful and functional websites from the heart of Cape May.
                 </p>
+                <div className="mb-6">
+                    <a href="tel:6093006464" className="text-lg hover:text-cyan-400 transition-colors flex items-center justify-center space-x-2">
+                        <PhoneIcon className="w-5 h-5"/>
+                        <span>(609) 300-6464</span>
+                    </a>
+                </div>
                  <div className="flex justify-center space-x-6 mb-6">
                     <a href="#" className="hover:text-cyan-400 transition-colors">Facebook</a>
                     <a href="#" className="hover:text-cyan-400 transition-colors">Instagram</a>

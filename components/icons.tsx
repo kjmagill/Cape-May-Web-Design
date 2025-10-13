@@ -29,6 +29,12 @@ export const LighthouseIcon: React.FC<IconProps> = ({ className }) => (
     </svg>
 );
 
+export const PhoneIcon: React.FC<IconProps> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.211-.998-.582-1.35L20.12 15.25a2.25 2.25 0 0 0-3.182 0l-1.17 1.17a.75.75 0 0 1-1.06 0l-5.69-5.69a.75.75 0 0 1 0-1.06l1.17-1.17a2.25 2.25 0 0 0 0-3.182l-2.6-2.6A2.25 2.25 0 0 0 6.75 2.25H5.25A2.25 2.25 0 0 0 3 4.5v2.25Z" />
+    </svg>
+);
+
 export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
     <svg
         className={className}

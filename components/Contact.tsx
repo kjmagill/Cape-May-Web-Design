@@ -6,7 +6,9 @@ const Contact: React.FC = () => {
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-extrabold text-white">Let's Build Something Together</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">Have a project in mind? We'd love to hear about it.</p>
+                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">
+                        Have a project in mind? We'd love to hear about it. Feel free to fill out the form below or give us a call at <a href="tel:6093006464" className="text-cyan-400 hover:underline">(609) 300-6464</a>.
+                    </p>
                 </div>
                 <div className="max-w-4xl mx-auto bg-slate-900 rounded-xl shadow-2xl p-8 md:p-12 border border-slate-700">
                     <form>
