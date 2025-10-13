@@ -1,4 +1,5 @@
 import React from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const TestimonialCard: React.FC<{ quote: string; name: string; company: string }> = ({ quote, name, company }) => (
     <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700">
@@ -16,6 +17,8 @@ const TestimonialCard: React.FC<{ quote: string; name: string; company: string }
 );
 
 const Testimonials: React.FC = () => {
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1 });
+
     const testimonialsData = [
         {
             quote: "Cape May Web Design transformed our online presence. The new site is not only beautiful but also incredibly fast. Our bookings have increased by 40%!",
@@ -35,7 +38,13 @@ const Testimonials: React.FC = () => {
     ];
 
     return (
-        <section id="testimonials" className="py-20 bg-slate-900">
+        <section 
+            id="testimonials" 
+            ref={sectionRef}
+            className={`py-20 bg-slate-900 transition-all duration-1000 ease-out ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-extrabold text-white">What Our Clients Say</h2>

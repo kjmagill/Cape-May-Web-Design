@@ -1,4 +1,5 @@
 import React from 'react';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string }> = ({ imgUrl, title, category }) => (
     <div className="group relative overflow-hidden rounded-lg shadow-lg">
@@ -11,6 +12,8 @@ const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string 
 );
 
 const Portfolio: React.FC = () => {
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1 });
+
     const projects = [
         { imgUrl: 'https://picsum.photos/id/1015/800/600', title: 'The Beachcomber Cafe', category: 'Restaurant & Hospitality' },
         { imgUrl: 'https://picsum.photos/id/1040/800/600', title: 'Sunset Realty', category: 'Real Estate' },
@@ -21,7 +24,13 @@ const Portfolio: React.FC = () => {
     ];
 
     return (
-        <section id="portfolio" className="py-20 bg-slate-800">
+        <section 
+            id="portfolio" 
+            ref={sectionRef}
+            className={`py-20 bg-slate-800 transition-all duration-1000 ease-out ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-extrabold text-white">Featured Projects</h2>

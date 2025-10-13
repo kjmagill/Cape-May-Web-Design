@@ -1,12 +1,12 @@
 import React from 'react';
-import { LighthouseIcon } from './icons';
+import { CapeMayLogo } from './icons';
 
 const Footer: React.FC = () => {
     return (
         <footer className="bg-slate-900 border-t border-slate-800">
             <div className="container mx-auto px-6 py-8 text-center text-slate-400">
                 <div className="flex justify-center items-center mb-4">
-                    <LighthouseIcon className="w-7 h-7 text-cyan-400" />
+                    <CapeMayLogo className="w-8 h-8" />
                     <span className="ml-2 text-lg font-bold text-white">Cape May Web Design</span>
                 </div>
                 <p className="mb-4">

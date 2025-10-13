@@ -1,5 +1,6 @@
 import React from 'react';
 import { CodeIcon, ShoppingCartIcon, ChartBarIcon } from './icons';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
     <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 hover:border-cyan-500 transition-all duration-300 transform hover:-translate-y-2">
@@ -12,6 +13,8 @@ const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description:
 );
 
 const Services: React.FC = () => {
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1 });
+    
     const servicesData = [
         {
             icon: <CodeIcon className="w-12 h-12" />,
@@ -31,7 +34,13 @@ const Services: React.FC = () => {
     ];
 
     return (
-        <section id="services" className="py-20 bg-slate-900">
+        <section 
+            id="services" 
+            ref={sectionRef}
+            className={`py-20 bg-slate-900 transition-all duration-1000 ease-out ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+        >
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-extrabold text-white">Our Expertise</h2>
