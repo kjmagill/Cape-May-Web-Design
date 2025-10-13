@@ -1,9 +1,9 @@
 import React from 'react';
-import { CodeIcon, ShoppingCartIcon, ChartBarIcon } from './icons';
+import { CodeIcon, ShoppingCartIcon, ChartBarIcon, CpuChipIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className="group bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 hover:border-cyan-500/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10">
+    <div className="group bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 hover:border-cyan-500/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full">
         <div className="mb-4 text-cyan-400 transition-transform duration-300 group-hover:scale-110">
             {icon}
         </div>
@@ -18,18 +18,23 @@ const Services: React.FC = () => {
     const servicesData = [
         {
             icon: <CodeIcon className="w-12 h-12" />,
-            title: 'Custom Web Design',
-            description: 'Stunning, responsive websites tailored to your Cape May brand. We build sites that not only look great but also convert visitors into customers.',
+            title: 'Bespoke Website Design',
+            description: 'We create stunning, responsive websites tailored to your unique brand. Our designs captivate visitors and convert them into loyal customers.',
         },
         {
             icon: <ShoppingCartIcon className="w-12 h-12" />,
-            title: 'E-commerce Solutions',
-            description: 'Sell online with a powerful e-commerce platform designed for Cape May businesses. We build secure, user-friendly online stores that drive sales.',
+            title: 'Robust E-commerce Stores',
+            description: 'Launch a powerful online store that drives sales. We build secure, user-friendly e-commerce platforms designed to scale with your business.',
         },
         {
             icon: <ChartBarIcon className="w-12 h-12" />,
-            title: 'SEO & Marketing',
-            description: 'Get found by more local customers. Our targeted SEO and digital marketing strategies are designed to boost your visibility in Cape May and beyond.',
+            title: 'Targeted SEO & Marketing',
+            description: 'Increase your online visibility and attract more customers. Our proven SEO and marketing strategies are designed to deliver qualified traffic.',
+        },
+        {
+            icon: <CpuChipIcon className="w-12 h-12" />,
+            title: 'Custom AI & App Solutions',
+            description: 'Gain a competitive edge with intelligent software. We build custom applications and AI tools to automate processes and unlock data insights.',
         },
     ];
 
@@ -45,10 +50,10 @@ const Services: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-4xl font-extrabold text-white">Our Cape May Web Design Services</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">From stunning designs to powerful marketing, we offer everything your Cape May County business needs to succeed online.</p>
+                    <h2 className="text-4xl font-extrabold text-white">Our Web Design Services</h2>
+                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">From stunning designs to powerful marketing, we offer everything your South Jersey business needs to succeed online.</p>
                 </div>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {servicesData.map((service, index) => (
                          <div
                             key={index}

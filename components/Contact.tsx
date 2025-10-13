@@ -164,7 +164,7 @@ const Contact: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-4xl font-extrabold text-white">Ready to Grow Your Cape May Business?</h2>
+                    <h2 className="text-4xl font-extrabold text-white">Ready to Grow Your Business?</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">
                         Tell us about your project. We'll provide a free, no-obligation quote and a clear strategy to help you achieve your goals online.
                     </p>

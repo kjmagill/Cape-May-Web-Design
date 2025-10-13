@@ -22,6 +22,14 @@ export const ChartBarIcon: React.FC<IconProps> = ({ className }) => (
     </svg>
 );
 
+export const CpuChipIcon: React.FC<IconProps> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 21v-1.5M12 5.25v-1.5m0 15v1.5m3.75-18v1.5m-7.5 0v-1.5m7.5 15v1.5m-7.5 0v-1.5m12-9h-1.5m-15 0H3m15 0h-1.5m-12 0h-1.5" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 8.25a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+    </svg>
+);
+
+
 export const LighthouseIcon: React.FC<IconProps> = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75V21m-2.25-8.25a.75.75 0 0 1-.75-.75V3.75c0-.414.336-.75.75-.75h4.5c.414 0 .75.336.75.75v6.75a.75.75 0 0 1-.75-.75h-4.5Zm-1.5 0H6.75a.75.75 0 0 0-.75.75v.75c0 .414.336.75.75.75h3.75m0 0H15m-3.75 0H6.75m6 0v.75c0 .414.336.75.75.75h.75a.75.75 0 0 0 .75-.75v-.75m0 0H15m0 0h.75a.75.75 0 0 0 .75-.75v-.75c0-.414-.336-.75-.75-.75h-.75m-3 0h-1.5m-3 0H6.75m-3 0H3.75c-.414 0-.75.336-.75.75v.75c0 .414.336.75.75.75h.75m12-3.75h.75c.414 0 .75.336.75.75v.75c0 .414-.336-.75-.75-.75h-.75m-3.75-3h-1.5m3.75 0h.75m-6 0h-1.5m-3.75-3.75H3m15 0h.75" />

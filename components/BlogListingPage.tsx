@@ -39,9 +39,9 @@ const BlogListingPage: React.FC = () => {
             <main className="pt-32 pb-20">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
-                        <h1 className="text-5xl md:text-6xl font-extrabold text-white">The Cape May Business &amp; Web Journal</h1>
+                        <h1 className="text-5xl md:text-6xl font-extrabold text-white">The Jersey Shore Business &amp; Web Journal</h1>
                         <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-                           A curated collection of web design trends, local SEO strategies, and digital marketing insights to help businesses in Cape May County succeed.
+                           A curated collection of web design trends, local SEO strategies, and digital marketing insights to help businesses in South Jersey succeed.
                         </p>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

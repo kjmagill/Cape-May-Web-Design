@@ -3,8 +3,8 @@ import { SparklesIcon, MapPinIcon, BullseyeIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className="group bg-slate-900/70 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-700 text-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10">
-        <div className="mx-auto mb-6 text-cyan-400 w-16 h-16 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 transition-transform duration-300 group-hover:scale-110">
+    <div className="group bg-slate-900/70 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-700 text-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full">
+        <div className="mx-auto mb-6 text-cyan-400 w-16 h-16 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
             {icon}
         </div>
         <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
@@ -18,18 +18,18 @@ const WhyChooseUs: React.FC = () => {
     const features = [
         {
             icon: <MapPinIcon className="w-8 h-8" />,
-            title: 'Truly Local Expertise',
-            description: "We're based right here in Cape May. We understand the local market, the tourist seasons, and what makes a shore town business thrive online.",
+            title: 'Deep Local Market Insight',
+            description: "Based in Cape May, we know the shore. We leverage our understanding of local seasons and market trends to build websites that truly connect.",
         },
         {
             icon: <SparklesIcon className="w-8 h-8" />,
-            title: 'Dedicated, Personalized Service',
-            description: "You're not just another client. We work directly with you to understand your unique goals, ensuring a final product that truly represents your brand.",
+            title: 'Your Dedicated Local Partner',
+            description: "You're more than a client to us. We work closely with you to understand your specific goals and craft a solution that perfectly fits your vision.",
         },
         {
             icon: <BullseyeIcon className="w-8 h-8" />,
-            title: 'Focused on Your Results',
-            description: 'Our primary goal is your success. We design websites that don\'t just look good—they attract customers, generate leads, and grow your bottom line.',
+            title: 'A Strategic Focus on Growth',
+            description: 'We measure our success by yours. Our websites are engineered not just to look good, but to generate leads, drive sales, and grow your business.',
         },
     ];
 
@@ -46,7 +46,7 @@ const WhyChooseUs: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-4xl font-extrabold text-white">The Cape May Advantage</h2>
+                    <h2 className="text-4xl font-extrabold text-white">The Local Advantage</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're more than a web design agency; we're your local partner dedicated to the success of businesses in our community.</p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">

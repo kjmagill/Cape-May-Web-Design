@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
                     }`}
                 >
                     <a href="#contact" className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-500/30">
-                        <span>Discover Your Growth Potential</span>
+                        <span>Start Growing Today</span>
                         <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                     </a>
                     <a href="#portfolio" className="w-full sm:w-auto bg-transparent border-2 border-slate-600 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1">

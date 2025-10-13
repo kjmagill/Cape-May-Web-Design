@@ -42,9 +42,9 @@ const Header: React.FC = () => {
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                     <a href="/#home" className="flex items-center space-x-3 z-[60]">
                         <CapeMayLogo className="w-10 h-10" />
-                        <span className="text-xl font-bold text-white tracking-wider">Cape May Web Design</span>
+                        <span className="font-oswald text-xl font-bold text-white tracking-wider uppercase">Cape May Web Design</span>
                     </a>
-                    <nav className="hidden md:flex items-center space-x-8">
+                    <nav className="hidden lg:flex items-center space-x-8">
                         {navLinks.map((link) => (
                             <a 
                                 key={link.name} 
@@ -67,7 +67,7 @@ const Header: React.FC = () => {
                         </a>
                     </nav>
                     <button 
-                        className="md:hidden text-white z-[60]" 
+                        className="lg:hidden text-white z-[60]" 
                         onClick={() => setIsMenuOpen(!isMenuOpen)} 
                         aria-label="Toggle navigation menu" 
                         aria-expanded={isMenuOpen} 
@@ -129,7 +129,7 @@ const Header: React.FC = () => {
             </div>
 
             {/* Overlay */}
-            {isMenuOpen && <div className="fixed inset-0 bg-black/60 z-40 md:hidden" onClick={() => setIsMenuOpen(false)}></div>}
+            {isMenuOpen && <div className="fixed inset-0 bg-black/60 z-40 lg:hidden" onClick={() => setIsMenuOpen(false)}></div>}
         </>
     );
 };
