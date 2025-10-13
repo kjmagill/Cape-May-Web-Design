@@ -35,6 +35,18 @@ export const PhoneIcon: React.FC<IconProps> = ({ className }) => (
     </svg>
 );
 
+export const UserGroupIcon: React.FC<IconProps> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962c.566-.16-1.168-.16-1.734 0m7.5 0c.566-.16-1.168-.16-1.734 0m0 0a3 3 0 1 0-5.572 0m5.572 0a3 3 0 1 1-5.572 0m5.572 0v-1.842a3.75 3.75 0 0 0-7.5 0v1.842m7.5 0a4.5 4.5 0 0 1-9 0" />
+    </svg>
+);
+
+export const RocketLaunchIcon: React.FC<IconProps> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.82m5.84-2.56a12.022 12.022 0 0 0-5.84-2.56m0 0a12.022 12.022 0 0 1-5.84 2.56m5.84-2.56V4.72a6 6 0 0 1 11.68 0v1.24a12.022 12.022 0 0 1-5.84 2.56Z" />
+    </svg>
+);
+
 export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
     <svg
         className={className}
