@@ -19,9 +19,9 @@ const Footer: React.FC = () => {
                     </a>
                 </div>
                  <div className="flex justify-center space-x-6 mb-6">
-                    <a href="#" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Facebook</a>
-                    <a href="#" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Instagram</a>
-                    <a href="#" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">LinkedIn</a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Facebook</a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Instagram</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">LinkedIn</a>
                 </div>
                 <div className="flex justify-center items-center space-x-4 mb-6 text-sm">
                     <a href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>

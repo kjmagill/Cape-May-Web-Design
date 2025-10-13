@@ -3,8 +3,8 @@ import { SparklesIcon, MapPinIcon, BullseyeIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className="group bg-slate-900/70 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-700 text-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-cyan-500/10">
-        <div className="mx-auto mb-6 text-cyan-400 w-16 h-16 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+    <div className="group bg-slate-900/70 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-700 text-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10">
+        <div className="mx-auto mb-6 text-cyan-400 w-16 h-16 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 transition-transform duration-300 group-hover:scale-110">
             {icon}
         </div>
         <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
@@ -13,7 +13,7 @@ const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description:
 );
 
 const WhyChooseUs: React.FC = () => {
-    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1 });
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1, triggerOnce: true });
 
     const features = [
         {
@@ -37,19 +37,29 @@ const WhyChooseUs: React.FC = () => {
         <section
             id="why-us"
             ref={sectionRef}
-            className={`relative py-20 bg-slate-800 transition-all duration-1000 ease-out ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className="relative py-20 bg-slate-800"
         >
              <div className="absolute inset-y-0 w-full h-full bg-grid-slate-700/20 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
             <div className="container mx-auto px-6 relative">
-                <div className="text-center mb-16">
+                <div 
+                    className={`text-center mb-16 transition-all duration-700 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    }`}
+                >
                     <h2 className="text-4xl font-extrabold text-white">Why Choose Us?</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">Your partner in digital excellence, right here in Cape May.</p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {features.map((feature, index) => (
-                        <FeatureCard key={index} {...feature} />
+                        <div
+                            key={index}
+                            className={`transition-all duration-500 ease-out ${
+                                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                            }`}
+                            style={{ transitionDelay: `${150 + index * 100}ms` }}
+                        >
+                            <FeatureCard {...feature} />
+                        </div>
                     ))}
                 </div>
             </div>

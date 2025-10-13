@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const TestimonialCard: React.FC<{ quote: string; name: string; company: string }> = ({ quote, name, company }) => (
-    <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 flex flex-col h-full transition-all duration-300 transform hover:-translate-y-2 hover:border-cyan-500">
+    <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 flex flex-col h-full transition-all duration-300 transform hover:-translate-y-1 hover:border-cyan-500 hover:shadow-2xl hover:shadow-cyan-500/10">
         <p className="text-slate-300 italic mb-6 flex-grow">"{quote}"</p>
         <div className="flex items-center">
             <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center font-bold text-white mr-4 flex-shrink-0">
@@ -17,7 +17,7 @@ const TestimonialCard: React.FC<{ quote: string; name: string; company: string }
 );
 
 const Testimonials: React.FC = () => {
-    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1 });
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1, triggerOnce: true });
 
     const testimonialsData = [
         {
@@ -41,18 +41,28 @@ const Testimonials: React.FC = () => {
         <section 
             id="testimonials" 
             ref={sectionRef}
-            className={`py-20 bg-slate-900 transition-all duration-1000 ease-out ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+            className="py-20 bg-slate-900"
         >
             <div className="container mx-auto px-6">
-                <div className="text-center mb-12">
+                <div 
+                    className={`text-center mb-12 transition-all duration-700 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    }`}
+                >
                     <h2 className="text-4xl font-extrabold text-white">What Our Clients Say</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're proud to have built strong relationships with businesses in our community.</p>
                 </div>
                 <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
                     {testimonialsData.map((testimonial, index) => (
-                        <TestimonialCard key={index} {...testimonial} />
+                        <div
+                            key={index}
+                            className={`transition-all duration-500 ease-out ${
+                                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                            }`}
+                            style={{ transitionDelay: `${150 + index * 100}ms` }}
+                        >
+                            <TestimonialCard {...testimonial} />
+                        </div>
                     ))}
                 </div>
             </div>

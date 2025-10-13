@@ -86,12 +86,37 @@ export const BullseyeIcon: React.FC<IconProps> = ({ className }) => (
     </svg>
 );
 
+export const UserIcon: React.FC<IconProps> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+    </svg>
+);
+
+export const EnvelopeIcon: React.FC<IconProps> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+    </svg>
+);
+
+export const CheckCircleIcon: React.FC<IconProps> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+);
+
+
 export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
     <svg
         className={className}
         version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 991 1025" enableBackground="new 0 0 991 1025" xmlSpace="preserve" aria-label="Cape May Web Design Logo">
-        <path fill="currentColor"
+        <defs>
+            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{ stopColor: '#06b6d4' }} />
+                <stop offset="100%" style={{ stopColor: '#14b8a6' }} />
+            </linearGradient>
+        </defs>
+        <path fill="url(#logoGradient)"
             d="
         M0.999992,773.468628 
             C10.059145,778.211792 18.906080,783.843994 28.222137,788.546814 
@@ -257,7 +282,7 @@ export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
             C523.754150,429.620972 520.981934,423.989532 516.281616,419.833893 
             C506.493744,411.180176 482.467712,412.011047 473.978790,422.523651 
         z"/>
-        <path fill="currentColor"
+        <path fill="url(#logoGradient)"
             d="
         M502.533875,1.000002 
             C503.475952,1.667688 503.810394,2.704857 504.448486,2.949245 
@@ -305,7 +330,7 @@ export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
             C540.486816,265.044556 541.063477,263.580353 541.033386,260.993195 
             C540.942322,253.163071 541.000671,245.331192 541.000671,236.500000 
         z"/>
-        <path fill="currentColor"
+        <path fill="url(#logoGradient)"
             d="
         M188.175873,537.735718 
             C203.783951,551.986023 219.120941,566.000549 234.502594,579.965881 
@@ -325,7 +350,7 @@ export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
             C161.331955,514.164917 169.792221,521.612183 178.260422,529.050354 
             C181.471741,531.871033 184.701294,534.670959 188.175873,537.735718 
         z"/>
-        <path fill="currentColor"
+        <path fill="url(#logoGradient)"
             d="
         M743.758362,591.744873 
             C759.833801,577.329285 775.659668,563.169861 791.476746,549.000671 
