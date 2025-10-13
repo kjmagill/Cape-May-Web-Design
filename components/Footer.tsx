@@ -23,7 +23,12 @@ const Footer: React.FC = () => {
                     <a href="#" className="hover:text-cyan-400 transition-colors">Instagram</a>
                     <a href="#" className="hover:text-cyan-400 transition-colors">LinkedIn</a>
                 </div>
-                <p>&copy; {new Date().getFullYear()} Cape May Web Design. All Rights Reserved.</p>
+                <div className="flex justify-center items-center space-x-4 mb-6 text-sm">
+                    <a href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                    <span className="text-slate-600">|</span>
+                    <a href="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</a>
+                </div>
+                <p className="text-sm">&copy; {new Date().getFullYear()} Cape May Web Design. All Rights Reserved.</p>
             </div>
         </footer>
     );

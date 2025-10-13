@@ -46,11 +46,18 @@ const Header: React.FC = () => {
                     </a>
                     <nav className="hidden md:flex items-center space-x-8">
                         {navLinks.map((link) => (
-                            <a key={link.name} href={link.href} className="text-slate-300 hover:text-cyan-400 transition-colors duration-300">
+                            <a 
+                                key={link.name} 
+                                href={link.href} 
+                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left"
+                            >
                                 {link.name}
                             </a>
                         ))}
-                        <a href="tel:6093006464" className="text-slate-300 hover:text-cyan-400 transition-colors duration-300 flex items-center space-x-2">
+                        <a 
+                            href="tel:6093006464" 
+                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left"
+                        >
                             <PhoneIcon className="w-5 h-5" />
                             <span>(609) 300-6464</span>
                         </a>

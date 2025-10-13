@@ -2,10 +2,10 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const TestimonialCard: React.FC<{ quote: string; name: string; company: string }> = ({ quote, name, company }) => (
-    <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700">
-        <p className="text-slate-300 italic mb-6">"{quote}"</p>
+    <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 flex flex-col h-full">
+        <p className="text-slate-300 italic mb-6 flex-grow">"{quote}"</p>
         <div className="flex items-center">
-            <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center font-bold text-white mr-4">
+            <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center font-bold text-white mr-4 flex-shrink-0">
                 {name.charAt(0)}
             </div>
             <div>
@@ -21,19 +21,19 @@ const Testimonials: React.FC = () => {
 
     const testimonialsData = [
         {
-            quote: "Cape May Web Design transformed our online presence. The new site is not only beautiful but also incredibly fast. Our bookings have increased by 40%!",
-            name: "Sarah Jenkins",
-            company: "Owner, The Cove Inn",
+            quote: "Our online sales have skyrocketed since launching the new e-commerce site. The user experience is fantastic, and managing products is a breeze. They delivered exactly what we needed to grow.",
+            name: "Jessica P.",
+            company: "Local Boutique Owner",
         },
         {
-            quote: "The team was professional, creative, and delivered beyond our expectations. They understood our vision perfectly and brought it to life.",
-            name: "Mark Thompson",
-            company: "Founder, Harbor Side Eatery",
+            quote: "Working with them was a seamless experience. They listened to our needs and created a website that perfectly captures the atmosphere of our restaurant. We've seen a noticeable increase in online reservations.",
+            name: "David R.",
+            company: "Restaurant Owner",
         },
         {
-            quote: "An absolute pleasure to work with. They handled everything from design to SEO, and the results speak for themselves. Highly recommended!",
-            name: "Emily Carter",
-            company: "Manager, Shoreline Gifts",
+            quote: "I was struggling to get leads online. After they rebuilt my site with a focus on SEO, I'm finally showing up on the first page of Google. The phone has been ringing non-stop!",
+            name: "Michael B.",
+            company: "Local Service Provider",
         },
     ];
 
