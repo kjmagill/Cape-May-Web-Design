@@ -42,7 +42,10 @@ const Header: React.FC = () => {
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                     <a href="/#home" className="flex items-center space-x-3">
                         <CapeMayLogo className="w-10 h-10" />
-                        <span className="font-oswald text-xl font-bold text-white tracking-wider uppercase">Cape May Web Design</span>
+                        <div className="flex flex-col leading-none">
+                            <span className="font-oswald text-xl font-bold text-white tracking-wider uppercase">Cape May</span>
+                            <span className="font-oswald text-xs font-bold text-white uppercase [letter-spacing:0.25em] -mt-0.5">Web Design</span>
+                        </div>
                     </a>
                     <nav className="hidden lg:flex items-center space-x-8">
                         {navLinks.map((link) => (
@@ -77,7 +80,7 @@ const Header: React.FC = () => {
                 aria-controls="mobile-menu"
             >
                 {isMenuOpen ? (
-                    <svg xmlns="http://www.w.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 ) : (
