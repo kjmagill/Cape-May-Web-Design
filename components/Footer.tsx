@@ -2,14 +2,25 @@ import React from 'react';
 import { CapeMayLogo, PhoneIcon } from './icons';
 
 const Footer: React.FC = () => {
+
+    const LogoText: React.FC = () => (
+        <div className="flex flex-col leading-none w-[6.5rem]">
+            <div className="font-oswald text-xl font-bold text-white uppercase flex justify-between items-center w-full">
+                {'Cape May'.split('').map((char, i) => <span key={i}>{char}</span>)}
+            </div>
+            <div className="font-oswald text-xs font-bold text-white uppercase flex justify-between items-center w-full -mt-0.5">
+                {'Web Design'.split('').map((char, i) => <span key={i}>{char}</span>)}
+            </div>
+        </div>
+    );
+
     return (
         <footer className="bg-slate-900 border-t border-slate-800">
             <div className="container mx-auto px-6 py-8 text-center text-slate-400">
                 <div className="flex justify-center items-center mb-4">
                     <CapeMayLogo className="w-8 h-8" />
-                    <div className="flex flex-col leading-none ml-3">
-                        <span className="font-oswald text-xl font-bold text-white uppercase [letter-spacing:0.1em]">Cape May</span>
-                        <span className="font-oswald text-xs font-bold text-white uppercase [letter-spacing:0.35em] -mt-0.5">Web Design</span>
+                    <div className="ml-3">
+                      <LogoText />
                     </div>
                 </div>
                 <p className="mb-4">
@@ -26,11 +37,11 @@ const Footer: React.FC = () => {
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Instagram</a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">LinkedIn</a>
                 </div>
-                <div className="flex justify-center items-center space-x-4 mb-6 text-sm">
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-y-2 sm:gap-x-4 mb-6 text-sm">
                     <a href="/blog" className="hover:text-cyan-400 transition-colors">Blog</a>
-                    <span className="text-slate-600">|</span>
+                    <span className="text-slate-600 hidden sm:block">|</span>
                     <a href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
-                    <span className="text-slate-600">|</span>
+                    <span className="text-slate-600 hidden sm:block">|</span>
                     <a href="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</a>
                 </div>
                 <p className="text-sm">&copy; {new Date().getFullYear()} Cape May Web Design. All Rights Reserved.</p>

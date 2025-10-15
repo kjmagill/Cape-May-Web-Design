@@ -27,7 +27,7 @@ const Portfolio: React.FC = () => {
         <section 
             id="portfolio" 
             ref={sectionRef}
-            className="py-20 bg-slate-800"
+            className="py-16 md:py-20 bg-slate-800"
         >
             <div className="container mx-auto px-6">
                 <div 
@@ -35,7 +35,7 @@ const Portfolio: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-4xl font-extrabold text-white">Our Work With Local Businesses</h2>
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Our Work With Local Businesses</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're proud to showcase the stunning websites we've built for businesses right here at the Jersey Shore.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -11,7 +11,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
         return (
              <div className="bg-slate-900 min-h-screen text-slate-300">
                 <Header />
-                <main className="pt-32 pb-20">
+                <main className="pt-24 md:pt-32 pb-16 md:pb-20">
                     <div className="container mx-auto px-6 text-center">
                         <h1 className="text-4xl font-extrabold text-white mb-6">Post Not Found</h1>
                         <p className="text-slate-400 mb-8">Sorry, we couldn't find the blog post you were looking for.</p>
@@ -29,7 +29,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
             <Header />
-            <main className="pt-32 pb-20">
+            <main className="pt-24 md:pt-32 pb-16 md:pb-20">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto">
                         <div className="mb-8">

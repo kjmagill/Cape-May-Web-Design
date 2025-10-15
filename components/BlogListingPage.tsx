@@ -36,7 +36,7 @@ const BlogListingPage: React.FC = () => {
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
             <Header />
-            <main className="pt-32 pb-20">
+            <main className="pt-24 md:pt-32 pb-16 md:pb-20">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <h1 className="text-5xl md:text-6xl font-extrabold text-white">The Jersey Shore Business &amp; Web Journal</h1>

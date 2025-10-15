@@ -7,7 +7,7 @@ const TermsOfService: React.FC = () => {
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
             <Header />
-            <main className="pt-32 pb-20">
+            <main className="pt-24 md:pt-32 pb-16 md:pb-20">
                 <div className="container mx-auto px-6">
                     <div className="max-w-4xl mx-auto bg-slate-800 rounded-xl shadow-2xl p-8 md:p-12 border border-slate-700">
                         <h1 className="text-4xl font-extrabold text-white mb-6">Terms of Service</h1>
