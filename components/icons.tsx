@@ -120,7 +120,7 @@ export const CalendarDaysIcon: React.FC<IconProps> = ({ className }) => (
 
 
 export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
-    <img src="./assets/logo.png" alt="Cape May Web Design Logo" className={className} />
+    <img src="/assets/logo.png" alt="Cape May Web Design Logo" className={className} />
 );
 
 export const AnimatedCheckCircleIcon: React.FC<IconProps> = ({ className }) => (
