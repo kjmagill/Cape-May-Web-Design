@@ -43,8 +43,8 @@ const Header: React.FC = () => {
                     <a href="/#home" className="flex items-center space-x-3">
                         <CapeMayLogo className="w-10 h-10" />
                         <div className="flex flex-col leading-none">
-                            <span className="font-oswald text-xl font-bold text-white tracking-wider uppercase">Cape May</span>
-                            <span className="font-oswald text-xs font-bold text-white uppercase [letter-spacing:0.25em] -mt-0.5">Web Design</span>
+                            <span className="font-oswald text-xl font-bold text-white uppercase [letter-spacing:0.1em]">Cape May</span>
+                            <span className="font-oswald text-xs font-bold text-white uppercase [letter-spacing:0.35em] -mt-0.5">Web Design</span>
                         </div>
                     </a>
                     <nav className="hidden lg:flex items-center space-x-8">

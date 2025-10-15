@@ -8,8 +8,8 @@ const Footer: React.FC = () => {
                 <div className="flex justify-center items-center mb-4">
                     <CapeMayLogo className="w-8 h-8" />
                     <div className="flex flex-col leading-none ml-3">
-                        <span className="font-oswald text-xl font-bold text-white tracking-wider uppercase">Cape May</span>
-                        <span className="font-oswald text-xs font-bold text-white uppercase [letter-spacing:0.25em] -mt-0.5">Web Design</span>
+                        <span className="font-oswald text-xl font-bold text-white uppercase [letter-spacing:0.1em]">Cape May</span>
+                        <span className="font-oswald text-xs font-bold text-white uppercase [letter-spacing:0.35em] -mt-0.5">Web Design</span>
                     </div>
                 </div>
                 <p className="mb-4">
