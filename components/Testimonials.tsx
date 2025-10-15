@@ -21,17 +21,17 @@ const Testimonials: React.FC = () => {
 
     const testimonialsData = [
         {
-            quote: "Our online sales have skyrocketed since launching the new e-commerce site. The user experience is fantastic, and managing products is a breeze. They delivered exactly what we needed to grow.",
+            quote: "Working with Cape May Web Design was the best decision for my boutique. The new online store they built is not only beautiful but so easy to use. Our online sales have taken off, and customers are always saying how much they love the new site.",
             name: "Jessica P.",
             company: "Local Boutique Owner",
         },
         {
-            quote: "Working with them was a seamless experience. They listened to our needs and created a website that perfectly captures the atmosphere of our restaurant. We've seen a noticeable increase in online reservations.",
+            quote: "They really captured the vibe of our restaurant with the new website. It's beautiful. But more importantly, it works. The online reservation system has streamlined everything, made my life easier, and our nights busier.",
             name: "David R.",
             company: "Restaurant Owner",
         },
         {
-            quote: "I was struggling to get leads online. After they rebuilt my site with a focus on SEO, I'm finally showing up on the first page of Google. The phone has been ringing non-stop!",
+            quote: "My business was basically invisible online before I found these folks. They didn't just give me a great-looking site; they got it to the top of Google. Now, my phone rings consistently with actual, quality leads. It's completely changed how I find new customers.",
             name: "Michael B.",
             company: "Local Service Provider",
         },
