@@ -220,7 +220,7 @@ const Contact: React.FC = () => {
                                     <div className="mt-6">
                                         <button 
                                             type="submit" 
-                                            className="group w-full justify-center flex items-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
+                                            className="group w-full justify-center flex items-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
                                             disabled={formStatus === 'submitting' || !isFormValid}
                                         >
                                             {formStatus === 'submitting' ? (
