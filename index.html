@@ -8,7 +8,6 @@
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey. We craft digital experiences that deliver measurable results and fuel your growth." />
-    <meta name="keywords" content="web design, cape may, new jersey, south jersey, local business website, e-commerce, seo, web development" />
     <link rel="canonical" href="https://www.capemaywebdesign.com/" />
 
     <!-- Open Graph Meta Tags (for social sharing) -->
@@ -64,26 +63,89 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Cape May Web Design",
-      "description": "Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey.",
-      "url": "https://www.capemaywebdesign.com/",
-      "logo": "https://www.capemaywebdesign.com/logo.svg",
-      "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "telephone": "+1-609-300-6464",
-      "email": "capemaywebdev@gmail.com",
-      "serviceType": "Web Design",
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Cape May County",
-        "geo": {
-          "@type": "GeoShape",
-          "addressCountry": "US",
-          "addressRegion": "NJ"
+      "@graph": [
+        {
+          "@type": ["ProfessionalService", "LocalBusiness"],
+          "@id": "https://www.capemaywebdesign.com/#organization",
+          "name": "Cape May Web Design",
+          "url": "https://www.capemaywebdesign.com/",
+          "logo": "https://www.capemaywebdesign.com/logo.svg",
+          "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "description": "Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey.",
+          "telephone": "+1-609-300-6464",
+          "email": "capemaywebdev@gmail.com",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Cape May",
+            "addressRegion": "NJ",
+            "postalCode": "08204",
+            "addressCountry": "US"
+          },
+          "openingHours": "Mo-Fr 09:00-17:00",
+          "priceRange": "$$",
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Cape May County"
+          },
+          "sameAs": [
+            "https://facebook.com",
+            "https://instagram.com",
+            "https://linkedin.com"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Web Design Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Custom Web Design",
+                  "description": "We create stunning, responsive websites tailored to your unique brand, designed to captivate visitors and convert them into loyal customers.",
+                  "serviceType": "Web Design"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "E-commerce Stores",
+                  "description": "Launch a powerful online store that drives sales. We build secure, user-friendly e-commerce platforms designed to scale with your business.",
+                  "serviceType": "E-commerce Development"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "SEO & Marketing",
+                  "description": "Increase your online visibility and attract more customers. Our proven SEO and marketing strategies are designed to deliver qualified traffic.",
+                  "serviceType": "Search Engine Optimization"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.capemaywebdesign.com/#website",
+          "url": "https://www.capemaywebdesign.com/",
+          "name": "Cape May Web Design",
+          "description": "Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey. We craft digital experiences that deliver measurable results and fuel your growth.",
+          "publisher": {
+            "@id": "https://www.capemaywebdesign.com/#organization"
+          },
+          "inLanguage": "en-US",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.capemaywebdesign.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
         }
-      },
-      "openingHours": "Mo-Fr 09:00-17:00",
-      "priceRange": "$$"
+      ]
     }
     </script>
   </head>
