@@ -59,11 +59,7 @@ const Contact: React.FC = () => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
         setFormData(prev => ({ ...prev, [name]: value }));
-    };
-
-    const handleBlur = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name } = event.target;
-        setTouched(prev => ({ ...prev, [name]: true }));
+        setTouched(prev => ({ ...prev, [name as keyof TouchState]: true }));
     };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -110,9 +106,9 @@ const Contact: React.FC = () => {
                     type={type}
                     value={formData[id]}
                     onChange={handleChange}
-                    onBlur={handleBlur}
                     aria-invalid={!!hasError}
                     aria-describedby={hasError ? `${id}-error` : undefined}
+                    aria-required="true"
                     placeholder=" " // Required for floating label
                     rows={isTextArea ? 5 : undefined}
                     className={`
@@ -229,7 +225,7 @@ const Contact: React.FC = () => {
                                         >
                                             {formStatus === 'submitting' ? (
                                                 <>
-                                                    <SpinnerIcon className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
+                                                    <SpinnerIcon className="-ml-1 mr-3 h-5 w-5 text-white" />
                                                     Sending...
                                                 </>
                                             ) : (

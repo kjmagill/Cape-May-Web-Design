@@ -7,7 +7,10 @@ const Footer: React.FC = () => {
             <div className="container mx-auto px-6 py-8 text-center text-slate-400">
                 <div className="flex justify-center items-center mb-4">
                     <CapeMayLogo className="w-8 h-8" />
-                    <span className="ml-2 text-lg font-bold text-white">Cape May Web Design</span>
+                    <div className="flex flex-col leading-none ml-3">
+                        <span className="font-oswald text-xl font-bold text-white tracking-wider uppercase">Cape May</span>
+                        <span className="font-oswald text-xs font-bold text-white uppercase [letter-spacing:0.25em] -mt-0.5">Web Design</span>
+                    </div>
                 </div>
                 <p className="mb-4">
                     Building beautiful and functional websites from the heart of Cape May.

@@ -62,7 +62,7 @@ export const SparklesIcon: React.FC<IconProps> = ({ className }) => (
 );
 
 export const SpinnerIcon: React.FC<IconProps> = ({ className }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className={className}>
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className={`animate-spin ${className}`}>
         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
     </svg>
@@ -106,12 +106,6 @@ export const EnvelopeIcon: React.FC<IconProps> = ({ className }) => (
     </svg>
 );
 
-export const CheckCircleIcon: React.FC<IconProps> = ({ className }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-    </svg>
-);
-
 export const CalendarDaysIcon: React.FC<IconProps> = ({ className }) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0h18M-4.5 12h22.5" />
@@ -120,34 +114,30 @@ export const CalendarDaysIcon: React.FC<IconProps> = ({ className }) => (
 
 
 export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
-    <img src="https://raw.githubusercontent.com/kjmagill/Cape-May-Web-Design/main/assets/logo.png" alt="Cape May Web Design Logo" className={className} />
+    <img src="https://kjmagill.com/img/logos/cmwd_logo.png" alt="Cape May Web Design Logo" className={className} />
 );
 
 export const AnimatedCheckCircleIcon: React.FC<IconProps> = ({ className }) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-        <circle 
-            cx="26" 
-            cy="26" 
-            r="25" 
-            fill="none" 
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+        <path 
             className="stroke-green-400"
-            strokeWidth="2"
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
             style={{
-                strokeDasharray: 157,
-                strokeDashoffset: 157,
+                strokeDasharray: 57,
+                strokeDashoffset: 57,
                 animation: 'draw-circle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards'
             }}
         />
         <path 
-            fill="none" 
             className="stroke-green-400"
-            strokeWidth="3" 
             strokeLinecap="round" 
             strokeLinejoin="round" 
-            d="M14.1 27.2l7.1 7.2 16.7-16.8"
+            d="M9 12.75 11.25 15 15 9.75"
             style={{
-                strokeDasharray: 48,
-                strokeDashoffset: 48,
+                strokeDasharray: 10,
+                strokeDashoffset: 10,
                 animation: 'draw-check 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.5s forwards'
             }}
         />
