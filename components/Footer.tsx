@@ -4,12 +4,12 @@ import { CapeMayLogo, PhoneIcon } from './icons';
 const Footer: React.FC = () => {
 
     const LogoText: React.FC = () => (
-        <div className="flex flex-col leading-none w-28 sm:w-32">
-            <div className="font-oswald text-xl sm:text-2xl font-bold text-white uppercase flex justify-between items-center w-full">
-                {'Cape May'.split('').map((char, i) => <span key={i}>{char}</span>)}
+        <div className="flex flex-col leading-tight text-left">
+            <div className="font-oswald text-2xl font-bold text-white uppercase tracking-wider">
+                Cape May
             </div>
-            <div className="font-oswald text-[0.65rem] sm:text-[0.75rem] font-bold text-slate-400 uppercase flex justify-between items-center w-11/12 mx-auto mt-1">
-                {'Web Design'.split('').map((char, i) => <span key={i}>{char}</span>)}
+            <div className="font-oswald text-sm font-bold text-cyan-400 uppercase tracking-[0.2em]">
+                Web Design
             </div>
         </div>
     );
@@ -17,11 +17,11 @@ const Footer: React.FC = () => {
     return (
         <footer className="bg-slate-900 border-t border-slate-800">
             <div className="container mx-auto px-6 py-8 text-center text-slate-400">
-                <div className="flex justify-center items-center mb-4">
-                    <CapeMayLogo className="w-8 h-8" />
-                    <div className="ml-3">
-                      <LogoText />
-                    </div>
+                <div className="flex justify-center items-center mb-6">
+                    <a href="/#home" className="flex items-center space-x-4">
+                        <CapeMayLogo className="w-10 h-10" />
+                        <LogoText />
+                    </a>
                 </div>
                 <p className="mb-4">
                     Building beautiful and functional websites from the heart of Cape May.

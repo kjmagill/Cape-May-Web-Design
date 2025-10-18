@@ -52,12 +52,12 @@ const Header: React.FC = () => {
     };
 
     const LogoText: React.FC = () => (
-        <div className="flex flex-col leading-none w-28 sm:w-32">
-            <div className="font-oswald text-xl sm:text-2xl font-bold text-white uppercase flex justify-between items-center w-full">
-                {'Cape May'.split('').map((char, i) => <span key={i}>{char}</span>)}
+        <div className="flex flex-col leading-tight">
+            <div className="font-oswald text-2xl lg:text-3xl font-bold text-white uppercase tracking-wider">
+                Cape May
             </div>
-            <div className="font-oswald text-[0.65rem] sm:text-[0.75rem] font-bold text-slate-400 uppercase flex justify-between items-center w-11/12 mx-auto mt-1">
-                {'Web Design'.split('').map((char, i) => <span key={i}>{char}</span>)}
+            <div className="font-oswald text-xs lg:text-sm font-bold text-cyan-400 uppercase tracking-[0.22em]">
+                Web Design
             </div>
         </div>
     );
@@ -66,8 +66,8 @@ const Header: React.FC = () => {
         <>
             <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-30' : 'z-50'} ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <a href="/#home" className="flex items-center space-x-3">
-                        <CapeMayLogo className="w-10 h-10" />
+                    <a href="/#home" className="flex items-center space-x-4">
+                        <CapeMayLogo className="w-11 h-11" />
                         <LogoText />
                     </a>
                     <nav className="hidden lg:flex items-center space-x-8">
