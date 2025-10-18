@@ -4,11 +4,11 @@ import { CapeMayLogo, PhoneIcon } from './icons';
 const Footer: React.FC = () => {
 
     const LogoText: React.FC = () => (
-        <div className="flex flex-col leading-none w-[6.5rem]">
-            <div className="font-oswald text-xl font-bold text-white uppercase flex justify-between items-center w-full">
+        <div className="flex flex-col leading-none w-28 sm:w-32">
+            <div className="font-oswald text-xl sm:text-2xl font-bold text-white uppercase flex justify-between items-center w-full">
                 {'Cape May'.split('').map((char, i) => <span key={i}>{char}</span>)}
             </div>
-            <div className="font-oswald text-xs font-bold text-white uppercase flex justify-between items-center w-full -mt-0.5">
+            <div className="font-oswald text-[0.65rem] sm:text-[0.75rem] font-bold text-slate-400 uppercase flex justify-between items-center w-full mx-auto mt-1">
                 {'Web Design'.split('').map((char, i) => <span key={i}>{char}</span>)}
             </div>
         </div>
