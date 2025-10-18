@@ -56,7 +56,7 @@ const Header: React.FC = () => {
             <div className="font-oswald text-xl sm:text-2xl font-bold text-white uppercase flex justify-between items-center w-full">
                 {'Cape May'.split('').map((char, i) => <span key={i}>{char}</span>)}
             </div>
-            <div className="font-oswald text-[0.65rem] sm:text-[0.75rem] font-bold text-slate-400 uppercase flex justify-between items-center w-full mx-auto mt-1">
+            <div className="font-oswald text-[0.65rem] sm:text-[0.75rem] font-bold text-slate-400 uppercase flex justify-between items-center w-11/12 mx-auto mt-1">
                 {'Web Design'.split('').map((char, i) => <span key={i}>{char}</span>)}
             </div>
         </div>
