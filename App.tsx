@@ -14,6 +14,7 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import BlogListingPage from './components/BlogListingPage';
 import BlogPostPage from './components/BlogPostPage';
 import { useSeo, updateMetaTag, updatePropertyMetaTag } from './hooks/useSeo';
+import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { blogPosts } from './components/blogPosts';
 
 interface SeoMetadata {
@@ -71,6 +72,8 @@ const LandingPage: React.FC = () => {
 
 
 const App: React.FC = () => {
+  useSmoothScroll();
+  
   useEffect(() => {
     const setFavicon = () => {
       const faviconUrl = 'https://kjmagill.com/img/logos/cmwd_logo.png';

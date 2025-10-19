@@ -13,11 +13,11 @@ const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string 
             <img 
                 src={imgUrl} 
                 alt={title} 
-                className={`w-full h-full object-cover transform group-hover:scale-110 transition-all duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'} filter brightness-75 saturate-90 group-hover:filter-none`} 
+                className={`w-full h-full object-cover transform group-hover:scale-110 transition-all duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'} filter md:brightness-75 saturate-90 group-hover:filter-none`} 
             />
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-70 transition-all duration-500 flex flex-col justify-end p-6">
-                <h3 className="text-white text-xl font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">{title}</h3>
-                <p className="text-cyan-400 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100">{category}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-black md:bg-opacity-0 md:group-hover:bg-opacity-70 transition-all duration-500 flex flex-col justify-end p-6">
+                <h3 className="text-white text-xl font-bold opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300">{title}</h3>
+                <p className="text-cyan-400 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300 delay-100">{category}</p>
             </div>
         </div>
     );
