@@ -63,8 +63,8 @@ const Footer: React.FC = () => {
                     style={{ transitionDelay: '400ms' }}
                  >
                     <a href="https://www.facebook.com/capemaywebdesign" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on Facebook" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Facebook</a>
-                    <a href="https://www.instagram.com/capemaywebdesign/" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on Instagram" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Instagram</a>
                     <a href="https://www.linkedin.com/company/capemaywebdesign" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on LinkedIn" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">LinkedIn</a>
+                    <a href="https://github.com/Cape-May-Web-Design" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on GitHub" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">GitHub</a>
                 </div>
                 <div 
                     className={`flex flex-col sm:flex-row justify-center items-center gap-y-2 sm:gap-x-4 mb-6 text-sm transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                 >
                     <a href="/blog" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Blog</a>
                     <span className="text-slate-600 hidden sm:block">|</span>
-                    <a href="/privacy" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Privacy Policy</a>
+                    <a href="https://www.freeprivacypolicy.com/live/0ca54af8-fd0f-4c58-a1f2-19da2b034053" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Privacy Policy</a>
                     <span className="text-slate-600 hidden sm:block">|</span>
                     <a href="/terms" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Terms of Service</a>
                 </div>

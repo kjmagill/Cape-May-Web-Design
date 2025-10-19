@@ -8,7 +8,6 @@ import Testimonials from './components/Testimonials';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import BlogListingPage from './components/BlogListingPage';
@@ -148,8 +147,6 @@ const App: React.FC = () => {
   }
   
   switch (path) {
-    case '/privacy':
-      return <PrivacyPolicy />;
     case '/terms':
       return <TermsOfService />;
     case '/blog':

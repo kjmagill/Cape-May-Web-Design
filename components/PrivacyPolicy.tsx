@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import { ArrowLeftIcon } from './icons';
 import { useSeo } from '../hooks/useSeo';
+import { ArrowRightIcon } from './icons';
 
 const PrivacyPolicy: React.FC = () => {
     useSeo({
@@ -17,46 +17,36 @@ const PrivacyPolicy: React.FC = () => {
         return () => clearTimeout(timer);
     }, []);
 
+    const privacyPolicyUrl = "https://www.freeprivacypolicy.com/live/0ca54af8-fd0f-4c58-a1f2-19da2b034053";
+
     return (
-        <div className="bg-slate-900 min-h-screen text-slate-300">
+        <div className="bg-slate-900 min-h-screen text-slate-300 flex flex-col">
             <Header />
-            <main className="pt-24 md:pt-32 pb-16 md:pb-20">
+            <main className="pt-24 md:pt-32 pb-16 md:pb-20 flex-grow">
                 <div className="container mx-auto px-6">
                     <div 
-                        className={`max-w-4xl mx-auto bg-slate-800 rounded-xl shadow-2xl p-8 md:p-12 border border-slate-700 transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                        className={`
+                            max-w-4xl mx-auto bg-slate-800 rounded-xl shadow-2xl p-8 md:p-12 border border-slate-700 
+                            transition-all duration-700 ease-out
+                            ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+                        `}
                     >
-                        <h1 className="text-4xl font-extrabold text-white mb-6">Privacy Policy</h1>
-                        <p className="mb-4">Last updated: {new Date().toLocaleDateString()}</p>
-                        
-                        <h2 className="text-2xl font-bold text-white mt-8 mb-4">1. Introduction</h2>
-                        <p className="mb-4 leading-relaxed">
-                            Welcome to Cape May Web Design. We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy, or our practices with regards to your personal information, please contact us.
+                        <h1 className="text-4xl font-extrabold text-white mb-6 text-center">Privacy Policy</h1>
+                        <p className="text-lg text-center leading-relaxed mb-8">
+                            We are committed to protecting your privacy. Our comprehensive Privacy Policy is managed by a third-party service to ensure it remains current with all legal requirements.
                         </p>
-
-                        <h2 className="text-2xl font-bold text-white mt-8 mb-4">2. Information We Collect</h2>
-                        <p className="mb-4 leading-relaxed">
-                            We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and services, when you participate in activities on the website or otherwise when you contact us. The personal information that we collect depends on the context of your interactions with us and the website, the choices you make and the products and features you use.
+                        <p className="text-lg text-center leading-relaxed mb-12">
+                            Please click the button below to review our full policy. This will open in a new tab on our trusted policy provider's website.
                         </p>
-
-                        <h2 className="text-2xl font-bold text-white mt-8 mb-4">3. How We Use Your Information</h2>
-                        <p className="mb-4 leading-relaxed">
-                            We use personal information collected via our website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations.
-                        </p>
-                        
-                        <h2 className="text-2xl font-bold text-white mt-8 mb-4">4. Will Your Information Be Shared With Anyone?</h2>
-                        <p className="mb-4 leading-relaxed">
-                            We only share information with your consent, to comply with laws, to provide you with services, to protect your rights, or to fulfill business obligations.
-                        </p>
-
-                        <h2 className="text-2xl font-bold text-white mt-8 mb-4">5. Contact Us</h2>
-                        <p className="mb-4 leading-relaxed">
-                            If you have questions or comments about this policy, you may contact us via the contact form on our website or by phone.
-                        </p>
-                        
-                        <div className="text-center mt-12">
-                             <a href="/" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800">
-                                <ArrowLeftIcon className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
-                                <span>Back to Home</span>
+                        <div className="text-center">
+                             <a 
+                                href={privacyPolicyUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800"
+                            >
+                                <span>View Our Privacy Policy</span>
+                                <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                             </a>
                         </div>
                     </div>
