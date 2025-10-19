@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, AnimatedCheckCircleIcon, MapPinIcon, PhoneIcon, ExclamationCircleIcon, ClipboardDocumentListIcon, ChevronDownIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxLrPAMh2d8zE3J5VWQJnRAGuV7V5lMjPxdfwoW41D5g4VTNWfw2JZomgkbEqZtSrt2/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzduavsZT3gGxh9nFN_38Bv9XOklRz2ggsVF4yuVMaVy_mpP7FsAeh0BfPE8u0cUkZG/exec';
 
 type FormState = {
     name: string;
