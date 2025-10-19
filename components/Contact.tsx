@@ -1,16 +1,22 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, AnimatedCheckCircleIcon, MapPinIcon, PhoneIcon } from './icons';
+import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, AnimatedCheckCircleIcon, MapPinIcon, PhoneIcon, ExclamationCircleIcon, ClipboardDocumentListIcon, ChevronDownIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzU4Haa35AxrMIGEc_BZRlc8y1MzV-G1_18l0C3tvCCOu3fk-RTF5IsCcuS32Ca32dV/exec';
 
 type FormState = {
     name: string;
     email: string;
+    phone: string;
+    service: string;
     message: string;
 };
 
 type TouchState = {
     name: boolean;
     email: boolean;
+    phone: boolean;
+    service: boolean;
     message: boolean;
 }
 
@@ -21,8 +27,8 @@ type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 const Contact: React.FC = () => {
     const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
-    const initialFormState: FormState = { name: '', email: '', message: '' };
-    const initialTouchState: TouchState = { name: false, email: false, message: false };
+    const initialFormState: FormState = { name: '', email: '', phone: '', service: '', message: '' };
+    const initialTouchState: TouchState = { name: false, email: false, phone: false, service: false, message: false };
 
     const [formData, setFormData] = useState<FormState>(initialFormState);
     const [errors, setErrors] = useState<ErrorState>({});
@@ -42,6 +48,12 @@ const Contact: React.FC = () => {
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
             newErrors.email = 'Please enter a valid email address.';
         }
+        if (data.phone.trim() && !/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(data.phone)) {
+            newErrors.phone = 'Please enter a valid phone number.';
+        }
+        if (!data.service) {
+            newErrors.service = 'Please select a service.';
+        }
         if (!data.message.trim()) {
             newErrors.message = 'Message is required.';
         } else if (data.message.trim().length < 10) {
@@ -56,93 +68,165 @@ const Contact: React.FC = () => {
         setIsFormValid(Object.keys(validationErrors).length === 0);
     }, [formData, validate]);
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = event.target;
         setFormData(prev => ({ ...prev, [name]: value }));
         setTouched(prev => ({ ...prev, [name as keyof TouchState]: true }));
+        if (formStatus === 'success' || formStatus === 'error') {
+            setFormStatus('idle');
+        }
     };
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setTouched({ name: true, email: true, message: true });
+        setTouched({ name: true, email: true, phone: true, service: true, message: true });
 
         const validationErrors = validate(formData);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
-
+        
         setFormStatus('submitting');
 
-        setTimeout(() => {
+        try {
+            const response = await fetch(APPS_SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData).toString(),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            if (result.result !== 'success') {
+                 throw new Error(`Script error: ${result.message || 'Unknown error'}`);
+            }
+
             setFormStatus('success');
             setFormData(initialFormState);
             setTouched(initialTouchState);
-            setTimeout(() => setFormStatus('idle'), 5000); 
-        }, 2000);
+            setTimeout(() => {
+                if (formStatus === 'success') {
+                    setFormStatus('idle');
+                }
+            }, 5000);
+
+        } catch (error) {
+            console.error("Form submission error:", error);
+            setFormStatus('error');
+        }
     };
 
-    const renderInput = (
+    const serviceOptions = [
+        'Custom Website Design',
+        'E-commerce Store',
+        'Targeted SEO & Marketing',
+        'Custom App & Automation',
+        'Other Inquiry'
+    ];
+
+    const renderField = (
         id: keyof FormState, 
         label: string, 
-        type: string, 
-        IconComponent: React.FC<{ className?: string }> | null, 
-        isTextArea = false
+        IconComponent: React.FC<{ className?: string }>,
+        options?: { type?: string; isTextArea?: boolean; isSelect?: boolean; }
     ) => {
+        const { type = 'text', isTextArea = false, isSelect = false } = options || {};
         const hasError = touched[id] && errors[id];
-        const InputComponent = isTextArea ? 'textarea' : 'input';
-        const hasIcon = IconComponent !== null;
+
+        const commonLabelClasses = `
+            absolute -top-2.5 px-1 bg-slate-900 text-sm left-11
+            transition-all duration-300 pointer-events-none
+            peer-placeholder-shown:top-3.5 
+            peer-placeholder-shown:text-base 
+            peer-placeholder-shown:left-12
+            peer-placeholder-shown:px-0
+            peer-placeholder-shown:bg-transparent
+        `;
+
+        const statefulLabelClasses = hasError 
+            ? 'text-red-400' 
+            : 'text-slate-400 peer-focus:text-cyan-400';
+        
+        const commonInputClasses = `
+            peer block w-full bg-slate-800 border rounded-md py-3 text-white placeholder-transparent pl-12
+            transition-colors duration-300 focus:outline-none focus:ring-1 appearance-none
+        `;
+
+        const statefulInputClasses = hasError 
+            ? 'border-red-500/70 focus:ring-red-500/50 pr-12' 
+            : 'border-slate-600 focus:border-cyan-500 focus:ring-cyan-500/50 pr-4';
 
         return (
-            <div className="relative">
-                {hasIcon && (
-                    <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors duration-300 text-slate-500 peer-focus:text-cyan-400 ${hasError ? '!text-red-400' : ''}`}>
-                        <IconComponent className="w-5 h-5" />
-                    </div>
+            <div className={`relative group ${hasError ? 'animate-shake' : ''}`}>
+                <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors duration-300 text-slate-500 peer-focus:text-cyan-400 ${hasError ? '!text-red-400' : ''}`}>
+                    <IconComponent className="w-5 h-5" />
+                </div>
+                
+                {isSelect ? (
+                    <>
+                        <select
+                            id={id}
+                            name={id}
+                            value={formData[id]}
+                            onChange={handleChange}
+                            aria-invalid={!!hasError}
+                            aria-describedby={hasError ? `${id}-error-tooltip` : undefined}
+                            aria-required="true"
+                            className={`${commonInputClasses} ${statefulInputClasses}`}
+                        >
+                            <option value="" disabled></option>
+                            {serviceOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+                        </select>
+                        <ChevronDownIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none group-focus-within:text-cyan-400"/>
+                    </>
+                ) : (
+                    React.createElement(isTextArea ? 'textarea' : 'input', {
+                        id: id,
+                        name: id,
+                        type: type,
+                        value: formData[id],
+                        onChange: handleChange,
+                        'aria-invalid': !!hasError,
+                        'aria-describedby': hasError ? `${id}-error-tooltip` : undefined,
+                        'aria-required': 'true',
+                        placeholder: ' ',
+                        rows: isTextArea ? 5 : undefined,
+                        className: `${commonInputClasses} ${statefulInputClasses}`
+                    })
                 )}
-                <InputComponent
-                    id={id}
-                    name={id}
-                    type={type}
-                    value={formData[id]}
-                    onChange={handleChange}
-                    aria-invalid={!!hasError}
-                    aria-describedby={hasError ? `${id}-error` : undefined}
-                    aria-required="true"
-                    placeholder=" " // Required for floating label
-                    rows={isTextArea ? 5 : undefined}
-                    className={`
-                        peer block w-full bg-slate-800 border rounded-md py-3 pr-4 text-white placeholder-transparent
-                        transition-colors duration-300
-                        focus:outline-none focus:ring-1
-                        ${hasIcon ? 'pl-12' : 'pl-4'}
-                        ${hasError 
-                            ? 'border-red-500/70 focus:ring-red-500/50' 
-                            : 'border-slate-600 focus:border-cyan-500 focus:ring-cyan-500/50'
-                        }
-                    `}
-                />
+
                 <label
                     htmlFor={id}
                     className={`
-                        absolute -top-2.5 px-1 bg-slate-900 text-sm
-                        transition-all duration-300
-                        peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base 
-                        peer-focus:-top-2.5 peer-focus:text-sm
-                        pointer-events-none
-                        ${hasIcon ? 'left-11' : 'left-3'}
-                        ${hasError 
-                            ? 'text-red-400' 
-                            : 'text-slate-400 peer-focus:text-cyan-400'
-                        }
+                        ${commonLabelClasses} ${statefulLabelClasses}
+                        ${ isSelect && formData[id] && '-top-2.5 !text-sm' }
                     `}
                 >
                     {label}
                 </label>
+
                 {hasError && (
-                    <p id={`${id}-error`} className="mt-2 text-sm text-red-400">
-                        {errors[id]}
-                    </p>
+                    <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
+                        <div className="relative group/tooltip">
+                             <ExclamationCircleIcon className="w-6 h-6 text-red-500" />
+                             <div 
+                                id={`${id}-error-tooltip`}
+                                role="tooltip" 
+                                className="absolute bottom-full mb-2 right-1/2 translate-x-1/2 w-max max-w-xs bg-red-600 text-white text-sm font-semibold px-3 py-1.5 rounded-md shadow-lg opacity-0 transition-all duration-300 z-10
+                                           transform scale-95 pointer-events-none
+                                           group-hover/tooltip:opacity-100 group-hover/tooltip:scale-100 peer-focus:opacity-100 peer-focus:scale-100"
+                            >
+                                {errors[id]}
+                                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-red-600"></span>
+                            </div>
+                        </div>
+                    </div>
                 )}
             </div>
         );
@@ -213,9 +297,11 @@ const Contact: React.FC = () => {
                             ) : (
                                 <form onSubmit={handleSubmit} noValidate>
                                     <div className="flex flex-col space-y-6">
-                                        {renderInput('name', 'Your Name', 'text', UserIcon)}
-                                        {renderInput('email', 'Your Email', 'email', EnvelopeIcon)}
-                                        {renderInput('message', 'Your Message', 'text', null, true)}
+                                        {renderField('name', 'Your Name', UserIcon, { type: 'text' })}
+                                        {renderField('email', 'Your Email', EnvelopeIcon, { type: 'email' })}
+                                        {renderField('phone', 'Phone (Optional)', PhoneIcon, { type: 'tel' })}
+                                        {renderField('service', 'Service of Interest', ClipboardDocumentListIcon, { isSelect: true })}
+                                        {renderField('message', 'Tell us about your project...', EnvelopeIcon, { isTextArea: true })}
                                     </div>
                                     <div className="mt-6">
                                         <button 
@@ -235,6 +321,11 @@ const Contact: React.FC = () => {
                                                 </span>
                                             )}
                                         </button>
+                                        {formStatus === 'error' && (
+                                            <p className="mt-4 text-center text-red-400">
+                                                Something went wrong. Please try again later.
+                                            </p>
+                                        )}
                                     </div>
                                 </form>
                             )}

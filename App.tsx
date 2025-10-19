@@ -13,7 +13,7 @@ import TermsOfService from './components/TermsOfService';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import BlogListingPage from './components/BlogListingPage';
 import BlogPostPage from './components/BlogPostPage';
-import { useSeo } from './hooks/useSeo';
+import { useSeo, updateMetaTag, updatePropertyMetaTag } from './hooks/useSeo';
 
 interface SeoMetadata {
   pageTitle: string;
@@ -28,7 +28,7 @@ const LandingPage: React.FC = () => {
   const [metadata, setMetadata] = useState<SeoMetadata | null>(null);
 
   useEffect(() => {
-    fetch('./metadata.json')
+    fetch('/metadata.json')
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch metadata');
@@ -101,6 +101,40 @@ const App: React.FC = () => {
     };
     
     setFavicon();
+
+    // Set a default canonical URL. This provides a sensible default that can be
+    // overridden by specific pages. It uses the site-wide canonical URL from
+    // metadata as a base, falling back to the current page's URL.
+    const setCanonicalUrl = () => {
+      let element = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+      if (!element) {
+        element = document.createElement('link');
+        element.setAttribute('rel', 'canonical');
+        document.head.appendChild(element);
+      }
+
+      fetch('/metadata.json')
+        .then(res => res.ok ? res.json() : Promise.resolve({}))
+        .then(metadata => {
+          // Use the canonical from metadata if it exists, otherwise default to the current URL.
+          const url = metadata?.canonicalUrl || window.location.href;
+          element.setAttribute('href', url);
+        })
+        .catch(() => {
+          // If the fetch fails for any reason, default to the current window location.
+          element.setAttribute('href', window.location.href);
+        });
+    };
+
+    setCanonicalUrl();
+
+    // Set site-wide static meta tags
+    updateMetaTag('twitter:card', 'summary_large_image');
+    updatePropertyMetaTag('og:type', 'website');
+    updatePropertyMetaTag('og:site_name', 'Cape May Web Design');
+    // twitter:site_name is not standard but was requested. Using `name` attribute for consistency with other twitter tags.
+    updateMetaTag('twitter:site_name', 'Cape May Web Design');
+
   }, []);
 
   const path = window.location.pathname.replace(/\/$/, "");

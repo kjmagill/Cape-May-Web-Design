@@ -9,7 +9,7 @@ interface SeoProps {
     canonicalUrl?: string;
 }
 
-const updateMetaTag = (name: string, content: string) => {
+export const updateMetaTag = (name: string, content: string) => {
     let element = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
     if (!element) {
         element = document.createElement('meta');
@@ -19,7 +19,7 @@ const updateMetaTag = (name: string, content: string) => {
     element.setAttribute('content', content);
 };
 
-const updatePropertyMetaTag = (property: string, content: string) => {
+export const updatePropertyMetaTag = (property: string, content: string) => {
     let element = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
     if (!element) {
         element = document.createElement('meta');
@@ -46,12 +46,12 @@ export const useSeo = ({ title, description, keywords, ogImage, twitterImage, ca
         if (description) {
             updateMetaTag('description', description);
             updatePropertyMetaTag('og:description', description);
-            updatePropertyMetaTag('twitter:description', description);
+            updateMetaTag('twitter:description', description);
         }
 
         if (title) {
             updatePropertyMetaTag('og:title', title);
-            updatePropertyMetaTag('twitter:title', title);
+            updateMetaTag('twitter:title', title);
         }
 
         if (keywords) {
@@ -63,7 +63,7 @@ export const useSeo = ({ title, description, keywords, ogImage, twitterImage, ca
         }
 
         if (twitterImage) {
-            updatePropertyMetaTag('twitter:image', twitterImage);
+            updateMetaTag('twitter:image', twitterImage);
         }
 
         if (canonicalUrl) {

@@ -39,7 +39,7 @@ const WhyChooseUs: React.FC = () => {
             ref={sectionRef}
             className="relative py-16 md:py-20 bg-slate-800"
         >
-             <div className="absolute inset-y-0 w-full h-full bg-grid-slate-700/20 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
+             <div className="absolute inset-y-0 w-full h-full bg-grid-pattern-20 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
             <div className="container mx-auto px-6 relative">
                 <div 
                     className={`text-center mb-16 transition-all duration-700 ease-out ${
@@ -49,7 +49,7 @@ const WhyChooseUs: React.FC = () => {
                     <h2 className="text-3xl sm:text-4xl font-extrabold text-white">The Local Advantage</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're more than a web design agency; we're your local partner dedicated to the success of businesses in our community.</p>
                 </div>
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {features.map((feature, index) => (
                         <div
                             key={index}

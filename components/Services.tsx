@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CodeIcon, ShoppingCartIcon, BullseyeIcon, GearIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -20,23 +20,71 @@ const Services: React.FC = () => {
             icon: <CodeIcon className="w-12 h-12" />,
             title: 'Custom Website Design',
             description: 'We create stunning, responsive websites tailored to your unique brand. Our designs captivate visitors and convert them into loyal customers.',
+            id: 'service-web-design',
+            serviceType: 'Web Design'
         },
         {
             icon: <ShoppingCartIcon className="w-12 h-12" />,
             title: 'E-commerce Stores That Sell',
             description: 'Launch a powerful online store that drives sales. We build secure, user-friendly e-commerce platforms designed to scale with your business.',
+            id: 'service-ecommerce',
+            serviceType: 'E-commerce Development'
         },
         {
             icon: <BullseyeIcon className="w-12 h-12" />,
             title: 'Targeted SEO & Marketing',
             description: 'Increase your online visibility and attract more customers. Our proven SEO and marketing strategies are designed to deliver qualified traffic.',
+            id: 'service-seo',
+            serviceType: 'Search Engine Optimization'
         },
         {
             icon: <GearIcon className="w-12 h-12" />,
             title: 'Custom Apps & Automations',
             description: 'Gain a competitive edge with custom software. We build applications and automation tools to streamline processes and boost efficiency.',
+            id: 'service-apps',
+            serviceType: 'Software Development'
         },
     ];
+
+    useEffect(() => {
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Web Design Services",
+            "itemListElement": servicesData.map((service, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                    "@type": "Service",
+                    "@id": `https://www.capemaywebdesign.com/#${service.id}`,
+                    "name": service.title,
+                    "description": service.description,
+                    "serviceType": service.serviceType,
+                    "provider": {
+                        "@id": "https://www.capemaywebdesign.com/#organization"
+                    },
+                    "areaServed": {
+                        "@type": "AdministrativeArea",
+                        "name": "Cape May County"
+                    }
+                }
+            }))
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.id = 'services-structured-data';
+        script.innerHTML = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+
+        return () => {
+            const existingScript = document.getElementById('services-structured-data');
+            if (existingScript) {
+                document.head.removeChild(existingScript);
+            }
+        };
+    }, []);
+
 
     return (
         <section 
