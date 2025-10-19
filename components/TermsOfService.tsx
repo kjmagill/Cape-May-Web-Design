@@ -2,8 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { ArrowLeftIcon } from './icons';
+import { useSeo } from '../hooks/useSeo';
 
 const TermsOfService: React.FC = () => {
+    useSeo({
+        title: 'Terms of Service | Cape May Web Design',
+        description: 'Review the terms of service for using the Cape May Web Design website and services.',
+        canonicalUrl: 'https://www.capemaywebdesign.com/terms'
+    });
+    
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
         const timer = setTimeout(() => setIsLoaded(true), 100);

@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { blogPosts, BlogPost } from './blogPosts';
 import { CalendarDaysIcon, UserIcon, ArrowRightIcon } from './icons';
+import { useSeo } from '../hooks/useSeo';
 
 const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => (
     <div className="group bg-slate-800 rounded-2xl shadow-lg border border-slate-700 h-full flex flex-col overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:border-cyan-500/80 hover:shadow-2xl hover:shadow-cyan-500/10">
@@ -33,6 +34,12 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => (
 );
 
 const BlogListingPage: React.FC = () => {
+    useSeo({
+        title: 'Blog | Cape May Web Design',
+        description: 'A curated collection of web design trends, local SEO strategies, and digital marketing insights to help businesses in South Jersey succeed.',
+        canonicalUrl: 'https://www.capemaywebdesign.com/blog'
+    });
+
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
         const timer = setTimeout(() => setIsLoaded(true), 100); // small delay to ensure render

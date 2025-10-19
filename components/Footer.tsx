@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
                     className={`flex flex-col sm:flex-row justify-center items-center gap-y-2 sm:gap-x-4 mb-6 text-sm transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: '500ms' }}
                 >
-                    <a href="/#blog" className="hover:text-cyan-400 transition-colors">Blog</a>
+                    <a href="/blog" className="hover:text-cyan-400 transition-colors">Blog</a>
                     <span className="text-slate-600 hidden sm:block">|</span>
                     <a href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
                     <span className="text-slate-600 hidden sm:block">|</span>

@@ -1,5 +1,11 @@
 {
   "name": "Cape May Web Design",
   "description": "A modern, snappy, polished landing page for a web development company named Cape May Web Design.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "pageTitle": "Cape May Web Design | Custom Websites for Local Businesses",
+  "pageDescription": "Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey. We craft digital experiences that deliver measurable results and fuel your growth.",
+  "keywords": "web design, web development, Cape May, South Jersey, local business, SEO, e-commerce, website builder",
+  "ogImage": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "twitterImage": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "canonicalUrl": "https://www.capemaywebdesign.com/"
 }

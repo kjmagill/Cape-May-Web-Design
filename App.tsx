@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -11,23 +11,60 @@ import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import ScrollToTopButton from './components/ScrollToTopButton';
+import BlogListingPage from './components/BlogListingPage';
+import BlogPostPage from './components/BlogPostPage';
+import { useSeo } from './hooks/useSeo';
 
-const LandingPage: React.FC = () => (
-  <div className="bg-slate-900 min-h-screen">
-    <Header />
-    <main>
-      <Hero />
-      <Services />
-      <WhyChooseUs />
-      <Portfolio />
-      <Testimonials />
-      <Blog />
-      <Contact />
-    </main>
-    <Footer />
-    <ScrollToTopButton />
-  </div>
-);
+interface SeoMetadata {
+  pageTitle: string;
+  pageDescription: string;
+  keywords: string;
+  ogImage: string;
+  twitterImage: string;
+  canonicalUrl: string;
+}
+
+const LandingPage: React.FC = () => {
+  const [metadata, setMetadata] = useState<SeoMetadata | null>(null);
+
+  useEffect(() => {
+    fetch('./metadata.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch metadata');
+        }
+        return response.json();
+      })
+      .then(data => setMetadata(data))
+      .catch(error => console.error("Error loading metadata:", error));
+  }, []);
+
+  useSeo({
+    title: metadata?.pageTitle || 'Cape May Web Design | Custom Websites for Local Businesses',
+    description: metadata?.pageDescription || 'Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey.',
+    keywords: metadata?.keywords || 'web design, web development, Cape May',
+    ogImage: metadata?.ogImage,
+    twitterImage: metadata?.twitterImage,
+    canonicalUrl: metadata?.canonicalUrl,
+  });
+
+  return (
+    <div className="bg-slate-900 min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <Services />
+        <WhyChooseUs />
+        <Portfolio />
+        <Testimonials />
+        <Blog />
+        <Contact />
+      </main>
+      <Footer />
+      <ScrollToTopButton />
+    </div>
+  );
+};
 
 
 const App: React.FC = () => {
@@ -66,13 +103,20 @@ const App: React.FC = () => {
     setFavicon();
   }, []);
 
-  const path = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash for root check
+  const path = window.location.pathname.replace(/\/$/, "");
 
+  if (path.startsWith('/blog/')) {
+    const slug = path.substring(path.lastIndexOf('/') + 1);
+    return <BlogPostPage slug={slug} />;
+  }
+  
   switch (path) {
     case '/privacy':
       return <PrivacyPolicy />;
     case '/terms':
       return <TermsOfService />;
+    case '/blog':
+      return <BlogListingPage />;
     default:
       return <LandingPage />;
   }

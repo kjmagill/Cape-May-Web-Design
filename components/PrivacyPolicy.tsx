@@ -2,8 +2,15 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { ArrowLeftIcon } from './icons';
+import { useSeo } from '../hooks/useSeo';
 
 const PrivacyPolicy: React.FC = () => {
+    useSeo({
+        title: 'Privacy Policy | Cape May Web Design',
+        description: 'Read the privacy policy for Cape May Web Design to understand how we collect, use, and protect your personal information.',
+        canonicalUrl: 'https://www.capemaywebdesign.com/privacy'
+    });
+
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
         const timer = setTimeout(() => setIsLoaded(true), 100);

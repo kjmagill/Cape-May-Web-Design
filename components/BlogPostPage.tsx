@@ -3,16 +3,24 @@ import Header from './Header';
 import Footer from './Footer';
 import { blogPosts } from './blogPosts';
 import { ArrowLeftIcon, CalendarDaysIcon, UserIcon } from './icons';
+import { useSeo } from '../hooks/useSeo';
 
 const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
+    const post = blogPosts.find(p => p.slug === slug);
+    
+    useSeo({
+        title: post ? `${post.title} | Cape May Web Design` : 'Post Not Found | Cape May Web Design',
+        description: post ? post.excerpt : "Sorry, we couldn't find the blog post you were looking for.",
+        ogImage: post ? post.imageUrl : undefined,
+        twitterImage: post ? post.imageUrl : undefined,
+        canonicalUrl: post ? `https://www.capemaywebdesign.com/blog/${post.slug}` : undefined
+    });
+    
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
-        // A small delay to ensure the animation is visible on fast networks
         const timer = setTimeout(() => setIsLoaded(true), 100);
         return () => clearTimeout(timer);
-    }, [slug]); // Rerun animation if slug changes
-
-    const post = blogPosts.find(p => p.slug === slug);
+    }, [slug]);
 
     if (!post) {
         return (
@@ -66,6 +74,11 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                             {/* FIX: Property 'content' does not exist on type 'BlogPost'. Replaced with 'excerpt'. */}
                             <div className="prose prose-invert prose-lg tracking-wide prose-p:leading-loose prose-p:text-slate-300 prose-headings:text-white prose-strong:text-white">
                                 <p>{post.excerpt}</p>
+                                <p className="mt-6">
+                                    <a href={post.url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 font-semibold hover:text-cyan-300 no-underline">
+                                        Continue reading this article &rarr;
+                                    </a>
+                                </p>
                             </div>
                         </article>
                     </div>
