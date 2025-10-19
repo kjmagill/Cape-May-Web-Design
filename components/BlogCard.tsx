@@ -15,7 +15,7 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
                 <img 
                     src={post.imageUrl} 
                     alt={post.title} 
-                    className={`w-full h-full object-cover transform group-hover:scale-110 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-black/30 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+                    className={`w-full h-full object-cover transform group-hover:scale-110 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-black/30 ${isLoading ? 'opacity-0' : 'opacity-100'} filter brightness-75 saturate-90 group-hover:filter-none`}
                 />
             </a>
             <div className="p-6 flex flex-col flex-grow">

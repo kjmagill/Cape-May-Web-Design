@@ -138,6 +138,7 @@ const Contact: React.FC = () => {
     ) => {
         const { type = 'text', isTextArea = false, isSelect = false } = options || {};
         const hasError = touched[id] && errors[id];
+        const errorId = `${id}-error`;
 
         const commonLabelClasses = `
             absolute -top-2.5 px-1 bg-slate-900 text-sm left-11
@@ -159,74 +160,67 @@ const Contact: React.FC = () => {
         `;
 
         const statefulInputClasses = hasError 
-            ? 'border-red-500/70 focus:ring-red-500/50 pr-12' 
-            : 'border-slate-600 focus:border-cyan-500 focus:ring-cyan-500/50 pr-4';
+            ? 'border-red-500/70 focus:ring-red-500/50' 
+            : 'border-slate-600 focus:border-cyan-500 focus:ring-cyan-500/50';
 
         return (
-            <div className={`relative group ${hasError ? 'animate-shake' : ''}`}>
-                <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors duration-300 text-slate-500 peer-focus:text-cyan-400 ${hasError ? '!text-red-400' : ''}`}>
-                    <IconComponent className="w-5 h-5" />
-                </div>
-                
-                {isSelect ? (
-                    <>
-                        <select
-                            id={id}
-                            name={id}
-                            value={formData[id]}
-                            onChange={handleChange}
-                            aria-invalid={!!hasError}
-                            aria-describedby={hasError ? `${id}-error-tooltip` : undefined}
-                            aria-required="true"
-                            className={`${commonInputClasses} ${statefulInputClasses}`}
-                        >
-                            <option value="" disabled></option>
-                            {serviceOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
-                        </select>
-                        <ChevronDownIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none group-focus-within:text-cyan-400"/>
-                    </>
-                ) : (
-                    React.createElement(isTextArea ? 'textarea' : 'input', {
-                        id: id,
-                        name: id,
-                        type: type,
-                        value: formData[id],
-                        onChange: handleChange,
-                        'aria-invalid': !!hasError,
-                        'aria-describedby': hasError ? `${id}-error-tooltip` : undefined,
-                        'aria-required': 'true',
-                        placeholder: ' ',
-                        rows: isTextArea ? 5 : undefined,
-                        className: `${commonInputClasses} ${statefulInputClasses}`
-                    })
-                )}
-
-                <label
-                    htmlFor={id}
-                    className={`
-                        ${commonLabelClasses} ${statefulLabelClasses}
-                        ${ isSelect && formData[id] && '-top-2.5 !text-sm' }
-                    `}
-                >
-                    {label}
-                </label>
-
-                {hasError && (
-                    <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
-                        <div className="relative group/tooltip">
-                             <ExclamationCircleIcon className="w-6 h-6 text-red-500" />
-                             <div 
-                                id={`${id}-error-tooltip`}
-                                role="tooltip" 
-                                className="absolute bottom-full mb-2 right-1/2 translate-x-1/2 w-max max-w-xs bg-red-600 text-white text-sm font-semibold px-3 py-1.5 rounded-md shadow-lg opacity-0 transition-all duration-300 z-10
-                                           transform scale-95 pointer-events-none
-                                           group-hover/tooltip:opacity-100 group-hover/tooltip:scale-100 peer-focus:opacity-100 peer-focus:scale-100"
-                            >
-                                {errors[id]}
-                                <span className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-x-4 border-x-transparent border-t-4 border-t-red-600"></span>
-                            </div>
-                        </div>
+            <div>
+                <div className={`relative ${hasError ? 'animate-shake' : ''}`}>
+                    <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors duration-300 text-slate-500 peer-focus:text-cyan-400 ${hasError ? '!text-red-400' : ''}`}>
+                        <IconComponent className="w-5 h-5" />
                     </div>
+                    
+                    {isSelect ? (
+                        <>
+                            <select
+                                id={id}
+                                name={id}
+                                value={formData[id]}
+                                onChange={handleChange}
+                                aria-invalid={!!hasError}
+                                aria-describedby={hasError ? errorId : undefined}
+                                aria-required="true"
+                                className={`${commonInputClasses} ${statefulInputClasses} pr-10`}
+                            >
+                                <option value="" disabled></option>
+                                {serviceOptions.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+                            </select>
+                            <ChevronDownIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none peer-focus-within:text-cyan-400"/>
+                        </>
+                    ) : (
+                        React.createElement(isTextArea ? 'textarea' : 'input', {
+                            id: id,
+                            name: id,
+                            type: type,
+                            value: formData[id],
+                            onChange: handleChange,
+                            'aria-invalid': !!hasError,
+                            'aria-describedby': hasError ? errorId : undefined,
+                            'aria-required': 'true',
+                            placeholder: ' ',
+                            rows: isTextArea ? 5 : undefined,
+                            className: `${commonInputClasses} ${statefulInputClasses} pr-4`
+                        })
+                    )}
+
+                    <label
+                        htmlFor={id}
+                        className={`
+                            ${commonLabelClasses} ${statefulLabelClasses}
+                            ${ isSelect && formData[id] && '-top-2.5 !text-sm' }
+                        `}
+                    >
+                        {label}
+                    </label>
+                </div>
+                {hasError && (
+                    <p 
+                        id={errorId}
+                        role="alert" 
+                        className="text-red-400 text-sm mt-1.5 ml-1"
+                    >
+                        {errors[id]}
+                    </p>
                 )}
             </div>
         );
@@ -237,6 +231,7 @@ const Contact: React.FC = () => {
             id="contact" 
             ref={sectionRef}
             className="py-16 md:py-20 bg-slate-800"
+            aria-labelledby="contact-heading"
         >
             <div className="container mx-auto px-6">
                 <div 
@@ -244,7 +239,7 @@ const Contact: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Ready to Grow Your Business?</h2>
+                    <h2 id="contact-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Ready to Grow Your Business?</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">
                         Tell us about your project. We'll provide a free, no-obligation quote and a clear strategy to help you achieve your goals online.
                     </p>
@@ -289,7 +284,7 @@ const Contact: React.FC = () => {
                         {/* Right Column: Form */}
                         <div>
                              {formStatus === 'success' ? (
-                                <div className="text-center h-full flex flex-col justify-center items-center py-10 transition-all duration-300 ease-in-out">
+                                <div role="status" aria-live="polite" className="text-center h-full flex flex-col justify-center items-center py-10 transition-all duration-300 ease-in-out">
                                     <AnimatedCheckCircleIcon className="w-20 h-20 mx-auto" />
                                     <h3 className="text-2xl font-bold text-white mt-4">Thank you!</h3>
                                     <p className="text-slate-300 mt-2">Your message has been sent successfully. We'll be in touch soon.</p>
@@ -321,11 +316,13 @@ const Contact: React.FC = () => {
                                                 </span>
                                             )}
                                         </button>
-                                        {formStatus === 'error' && (
-                                            <p className="mt-4 text-center text-red-400">
-                                                Something went wrong. Please try again later.
-                                            </p>
-                                        )}
+                                        <div role="status" aria-live="polite">
+                                            {formStatus === 'error' && (
+                                                <p className="mt-4 text-center text-red-400">
+                                                    Something went wrong. Please try again later.
+                                                </p>
+                                            )}
+                                        </div>
                                     </div>
                                 </form>
                             )}

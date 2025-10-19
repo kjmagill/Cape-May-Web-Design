@@ -82,7 +82,7 @@ const Header: React.FC = () => {
                         <CapeMayLogo className="w-11 h-11" />
                         <LogoText />
                     </a>
-                    <nav className="hidden lg:flex items-center space-x-8">
+                    <nav role="navigation" aria-label="Main" className="hidden lg:flex items-center space-x-8">
                         {navLinks.map((link) => (
                             <a 
                                 key={link.name} 
@@ -132,7 +132,7 @@ const Header: React.FC = () => {
                 aria-modal="true"
                 aria-hidden={!isMenuOpen}
             >
-                <nav className="pt-28 p-8 h-full flex flex-col overflow-y-auto">
+                <nav aria-label="Mobile" className="pt-28 p-8 h-full flex flex-col overflow-y-auto">
                     <ul className="flex flex-col items-center text-center space-y-6">
                         {navLinks.map((link, index) => (
                             <li 

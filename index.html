@@ -77,11 +77,23 @@
       }
     </style>
     
+    <!-- Embedded SEO Metadata -->
+    <script id="seo-metadata" type="application/json">
+    {
+      "name": "Cape May Web Design",
+      "description": "A modern, snappy, polished landing page for a web development company named Cape May Web Design.",
+      "pageTitle": "Cape May Web Design | Custom Websites for Local Businesses",
+      "pageDescription": "Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey. We craft digital experiences that deliver measurable results and fuel your growth.",
+      "keywords": "web design, web development, Cape May, South Jersey, local business, SEO, e-commerce, website builder",
+      "ogImage": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "twitterImage": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "canonicalUrl": "https://www.capemaywebdesign.com/"
+    }
+    </script>
+
     <!-- Initial SEO Metadata Loader -->
     <script>
       (function() {
-        // A generic helper to update tags.
-        // It can update any attribute on any element found by the selector.
         function updateTag(selector, attribute, value) {
             if (value === undefined || value === null) return;
             try {
@@ -94,42 +106,26 @@
             }
         }
 
-        // Fetches metadata and updates the DOM before the main app loads.
-        fetch('/metadata.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok for metadata.json');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Update Title
-                if (data.pageTitle) {
-                    document.title = data.pageTitle;
-                }
+        try {
+            const metadataElement = document.getElementById('seo-metadata');
+            if (!metadataElement) throw new Error('SEO metadata script tag not found.');
+            
+            const data = JSON.parse(metadataElement.textContent || '{}');
 
-                // Update standard meta tags
-                updateTag('meta[name="description"]', 'content', data.pageDescription);
-                updateTag('meta[name="keywords"]', 'content', data.keywords);
-
-                // Update Canonical URL
-                updateTag('link[rel="canonical"]', 'href', data.canonicalUrl);
-
-                // Update Open Graph (og) meta tags
-                updateTag('meta[property="og:title"]', 'content', data.pageTitle);
-                updateTag('meta[property="og:description"]', 'content', data.pageDescription);
-                updateTag('meta[property="og:image"]', 'content', data.ogImage);
-                updateTag('meta[property="og:url"]', 'content', data.canonicalUrl);
-
-                // Update Twitter Card meta tags
-                updateTag('meta[name="twitter:title"]', 'content', data.pageTitle);
-                updateTag('meta[name="twitter:description"]', 'content', data.pageDescription);
-                updateTag('meta[name="twitter:image"]', 'content', data.twitterImage);
-            })
-            .catch(error => {
-                console.error('Failed to load initial SEO metadata:', error);
-                // Static fallbacks in the HTML will be used if this fetch fails.
-            });
+            if (data.pageTitle) document.title = data.pageTitle;
+            updateTag('meta[name="description"]', 'content', data.pageDescription);
+            updateTag('meta[name="keywords"]', 'content', data.keywords);
+            updateTag('link[rel="canonical"]', 'href', data.canonicalUrl);
+            updateTag('meta[property="og:title"]', 'content', data.pageTitle);
+            updateTag('meta[property="og:description"]', 'content', data.pageDescription);
+            updateTag('meta[property="og:image"]', 'content', data.ogImage);
+            updateTag('meta[property="og:url"]', 'content', data.canonicalUrl);
+            updateTag('meta[name="twitter:title"]', 'content', data.pageTitle);
+            updateTag('meta[name="twitter:description"]', 'content', data.pageDescription);
+            updateTag('meta[name="twitter:image"]', 'content', data.twitterImage);
+        } catch (error) {
+            console.error('Failed to load initial SEO metadata:', error);
+        }
       })();
     </script>
 

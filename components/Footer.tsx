@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
     );
 
     return (
-        <footer ref={footerRef} className="bg-slate-900 border-t border-slate-800">
+        <footer ref={footerRef} className="bg-slate-900 border-t border-slate-800" role="contentinfo">
             <div className="container mx-auto px-6 py-8 text-center text-slate-400">
                 <div
                     className={`flex justify-center items-center mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
@@ -62,9 +62,9 @@ const Footer: React.FC = () => {
                     className={`flex justify-center space-x-6 mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: '400ms' }}
                  >
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Facebook</a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Instagram</a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">LinkedIn</a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on Facebook" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Facebook</a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on Instagram" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Instagram</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on LinkedIn" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">LinkedIn</a>
                 </div>
                 <div 
                     className={`flex flex-col sm:flex-row justify-center items-center gap-y-2 sm:gap-x-4 mb-6 text-sm transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}

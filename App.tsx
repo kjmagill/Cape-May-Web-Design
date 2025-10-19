@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -14,6 +14,7 @@ import ScrollToTopButton from './components/ScrollToTopButton';
 import BlogListingPage from './components/BlogListingPage';
 import BlogPostPage from './components/BlogPostPage';
 import { useSeo, updateMetaTag, updatePropertyMetaTag } from './hooks/useSeo';
+import { blogPosts } from './components/blogPosts';
 
 interface SeoMetadata {
   pageTitle: string;
@@ -24,20 +25,22 @@ interface SeoMetadata {
   canonicalUrl: string;
 }
 
-const LandingPage: React.FC = () => {
-  const [metadata, setMetadata] = useState<SeoMetadata | null>(null);
+// A helper function to read the embedded metadata from the DOM.
+// This function can be used across the application to get the base metadata.
+const getEmbeddedMetadata = (): SeoMetadata | null => {
+  try {
+    const element = document.getElementById('seo-metadata');
+    if (element && element.textContent) {
+      return JSON.parse(element.textContent);
+    }
+  } catch (error) {
+    console.error("Could not parse embedded SEO metadata:", error);
+  }
+  return null;
+};
 
-  useEffect(() => {
-    fetch('/metadata.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch metadata');
-        }
-        return response.json();
-      })
-      .then(data => setMetadata(data))
-      .catch(error => console.error("Error loading metadata:", error));
-  }, []);
+const LandingPage: React.FC = () => {
+  const metadata = useMemo(() => getEmbeddedMetadata(), []);
 
   useSeo({
     title: metadata?.pageTitle || 'Cape May Web Design | Custom Websites for Local Businesses',
@@ -82,11 +85,9 @@ const App: React.FC = () => {
           ctx.drawImage(img, 0, 0, 32, 32);
           const dataUrl = canvas.toDataURL('image/png');
           
-          // Remove any existing favicons to avoid conflicts
           const existingLinks = document.querySelectorAll<HTMLLinkElement>("link[rel*='icon']");
           existingLinks.forEach(link => link.parentNode?.removeChild(link));
 
-          // Add our new dynamically generated favicon
           const link = document.createElement('link');
           link.rel = 'icon';
           link.type = 'image/png';
@@ -102,9 +103,6 @@ const App: React.FC = () => {
     
     setFavicon();
 
-    // Set a default canonical URL. This provides a sensible default that can be
-    // overridden by specific pages. It uses the site-wide canonical URL from
-    // metadata as a base, falling back to the current page's URL.
     const setCanonicalUrl = () => {
       let element = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
       if (!element) {
@@ -112,18 +110,11 @@ const App: React.FC = () => {
         element.setAttribute('rel', 'canonical');
         document.head.appendChild(element);
       }
-
-      fetch('/metadata.json')
-        .then(res => res.ok ? res.json() : Promise.resolve({}))
-        .then(metadata => {
-          // Use the canonical from metadata if it exists, otherwise default to the current URL.
-          const url = metadata?.canonicalUrl || window.location.href;
-          element.setAttribute('href', url);
-        })
-        .catch(() => {
-          // If the fetch fails for any reason, default to the current window location.
-          element.setAttribute('href', window.location.href);
-        });
+      
+      const metadata = getEmbeddedMetadata();
+      // Use the canonical from embedded metadata if it exists, otherwise default to the current URL.
+      const url = metadata?.canonicalUrl || window.location.href;
+      element.setAttribute('href', url);
     };
 
     setCanonicalUrl();
@@ -132,7 +123,6 @@ const App: React.FC = () => {
     updateMetaTag('twitter:card', 'summary_large_image');
     updatePropertyMetaTag('og:type', 'website');
     updatePropertyMetaTag('og:site_name', 'Cape May Web Design');
-    // twitter:site_name is not standard but was requested. Using `name` attribute for consistency with other twitter tags.
     updateMetaTag('twitter:site_name', 'Cape May Web Design');
 
   }, []);
@@ -141,6 +131,16 @@ const App: React.FC = () => {
 
   if (path.startsWith('/blog/')) {
     const slug = path.substring(path.lastIndexOf('/') + 1);
+    const post = blogPosts.find(p => p.slug === slug);
+    
+    useSeo({
+        title: post ? `${post.title} | Cape May Web Design` : 'Post Not Found | Cape May Web Design',
+        description: post ? post.excerpt : "Sorry, we couldn't find the blog post you were looking for.",
+        ogImage: post ? post.imageUrl : undefined,
+        twitterImage: post ? post.imageUrl : undefined,
+        canonicalUrl: post ? `https://www.capemaywebdesign.com/blog/${post.slug}` : undefined
+    });
+    
     return <BlogPostPage slug={slug} />;
   }
   

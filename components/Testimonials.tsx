@@ -2,18 +2,20 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const TestimonialCard: React.FC<{ quote: string; name: string; company: string }> = ({ quote, name, company }) => (
-    <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 flex flex-col h-full transition-all duration-300 transform hover:-translate-y-1 hover:border-cyan-500 hover:shadow-2xl hover:shadow-cyan-500/10">
-        <p className="text-slate-300 italic mb-6 flex-grow">"{quote}"</p>
-        <div className="flex items-center">
-            <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center font-bold text-white mr-4 flex-shrink-0">
+    <figure className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 flex flex-col h-full transition-all duration-300 transform hover:-translate-y-1 hover:border-cyan-500 hover:shadow-2xl hover:shadow-cyan-500/10">
+        <blockquote className="text-slate-300 italic mb-6 flex-grow">
+            <p>"{quote}"</p>
+        </blockquote>
+        <figcaption className="flex items-center">
+            <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center font-bold text-white mr-4 flex-shrink-0" aria-hidden="true">
                 {name.charAt(0)}
             </div>
             <div>
-                <p className="font-bold text-white">{name}</p>
-                <p className="text-slate-400 text-sm">{company}</p>
+                <cite className="font-bold text-white not-italic">{name}</cite>
+                <div className="text-slate-400 text-sm">{company}</div>
             </div>
-        </div>
-    </div>
+        </figcaption>
+    </figure>
 );
 
 const Testimonials: React.FC = () => {
@@ -42,6 +44,7 @@ const Testimonials: React.FC = () => {
             id="testimonials" 
             ref={sectionRef}
             className="py-16 md:py-20 bg-slate-900"
+            aria-labelledby="testimonials-heading"
         >
             <div className="container mx-auto px-6">
                 <div 
@@ -49,7 +52,7 @@ const Testimonials: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Trusted by Businesses at the Shore</h2>
+                    <h2 id="testimonials-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Trusted by Businesses at the Shore</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">Hear directly from local business owners about how our work has impacted their success.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

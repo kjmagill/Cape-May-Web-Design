@@ -3,18 +3,9 @@ import Header from './Header';
 import Footer from './Footer';
 import { blogPosts } from './blogPosts';
 import { ArrowLeftIcon, CalendarDaysIcon, UserIcon } from './icons';
-import { useSeo } from '../hooks/useSeo';
 
 const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
     const post = blogPosts.find(p => p.slug === slug);
-    
-    useSeo({
-        title: post ? `${post.title} | Cape May Web Design` : 'Post Not Found | Cape May Web Design',
-        description: post ? post.excerpt : "Sorry, we couldn't find the blog post you were looking for.",
-        ogImage: post ? post.imageUrl : undefined,
-        twitterImage: post ? post.imageUrl : undefined,
-        canonicalUrl: post ? `https://www.capemaywebdesign.com/blog/${post.slug}` : undefined
-    });
     
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
