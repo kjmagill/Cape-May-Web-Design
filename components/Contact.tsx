@@ -34,7 +34,6 @@ const Contact: React.FC = () => {
     const [errors, setErrors] = useState<ErrorState>({});
     const [touched, setTouched] = useState<TouchState>(initialTouchState);
     const [formStatus, setFormStatus] = useState<FormStatus>('idle');
-    const [isFormValid, setIsFormValid] = useState(false);
 
     const validate = useCallback((data: FormState): ErrorState => {
         const newErrors: ErrorState = {};
@@ -62,28 +61,47 @@ const Contact: React.FC = () => {
         return newErrors;
     }, []);
     
-    useEffect(() => {
-        const validationErrors = validate(formData);
-        setErrors(validationErrors);
-        setIsFormValid(Object.keys(validationErrors).length === 0);
-    }, [formData, validate]);
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = event.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
-        setTouched(prev => ({ ...prev, [name as keyof TouchState]: true }));
+        const newFormData = { ...formData, [name]: value };
+        setFormData(newFormData);
+
+        // Re-validate only if the field has been touched (blurred) before.
+        // This gives instant feedback as the user corrects an error.
+        if (touched[name as keyof TouchState]) {
+            const validationErrors = validate(newFormData);
+            setErrors(validationErrors);
+        }
+
         if (formStatus === 'success' || formStatus === 'error') {
             setFormStatus('idle');
         }
     };
 
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name } = event.target;
+        // Mark the field as touched so we know to validate it.
+        setTouched(prev => ({ ...prev, [name as keyof TouchState]: true }));
+        // Run validation for the whole form when a field is blurred.
+        const validationErrors = validate(formData);
+        setErrors(validationErrors);
+    };
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        // Mark all fields as touched to show errors on all invalid fields upon submission.
         setTouched({ name: true, email: true, phone: true, service: true, message: true });
 
         const validationErrors = validate(formData);
+        setErrors(validationErrors);
+
         if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors);
+            // Focus the first field with an error for better UX and accessibility.
+            const firstErrorKey = Object.keys(validationErrors)[0] as keyof FormState;
+            const errorElement = document.getElementById(firstErrorKey);
+            if (errorElement) {
+                errorElement.focus();
+            }
             return;
         }
         
@@ -177,6 +195,7 @@ const Contact: React.FC = () => {
                                 name={id}
                                 value={formData[id]}
                                 onChange={handleChange}
+                                onBlur={handleBlur}
                                 aria-invalid={!!hasError}
                                 aria-describedby={hasError ? errorId : undefined}
                                 aria-required="true"
@@ -194,6 +213,7 @@ const Contact: React.FC = () => {
                             type: type,
                             value: formData[id],
                             onChange: handleChange,
+                            onBlur: handleBlur,
                             'aria-invalid': !!hasError,
                             'aria-describedby': hasError ? errorId : undefined,
                             'aria-required': 'true',
@@ -302,7 +322,7 @@ const Contact: React.FC = () => {
                                         <button 
                                             type="submit" 
                                             className="group w-full justify-center flex items-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
-                                            disabled={formStatus === 'submitting' || !isFormValid}
+                                            disabled={formStatus === 'submitting'}
                                         >
                                             {formStatus === 'submitting' ? (
                                                 <>

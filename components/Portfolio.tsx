@@ -12,7 +12,9 @@ const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string 
             )}
             <img 
                 src={imgUrl} 
-                alt={title} 
+                alt={`Portfolio image for ${title}, a ${category} project.`} 
+                loading="lazy"
+                decoding="async"
                 className={`w-full h-full object-cover transform group-hover:scale-110 transition-all duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'} filter md:brightness-75 saturate-90 group-hover:filter-none`} 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-black md:bg-opacity-0 md:group-hover:bg-opacity-70 transition-all duration-500 flex flex-col justify-end p-6">
@@ -49,8 +51,8 @@ const Portfolio: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 id="portfolio-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Showcasing Local Excellence</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're proud to share the stunning websites we've built for businesses right here in our coastal community.</p>
+                    <h2 id="portfolio-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Our Recent Work</h2>
+                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">Take a look at some of the stunning, high-performance websites and applications we've recently delivered.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
