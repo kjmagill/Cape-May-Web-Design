@@ -12,7 +12,7 @@ const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string 
 );
 
 const Portfolio: React.FC = () => {
-    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1, triggerOnce: true });
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
     const projects = [
         { imgUrl: 'https://picsum.photos/id/1015/800/600', title: 'The Beachcomber Cafe', category: 'Restaurant & Hospitality' },

@@ -116,9 +116,9 @@ const Header: React.FC = () => {
             >
                 {/* Animated Hamburger/Close Icon */}
                 <div className="w-8 h-8 flex flex-col justify-center items-center">
-                    <span className={`block w-7 h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
+                    <span className={`block w-7 h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
                     <span className={`block w-7 h-0.5 bg-white rounded-full my-1.5 transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-                    <span className={`block w-7 h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+                    <span className={`block w-7 h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
                 </div>
             </button>
 
@@ -132,7 +132,7 @@ const Header: React.FC = () => {
                 aria-modal="true"
                 aria-hidden={!isMenuOpen}
             >
-                <nav className="pt-28 p-8 h-full flex flex-col">
+                <nav className="pt-28 p-8 h-full flex flex-col overflow-y-auto">
                     <ul className="flex flex-col items-center text-center space-y-6">
                         {navLinks.map((link, index) => (
                             <li 

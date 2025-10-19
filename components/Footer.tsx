@@ -1,7 +1,9 @@
 import React from 'react';
 import { CapeMayLogo, PhoneIcon } from './icons';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Footer: React.FC = () => {
+    const [footerRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1, triggerOnce: true });
 
     const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
         // If on the landing page, smooth scroll to top
@@ -27,36 +29,54 @@ const Footer: React.FC = () => {
     );
 
     return (
-        <footer className="bg-slate-900 border-t border-slate-800">
+        <footer ref={footerRef} className="bg-slate-900 border-t border-slate-800">
             <div className="container mx-auto px-6 py-8 text-center text-slate-400">
-                <div className="flex justify-center items-center mb-6">
+                <div
+                    className={`flex justify-center items-center mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: '100ms' }}
+                >
                     <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4">
                         <CapeMayLogo className="w-10 h-10" />
                         <LogoText />
                     </a>
                 </div>
-                <p className="mb-4">
+                <p 
+                    className={`mb-4 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: '200ms' }}
+                >
                     Building beautiful and functional websites from the heart of Cape May.
                 </p>
-                <div className="mb-6">
+                <div 
+                    className={`mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: '300ms' }}
+                >
                     <a href="tel:6093006464" className="text-lg hover:text-cyan-400 transition-colors flex items-center justify-center space-x-2">
                         <PhoneIcon className="w-5 h-5"/>
                         <span>(609) 300-6464</span>
                     </a>
                 </div>
-                 <div className="flex justify-center space-x-6 mb-6">
+                 <div 
+                    className={`flex justify-center space-x-6 mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: '400ms' }}
+                 >
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Facebook</a>
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Instagram</a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">LinkedIn</a>
                 </div>
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-y-2 sm:gap-x-4 mb-6 text-sm">
+                <div 
+                    className={`flex flex-col sm:flex-row justify-center items-center gap-y-2 sm:gap-x-4 mb-6 text-sm transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: '500ms' }}
+                >
                     <a href="/blog" className="hover:text-cyan-400 transition-colors">Blog</a>
                     <span className="text-slate-600 hidden sm:block">|</span>
                     <a href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
                     <span className="text-slate-600 hidden sm:block">|</span>
                     <a href="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</a>
                 </div>
-                <p className="text-sm">&copy; {new Date().getFullYear()} Cape May Web Design. All Rights Reserved.</p>
+                <p 
+                    className={`text-sm transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    style={{ transitionDelay: '600ms' }}
+                >&copy; {new Date().getFullYear()} Cape May Web Design. All Rights Reserved.</p>
             </div>
         </footer>
     );

@@ -13,7 +13,7 @@ const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description:
 );
 
 const Services: React.FC = () => {
-    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1, triggerOnce: true });
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
     
     const servicesData = [
         {

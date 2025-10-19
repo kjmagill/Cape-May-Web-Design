@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { ArrowLeftIcon } from './icons';
 
 const TermsOfService: React.FC = () => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    useEffect(() => {
+        const timer = setTimeout(() => setIsLoaded(true), 100);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
             <Header />
             <main className="pt-24 md:pt-32 pb-16 md:pb-20">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto bg-slate-800 rounded-xl shadow-2xl p-8 md:p-12 border border-slate-700">
+                    <div 
+                        className={`max-w-4xl mx-auto bg-slate-800 rounded-xl shadow-2xl p-8 md:p-12 border border-slate-700 transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                    >
                         <h1 className="text-4xl font-extrabold text-white mb-6">Terms of Service</h1>
                         <p className="mb-4">Last updated: {new Date().toLocaleDateString()}</p>
                         

@@ -32,7 +32,7 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => (
 );
 
 const Blog: React.FC = () => {
-    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1, triggerOnce: true });
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
     
     // Show the 3 most recent posts
     const recentPosts = blogPosts.slice(0, 3);

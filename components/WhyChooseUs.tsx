@@ -13,7 +13,7 @@ const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description:
 );
 
 const WhyChooseUs: React.FC = () => {
-    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1, triggerOnce: true });
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
     const features = [
         {

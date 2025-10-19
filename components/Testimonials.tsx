@@ -17,7 +17,7 @@ const TestimonialCard: React.FC<{ quote: string; name: string; company: string }
 );
 
 const Testimonials: React.FC = () => {
-    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1, triggerOnce: true });
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
     const testimonialsData = [
         {

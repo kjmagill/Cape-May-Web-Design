@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { blogPosts } from './blogPosts';
 import { ArrowLeftIcon, CalendarDaysIcon, UserIcon } from './icons';
 
 const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    useEffect(() => {
+        // A small delay to ensure the animation is visible on fast networks
+        const timer = setTimeout(() => setIsLoaded(true), 100);
+        return () => clearTimeout(timer);
+    }, [slug]); // Rerun animation if slug changes
+
     const post = blogPosts.find(p => p.slug === slug);
 
     if (!post) {
@@ -31,7 +38,9 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
             <Header />
             <main className="pt-24 md:pt-32 pb-16 md:pb-20">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto">
+                    <div 
+                        className={`max-w-4xl mx-auto transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                    >
                         <div className="mb-8">
                             <a href="/blog" className="group inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors">
                                 <ArrowLeftIcon className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
@@ -54,7 +63,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                                 </div>
                             </header>
                             
-                            <div className="prose prose-invert prose-lg max-w-none prose-p:text-slate-300 prose-headings:text-white prose-strong:text-white">
+                            <div className="prose prose-invert prose-lg tracking-wide prose-p:leading-loose prose-p:text-slate-300 prose-headings:text-white prose-strong:text-white">
                                 {post.content}
                             </div>
                         </article>

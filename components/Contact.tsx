@@ -19,7 +19,7 @@ type ErrorState = Partial<FormState>;
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 const Contact: React.FC = () => {
-    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.1, triggerOnce: true });
+    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
     const initialFormState: FormState = { name: '', email: '', message: '' };
     const initialTouchState: TouchState = { name: false, email: false, message: false };
