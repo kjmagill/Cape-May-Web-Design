@@ -49,7 +49,7 @@ const Blog: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Digital Marketing Insights for the Shore</h2>
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Fuel Your Growth: Digital Marketing Insights</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">Actionable advice and local marketing tips to help your business thrive online.</p>
                 </div>
                 <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">

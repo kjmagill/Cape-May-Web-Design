@@ -3,6 +3,18 @@ import { CapeMayLogo, PhoneIcon } from './icons';
 
 const Footer: React.FC = () => {
 
+    const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        // If on the landing page, smooth scroll to top
+        if (window.location.pathname === '/') {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        }
+        // On other pages, the default href="/" will navigate to the homepage.
+    };
+
     const LogoText: React.FC = () => (
         <div className="flex flex-col leading-tight text-left">
             <div className="font-oswald text-2xl font-bold text-white uppercase tracking-wider">
@@ -18,7 +30,7 @@ const Footer: React.FC = () => {
         <footer className="bg-slate-900 border-t border-slate-800">
             <div className="container mx-auto px-6 py-8 text-center text-slate-400">
                 <div className="flex justify-center items-center mb-6">
-                    <a href="/#home" className="flex items-center space-x-4">
+                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4">
                         <CapeMayLogo className="w-10 h-10" />
                         <LogoText />
                     </a>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeIcon, ShoppingCartIcon, ChartBarIcon, CpuChipIcon } from './icons';
+import { CodeIcon, ShoppingCartIcon, BullseyeIcon, GearIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
@@ -18,23 +18,23 @@ const Services: React.FC = () => {
     const servicesData = [
         {
             icon: <CodeIcon className="w-12 h-12" />,
-            title: 'Bespoke Website Design',
+            title: 'Custom Website Design',
             description: 'We create stunning, responsive websites tailored to your unique brand. Our designs captivate visitors and convert them into loyal customers.',
         },
         {
             icon: <ShoppingCartIcon className="w-12 h-12" />,
-            title: 'Robust E-commerce Stores',
+            title: 'E-commerce Stores That Sell',
             description: 'Launch a powerful online store that drives sales. We build secure, user-friendly e-commerce platforms designed to scale with your business.',
         },
         {
-            icon: <ChartBarIcon className="w-12 h-12" />,
+            icon: <BullseyeIcon className="w-12 h-12" />,
             title: 'Targeted SEO & Marketing',
             description: 'Increase your online visibility and attract more customers. Our proven SEO and marketing strategies are designed to deliver qualified traffic.',
         },
         {
-            icon: <CpuChipIcon className="w-12 h-12" />,
-            title: 'Custom AI & App Solutions',
-            description: 'Gain a competitive edge with intelligent software. We build custom applications and AI tools to automate processes and unlock data insights.',
+            icon: <GearIcon className="w-12 h-12" />,
+            title: 'Custom Apps & Automations',
+            description: 'Gain a competitive edge with custom software. We build applications and automation tools to streamline processes and boost efficiency.',
         },
     ];
 

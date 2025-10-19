@@ -35,8 +35,8 @@ const Portfolio: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Our Work With Local Businesses</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're proud to showcase the stunning websites we've built for businesses right here at the Jersey Shore.</p>
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-white">Showcasing Local Excellence</h2>
+                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're proud to share the stunning websites we've built for businesses right here in our coastal community.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (

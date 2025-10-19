@@ -51,6 +51,18 @@ const Header: React.FC = () => {
         setIsMenuOpen(false);
     };
 
+    const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        // If on the landing page, smooth scroll to top
+        if (window.location.pathname === '/') {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        }
+        // On other pages, the default href="/" will navigate to the homepage.
+    };
+
     const LogoText: React.FC = () => (
         <div className="flex flex-col leading-tight">
             <div className="font-oswald text-2xl lg:text-3xl font-bold text-white uppercase tracking-wider">
@@ -66,7 +78,7 @@ const Header: React.FC = () => {
         <>
             <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-30' : 'z-50'} ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <a href="/#home" className="flex items-center space-x-4">
+                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4">
                         <CapeMayLogo className="w-11 h-11" />
                         <LogoText />
                     </a>
