@@ -39,7 +39,7 @@ const ScrollToTopButton: React.FC = () => {
                 shadow-lg
                 transition-all duration-300 ease-in-out
                 transform hover:scale-105 hover:-translate-y-1 hover:border-cyan-500 hover:bg-slate-700/80 hover:shadow-lg hover:shadow-cyan-500/20
-                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-cyan-500
+                focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 focus-visible:ring-cyan-500
                 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}
             `}
             aria-label="Scroll to top"

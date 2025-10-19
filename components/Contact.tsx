@@ -170,21 +170,21 @@ const Contact: React.FC = () => {
 
         const statefulLabelClasses = hasError 
             ? 'text-red-400' 
-            : 'text-slate-400 peer-focus:text-cyan-400';
+            : 'text-slate-400 peer-focus-visible:text-cyan-400';
         
         const commonInputClasses = `
             peer block w-full bg-slate-800 border rounded-md py-3 text-white placeholder-transparent pl-12
-            transition-colors duration-300 focus:outline-none focus:ring-1 appearance-none
+            transition-colors duration-300 focus:outline-none appearance-none
         `;
 
         const statefulInputClasses = hasError 
-            ? 'border-red-500/70 focus:ring-red-500/50' 
-            : 'border-slate-600 focus:border-cyan-500 focus:ring-cyan-500/50';
+            ? 'border-red-500/70 focus-visible:ring-1 focus-visible:ring-red-500/50' 
+            : 'border-slate-600 focus-visible:border-cyan-500 focus-visible:ring-1 focus-visible:ring-cyan-500/50';
 
         return (
             <div>
                 <div className={`relative ${hasError ? 'animate-shake' : ''}`}>
-                    <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors duration-300 text-slate-500 peer-focus:text-cyan-400 ${hasError ? '!text-red-400' : ''}`}>
+                    <div className={`absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors duration-300 text-slate-500 peer-focus-visible:text-cyan-400 ${hasError ? '!text-red-400' : ''}`}>
                         <IconComponent className="w-5 h-5" />
                     </div>
                     
@@ -282,14 +282,14 @@ const Contact: React.FC = () => {
                                     <div className="mt-1 flex-shrink-0"><PhoneIcon className="w-5 h-5 text-cyan-400"/></div>
                                     <div>
                                         <span className="text-white font-semibold">Phone</span><br/>
-                                        <a href="tel:6093006464" className="text-slate-300 hover:text-cyan-400 transition-colors">(609) 300-6464</a>
+                                        <a href="tel:6093006464" className="text-slate-300 hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900 rounded-sm">(609) 300-6464</a>
                                     </div>
                                 </li>
                                 <li className="flex items-start space-x-4">
                                     <div className="mt-1 flex-shrink-0"><EnvelopeIcon className="w-5 h-5 text-cyan-400"/></div>
                                     <div>
                                         <span className="text-white font-semibold">Email</span><br/>
-                                        <a href="mailto:capemaywebdev@gmail.com" className="text-slate-300 hover:text-cyan-400 transition-colors">capemaywebdev@gmail.com</a>
+                                        <a href="mailto:capemaywebdev@gmail.com" className="text-slate-300 hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900 rounded-sm">capemaywebdev@gmail.com</a>
                                     </div>
                                 </li>
                                 <li className="flex items-start space-x-4">
@@ -321,7 +321,7 @@ const Contact: React.FC = () => {
                                     <div className="mt-6">
                                         <button 
                                             type="submit" 
-                                            className="group w-full justify-center flex items-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100"
+                                            className="group w-full justify-center flex items-center bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900"
                                             disabled={formStatus === 'submitting'}
                                         >
                                             {formStatus === 'submitting' ? (

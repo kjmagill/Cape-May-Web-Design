@@ -8,7 +8,7 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
 
     return (
         <div className="group bg-slate-800 rounded-2xl shadow-lg border border-slate-700 h-full flex flex-col overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:border-cyan-500/80 hover:shadow-2xl hover:shadow-cyan-500/10">
-            <a href={post.url} target="_blank" rel="noopener noreferrer" className="block overflow-hidden aspect-[16/9] relative bg-slate-700">
+            <a href={post.url} target="_blank" rel="noopener noreferrer" className="block overflow-hidden aspect-[16/9] relative bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-800">
                 {isLoading && (
                     <div className="absolute inset-0 bg-slate-700 animate-pulse"></div>
                 )}
@@ -32,10 +32,10 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
                     </div>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2 flex-grow">
-                     <a href={post.url} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-200">{post.title}</a>
+                     <a href={post.url} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">{post.title}</a>
                 </h3>
                 <p className="text-slate-400 mb-4">{post.excerpt}</p>
-                <a href={post.url} target="_blank" rel="noopener noreferrer" className="mt-auto text-cyan-400 font-semibold inline-flex items-center space-x-2 group-hover:text-cyan-300">
+                <a href={post.url} target="_blank" rel="noopener noreferrer" className="mt-auto text-cyan-400 font-semibold inline-flex items-center space-x-2 group-hover:text-cyan-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">
                     <span>Read More</span>
                     <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>

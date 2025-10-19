@@ -61,7 +61,7 @@ const Portfolio: React.FC = () => {
                             href={project.url}
                             target={project.url.startsWith('http') ? '_blank' : '_self'}
                             rel={project.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                            className={`block transition-all duration-500 ease-out ${
+                            className={`block transition-all duration-500 ease-out rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 ${
                                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                             }`}
                             style={{ transitionDelay: `${150 + index * 100}ms` }}

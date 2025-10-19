@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
                     className={`flex justify-center items-center mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: '100ms' }}
                 >
-                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4">
+                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md">
                         <CapeMayLogo className="w-10 h-10" />
                         <LogoText />
                     </a>
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
                 >
                     <a 
                         href="tel:6093006464" 
-                        className="inline-flex items-center justify-center space-x-3 bg-slate-800 hover:bg-slate-700/80 border border-slate-600 hover:border-cyan-500 text-lg font-semibold text-slate-200 hover:text-white py-2.5 px-6 rounded-full transition-all duration-300 transform hover:scale-105"
+                        className="inline-flex items-center justify-center space-x-3 bg-slate-800 hover:bg-slate-700/80 border border-slate-600 hover:border-cyan-500 text-lg font-semibold text-slate-200 hover:text-white py-2.5 px-6 rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900"
                     >
                         <PhoneIcon className="w-5 h-5 text-cyan-400"/>
                         <span>(609) 300-6464</span>
@@ -62,19 +62,19 @@ const Footer: React.FC = () => {
                     className={`flex justify-center space-x-6 mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: '400ms' }}
                  >
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on Facebook" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Facebook</a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on Instagram" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">Instagram</a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on LinkedIn" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1">LinkedIn</a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on Facebook" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Facebook</a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on Instagram" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Instagram</a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Cape May Web Design on LinkedIn" className="inline-block hover:text-cyan-400 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">LinkedIn</a>
                 </div>
                 <div 
                     className={`flex flex-col sm:flex-row justify-center items-center gap-y-2 sm:gap-x-4 mb-6 text-sm transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: '500ms' }}
                 >
-                    <a href="/blog" className="hover:text-cyan-400 transition-colors">Blog</a>
+                    <a href="/blog" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Blog</a>
                     <span className="text-slate-600 hidden sm:block">|</span>
-                    <a href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                    <a href="/privacy" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Privacy Policy</a>
                     <span className="text-slate-600 hidden sm:block">|</span>
-                    <a href="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</a>
+                    <a href="/terms" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Terms of Service</a>
                 </div>
                 <p 
                     className={`text-sm transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}

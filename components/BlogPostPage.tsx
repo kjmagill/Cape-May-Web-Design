@@ -41,7 +41,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                         className={`max-w-4xl mx-auto transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                     >
                         <div className="mb-8">
-                            <a href="/blog" className="group inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors">
+                            <a href="/blog" className="group inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">
                                 <ArrowLeftIcon className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
                                 <span>Back to Blog</span>
                             </a>
@@ -65,7 +65,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                             <div className="prose prose-invert prose-lg tracking-wide prose-p:leading-loose prose-p:text-slate-300 prose-headings:text-white prose-strong:text-white">
                                 <p>{post.excerpt}</p>
                                 <p className="mt-6">
-                                    <a href={post.url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 font-semibold hover:text-cyan-300 no-underline">
+                                    <a href={post.url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 font-semibold hover:text-cyan-300 no-underline focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">
                                         Continue reading this article &rarr;
                                     </a>
                                 </p>
