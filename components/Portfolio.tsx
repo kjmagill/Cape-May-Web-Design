@@ -15,12 +15,12 @@ const Portfolio: React.FC = () => {
     const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
     const projects = [
-        { imgUrl: 'https://picsum.photos/id/1015/800/600', title: 'The Beachcomber Cafe', category: 'Restaurant & Hospitality' },
-        { imgUrl: 'https://picsum.photos/id/1040/800/600', title: 'Sunset Realty', category: 'Real Estate' },
-        { imgUrl: 'https://picsum.photos/id/1060/800/600', title: 'Ocean Breeze Boutique', category: 'E-commerce' },
-        { imgUrl: 'https://picsum.photos/id/22/800/600', title: 'Cape May Adventures', category: 'Tourism & Events' },
-        { imgUrl: 'https://picsum.photos/id/219/800/600', title: 'Lighthouse Legal', category: 'Professional Services' },
-        { imgUrl: 'https://picsum.photos/id/305/800/600', title: 'Saltwater Artisans', category: 'Portfolio & Gallery' },
+        { imgUrl: 'https://i.postimg.cc/L5qwBkSd/golden-paver.png', title: 'Golden Paver Restorations', category: 'goldenpaver.com', url: 'https://goldenpaver.com' },
+        { imgUrl: 'https://kjmagill.com/img/projects/contrax.jpg', title: 'Contrax', category: 'contrax.finance', url: 'https://contrax.finance' },
+        { imgUrl: 'https://kjmagill.com/img/projects/todesko_banner.jpg', title: 'Todesko Bookkeeping', category: 'todeskobookkeeping.com', url: 'https://todeskobookkeeping.com' },
+        { imgUrl: 'https://kjmagill.com/img/projects/kids_fly.jpg', title: 'Kids Fly', category: 'React web app', url: 'https://github.com/KidsFly-1/Frontend/tree/master' },
+        { imgUrl: 'https://kjmagill.com/img/projects/care_for_life.jpg', title: 'Care For Life', category: 'Offline-first Android app', url: 'https://careforlife.org' },
+        { imgUrl: 'https://kjmagill.com/img/projects/airbnb_tool.jpg', title: 'Airbnb Host Tool', category: 'React web app', url: 'https://github.com/AirBnB-dream-team/Front-End' },
     ];
 
     return (
@@ -40,15 +40,19 @@ const Portfolio: React.FC = () => {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
-                        <div
+                        <a
                             key={index}
-                            className={`transition-all duration-500 ease-out ${
+                            href={project.url}
+                            target={project.url.startsWith('http') ? '_blank' : '_self'}
+                            rel={project.url.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            className={`block transition-all duration-500 ease-out ${
                                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                             }`}
                             style={{ transitionDelay: `${150 + index * 100}ms` }}
+                            aria-label={`View project: ${project.title}`}
                         >
                             <PortfolioItem {...project} />
-                        </div>
+                        </a>
                     ))}
                 </div>
             </div>

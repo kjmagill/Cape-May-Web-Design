@@ -44,7 +44,7 @@ const Header: React.FC = () => {
         { name: 'Why Us', href: '#why-us' },
         { name: 'Portfolio', href: '#portfolio' },
         { name: 'Testimonials', href: '#testimonials' },
-        { name: 'Blog', href: '/blog' },
+        { name: 'Blog', href: '#blog' },
     ];
 
     const handleLinkClick = () => {

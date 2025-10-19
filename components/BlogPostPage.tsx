@@ -63,8 +63,9 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                                 </div>
                             </header>
                             
+                            {/* FIX: Property 'content' does not exist on type 'BlogPost'. Replaced with 'excerpt'. */}
                             <div className="prose prose-invert prose-lg tracking-wide prose-p:leading-loose prose-p:text-slate-300 prose-headings:text-white prose-strong:text-white">
-                                {post.content}
+                                <p>{post.excerpt}</p>
                             </div>
                         </article>
                     </div>

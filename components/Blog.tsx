@@ -4,9 +4,9 @@ import { blogPosts, BlogPost } from './blogPosts';
 import { CalendarDaysIcon, UserIcon, ArrowRightIcon } from './icons';
 
 const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => (
-    <div className="group bg-slate-800 rounded-xl shadow-lg border border-slate-700 h-full flex flex-col overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:border-cyan-500/80 hover:shadow-2xl hover:shadow-cyan-500/10">
-        <a href={`/blog/${post.slug}`} className="block overflow-hidden aspect-[16/9]">
-            <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+    <div className="group bg-slate-800 rounded-2xl shadow-lg border border-slate-700 h-full flex flex-col overflow-hidden transition-all duration-300 transform hover:-translate-y-1 hover:border-cyan-500/80 hover:shadow-2xl hover:shadow-cyan-500/10">
+        <a href={post.url} target="_blank" rel="noopener noreferrer" className="block overflow-hidden aspect-[16/9]">
+            <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 group-hover:shadow-lg group-hover:shadow-black/30" />
         </a>
         <div className="p-6 flex flex-col flex-grow">
             <div className="mb-4 text-sm text-slate-400 flex items-center space-x-4">
@@ -20,10 +20,10 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => (
                 </div>
             </div>
             <h3 className="text-xl font-bold text-white mb-2 flex-grow">
-                 <a href={`/blog/${post.slug}`} className="hover:text-cyan-400 transition-colors duration-200">{post.title}</a>
+                 <a href={post.url} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-200">{post.title}</a>
             </h3>
             <p className="text-slate-400 mb-4">{post.excerpt}</p>
-            <a href={`/blog/${post.slug}`} className="mt-auto text-cyan-400 font-semibold inline-flex items-center space-x-2 group-hover:text-cyan-300">
+            <a href={post.url} target="_blank" rel="noopener noreferrer" className="mt-auto text-cyan-400 font-semibold inline-flex items-center space-x-2 group-hover:text-cyan-300">
                 <span>Read More</span>
                 <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
@@ -64,12 +64,6 @@ const Blog: React.FC = () => {
                             <BlogCard post={post} />
                         </div>
                     ))}
-                </div>
-                <div className="text-center mt-16">
-                     <a href="/blog" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-500/30">
-                        <span>View All Posts</span>
-                        <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </a>
                 </div>
             </div>
         </section>

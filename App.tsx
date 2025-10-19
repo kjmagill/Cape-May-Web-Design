@@ -11,8 +11,6 @@ import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import ScrollToTopButton from './components/ScrollToTopButton';
-import BlogListingPage from './components/BlogListingPage';
-import BlogPostPage from './components/BlogPostPage';
 
 const LandingPage: React.FC = () => (
   <div className="bg-slate-900 min-h-screen">
@@ -35,20 +33,11 @@ const LandingPage: React.FC = () => (
 const App: React.FC = () => {
   const path = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash for root check
 
-  // Match dynamic blog post URLs first
-  const blogPostMatch = path.match(/^\/blog\/(.+)/);
-  if (blogPostMatch) {
-    const slug = blogPostMatch[1];
-    return <BlogPostPage slug={slug} />;
-  }
-
   switch (path) {
     case '/privacy':
       return <PrivacyPolicy />;
     case '/terms':
       return <TermsOfService />;
-    case '/blog':
-      return <BlogListingPage />;
     default:
       return <LandingPage />;
   }

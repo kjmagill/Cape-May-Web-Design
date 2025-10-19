@@ -68,13 +68,14 @@
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": ["ProfessionalService", "LocalBusiness"],
+          "@type": ["ProfessionalService", "LocalBusiness", "InternetMarketingService"],
           "@id": "https://www.capemaywebdesign.com/#organization",
           "name": "Cape May Web Design",
           "url": "https://www.capemaywebdesign.com/",
           "logo": "https://kjmagill.com/img/logos/cmwd_logo.png",
           "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&h=630&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          "description": "Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey.",
+          "description": "Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey. We craft digital experiences that deliver measurable results and fuel your growth.",
+          "slogan": "More Than a Website. A Growth Engine.",
           "telephone": "+1-609-300-6464",
           "email": "capemaywebdev@gmail.com",
           "address": {
@@ -97,33 +98,57 @@
           ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Web Design Services",
+            "name": "Web Design & Digital Marketing Services",
             "itemListElement": [
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Custom Web Design",
+                  "@id": "https://www.capemaywebdesign.com/#service-web-design",
+                  "name": "Custom Website Design",
                   "description": "We create stunning, responsive websites tailored to your unique brand, designed to captivate visitors and convert them into loyal customers.",
-                  "serviceType": "Web Design"
+                  "serviceType": "Web Design",
+                  "provider": { "@id": "https://www.capemaywebdesign.com/#organization" },
+                  "areaServed": { "@type": "AdministrativeArea", "name": "Cape May County" },
+                  "serviceOutput": { "@type": "WebSite" }
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
+                  "@id": "https://www.capemaywebdesign.com/#service-ecommerce",
                   "name": "E-commerce Stores",
                   "description": "Launch a powerful online store that drives sales. We build secure, user-friendly e-commerce platforms designed to scale with your business.",
-                  "serviceType": "E-commerce Development"
+                  "serviceType": "E-commerce Development",
+                  "provider": { "@id": "https://www.capemaywebdesign.com/#organization" },
+                  "areaServed": { "@type": "AdministrativeArea", "name": "Cape May County" },
+                  "serviceOutput": { "@type": "WebSite" }
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "SEO & Marketing",
+                  "@id": "https://www.capemaywebdesign.com/#service-seo",
+                  "name": "Targeted SEO & Marketing",
                   "description": "Increase your online visibility and attract more customers. Our proven SEO and marketing strategies are designed to deliver qualified traffic.",
-                  "serviceType": "Search Engine Optimization"
+                  "serviceType": "Search Engine Optimization",
+                  "provider": { "@id": "https://www.capemaywebdesign.com/#organization" },
+                  "areaServed": { "@type": "AdministrativeArea", "name": "Cape May County" }
+                }
+              },
+               {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "@id": "https://www.capemaywebdesign.com/#service-apps",
+                  "name": "Custom Apps & Automations",
+                  "description": "Gain a competitive edge with custom software. We build applications and automation tools to streamline processes and boost efficiency.",
+                  "serviceType": "Software Development",
+                  "provider": { "@id": "https://www.capemaywebdesign.com/#organization" },
+                  "areaServed": { "@type": "AdministrativeArea", "name": "Cape May County" },
+                  "serviceOutput": { "@type": "SoftwareApplication" }
                 }
               }
             ]
