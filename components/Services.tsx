@@ -1,3 +1,5 @@
+
+
 import React, { useEffect } from 'react';
 import { CodeIcon, ShoppingCartIcon, BullseyeIcon, GearIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
@@ -25,8 +27,8 @@ const Services: React.FC = () => {
         },
         {
             icon: <ShoppingCartIcon className="w-12 h-12" />,
-            title: 'E-commerce Stores That Sell',
-            description: 'Launch a powerful online store that drives sales. We build secure, user-friendly e-commerce platforms designed to scale with your business.',
+            title: 'Next-Gen Online Stores',
+            description: 'Launch a powerful online store designed to drive sales. We build secure, user-friendly e-commerce platforms that scale with your business.',
             id: 'service-ecommerce',
             serviceType: 'E-commerce Development'
         },
@@ -99,7 +101,7 @@ const Services: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                     }`}
                 >
-                    <h2 id="services-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Services to Fuel Your Growth</h2>
+                    <h2 id="services-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Our Professional Services</h2>
                     <p className="text-slate-400 mt-2 max-w-2xl mx-auto">From stunning designs to powerful marketing, we offer everything your South Jersey business needs to succeed online.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
