@@ -8,6 +8,8 @@ declare global {
       element: HTMLElement;
       mainAudio?: string;
       endAudio?: string;
+      startCallback?: () => void;
+      endCallback?: () => void;
     }) => void;
   }
 }
@@ -15,6 +17,8 @@ declare global {
 const ScrollToTopButton: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
     const elevatorRef = useRef<HTMLAnchorElement>(null);
+    const mainAudioRef = useRef<HTMLAudioElement>(null);
+    const endAudioRef = useRef<HTMLAudioElement>(null);
 
     const toggleVisibility = () => {
         if (window.scrollY > 300) {
@@ -41,8 +45,18 @@ const ScrollToTopButton: React.FC = () => {
             try {
                 new window.Elevator({
                     element: elevatorElement,
-                    mainAudio: 'https://cdn.jsdelivr.net/gh/tholman/elevator.js/demo/music/elevator.mp3',
-                    endAudio: 'https://cdn.jsdelivr.net/gh/tholman/elevator.js/demo/music/ding.mp3',
+                    // We now control audio playback manually via callbacks
+                    // instead of passing audio file URLs to the library.
+                    startCallback: () => {
+                        mainAudioRef.current?.play().catch(e => console.error("Elevator music failed to play:", e));
+                    },
+                    endCallback: () => {
+                        if (mainAudioRef.current) {
+                            mainAudioRef.current.pause();
+                            mainAudioRef.current.currentTime = 0;
+                        }
+                        endAudioRef.current?.play().catch(e => console.error("Elevator ding failed to play:", e));
+                    }
                 });
             } catch(e) {
                 console.error("Failed to initialize Elevator.js", e);
@@ -65,28 +79,46 @@ const ScrollToTopButton: React.FC = () => {
     };
 
     return (
-        <a
-            ref={elevatorRef}
-            id="elevator-button"
-            href="#"
-            onClick={handleFallbackClick}
-            role="button"
-            className={`
-                fixed bottom-6 right-6 z-50
-                w-12 h-12 rounded-full
-                bg-slate-800/70 backdrop-blur-sm
-                border-2 border-slate-700
-                flex items-center justify-center
-                shadow-lg
-                transition-all duration-300 ease-in-out
-                transform hover:scale-105 hover:-translate-y-1 hover:border-cyan-500 hover:bg-slate-700/80 hover:shadow-lg hover:shadow-cyan-500/20
-                focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 focus-visible:ring-cyan-500
-                ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}
-            `}
-            aria-label="Scroll to top"
-        >
-            <ArrowUpIcon className="w-6 h-6" />
-        </a>
+        <>
+            <a
+                ref={elevatorRef}
+                id="elevator-button"
+                href="#"
+                onClick={handleFallbackClick}
+                role="button"
+                className={`
+                    fixed bottom-6 right-6 z-50
+                    w-12 h-12 rounded-full
+                    bg-slate-800/70 backdrop-blur-sm
+                    border-2 border-slate-700
+                    flex items-center justify-center
+                    shadow-lg
+                    transition-all duration-300 ease-in-out
+                    transform hover:scale-105 hover:-translate-y-1 hover:border-cyan-500 hover:bg-slate-700/80 hover:shadow-lg hover:shadow-cyan-500/20
+                    focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 focus-visible:ring-cyan-500
+                    ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}
+                `}
+                aria-label="Scroll to top"
+            >
+                <ArrowUpIcon className="w-6 h-6" />
+            </a>
+            
+            {/* Audio elements for Elevator.js, controlled via callbacks */}
+            <audio 
+                ref={mainAudioRef}
+                src="https://cdn.jsdelivr.net/gh/tholman/elevator.js/demo/music/elevator.mp3"
+                preload="auto"
+                aria-hidden="true"
+                style={{ display: 'none' }}
+            />
+            <audio 
+                ref={endAudioRef}
+                src="https://cdn.jsdelivr.net/gh/tholman/elevator.js/demo/music/ding.mp3"
+                preload="auto"
+                aria-hidden="true"
+                style={{ display: 'none' }}
+            />
+        </>
     );
 };
 
