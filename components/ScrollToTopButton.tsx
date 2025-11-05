@@ -41,8 +41,8 @@ const ScrollToTopButton: React.FC = () => {
             try {
                 new window.Elevator({
                     element: elevatorElement,
-                    mainAudio: 'https://raw.githubusercontent.com/tholman/elevator.js/master/demo/music/elevator.mp3',
-                    endAudio: 'https://raw.githubusercontent.com/tholman/elevator.js/master/demo/music/ding.mp3',
+                    mainAudio: 'https://cdn.jsdelivr.net/gh/tholman/elevator.js/demo/music/elevator.mp3',
+                    endAudio: 'https://cdn.jsdelivr.net/gh/tholman/elevator.js/demo/music/ding.mp3',
                 });
             } catch(e) {
                 console.error("Failed to initialize Elevator.js", e);
