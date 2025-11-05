@@ -74,6 +74,15 @@ const App: React.FC = () => {
   useSmoothScroll();
   
   useEffect(() => {
+    // FIX FOR MOBILE VIEWPORT HEIGHT: This prevents the "bounce" on scroll
+    // by setting a stable height value that doesn't change when the browser
+    // UI (like the address bar) hides or shows.
+    const handleResize = () => {
+      document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+    };
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Set initial height
+
     const setFavicon = () => {
       const faviconUrl = 'https://kjmagill.com/img/logos/cmwd_logo.png';
       const img = new Image();
@@ -127,6 +136,8 @@ const App: React.FC = () => {
     updatePropertyMetaTag('og:site_name', 'Cape May Web Design');
     updateMetaTag('twitter:site_name', 'Cape May Web Design');
 
+    // Cleanup resize listener on component unmount
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const path = window.location.pathname.replace(/\/$/, "");

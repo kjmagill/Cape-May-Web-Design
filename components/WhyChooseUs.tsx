@@ -23,7 +23,7 @@ const WhyChooseUs: React.FC = () => {
         },
         {
             icon: <InterlockingCirclesIcon className="w-8 h-8" />,
-            title: 'Your Dedicated Local Partner',
+            title: 'A Personalized Approach to Every Project',
             description: "You're more than a client to us. We work closely with you to understand your specific goals and craft a solution that perfectly fits your vision.",
         },
         {

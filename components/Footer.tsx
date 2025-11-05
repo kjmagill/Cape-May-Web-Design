@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             <div className="font-oswald text-2xl font-bold text-white uppercase tracking-wider">
                 Cape May
             </div>
-            <div className="font-oswald text-sm font-bold text-cyan-400 uppercase tracking-[0.2em]">
+            <div className="font-oswald text-sm font-bold text-cyan-400 uppercase tracking-[0.2em] ml-px">
                 Web Design
             </div>
         </div>

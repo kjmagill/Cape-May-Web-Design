@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
@@ -43,7 +45,7 @@ const PrivacyPolicy: React.FC = () => {
                                 href={privacyPolicyUrl} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800"
+                                className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold [text-shadow:0_1px_3px_rgb(0_0_0_/_0.25)] py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800"
                             >
                                 <span>View Our Privacy Policy</span>
                                 <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />

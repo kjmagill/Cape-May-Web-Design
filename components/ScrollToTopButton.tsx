@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpIcon } from './icons';
 
+// Add type definition for Elevator.js on the window object
+declare global {
+  interface Window {
+    Elevator: new (options: {
+      element: HTMLElement;
+      mainAudio?: string;
+      endAudio?: string;
+    }) => void;
+  }
+}
+
 const ScrollToTopButton: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
 
@@ -12,13 +23,6 @@ const ScrollToTopButton: React.FC = () => {
         }
     };
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
-
     useEffect(() => {
         window.addEventListener('scroll', toggleVisibility);
 
@@ -27,9 +31,27 @@ const ScrollToTopButton: React.FC = () => {
         };
     }, []);
 
+    // Initialize Elevator.js on component mount
+    useEffect(() => {
+        const buttonElement = document.getElementById('elevator-button');
+        
+        // Ensure the script has loaded and the element exists
+        if (buttonElement && window.Elevator) {
+            try {
+                new window.Elevator({
+                    element: buttonElement,
+                    mainAudio: 'https://raw.githubusercontent.com/tholman/elevator.js/master/demo/music/elevator.mp3',
+                    endAudio: 'https://raw.githubusercontent.com/tholman/elevator.js/master/demo/music/ding.mp3',
+                });
+            } catch(e) {
+                console.error("Failed to initialize Elevator.js", e);
+            }
+        }
+    }, []);
+
     return (
         <button
-            onClick={scrollToTop}
+            id="elevator-button"
             className={`
                 fixed bottom-6 right-6 z-50
                 w-12 h-12 rounded-full

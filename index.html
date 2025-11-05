@@ -55,6 +55,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/elevator.js@1.1.2/dist/elevator.min.js"></script>
     <style>
       .font-oswald {
         font-family: 'Oswald', sans-serif;
@@ -77,6 +78,20 @@
       }
       .animate-shake {
         animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
+      }
+      @keyframes pulse-glow {
+        0%, 100% {
+            box-shadow: 0 0 0 0px rgba(6, 182, 212, 0.3);
+        }
+        50% {
+            box-shadow: 0 0 0 14px rgba(6, 182, 212, 0);
+        }
+      }
+      .hover\:animate-pulse-glow:hover {
+        animation: pulse-glow 2s infinite;
+      }
+      .min-h-dynamic-screen {
+        min-height: var(--app-height, 100vh);
       }
       .bg-grid-pattern-20 {
         background-image: radial-gradient(rgba(51, 65, 85, 0.2) 1px, transparent 1px);

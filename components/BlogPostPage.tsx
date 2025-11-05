@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
@@ -21,7 +23,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                     <div className="container mx-auto px-6 text-center">
                         <h1 className="text-4xl font-extrabold text-white mb-6">Post Not Found</h1>
                         <p className="text-slate-400 mb-8">Sorry, we couldn't find the blog post you were looking for.</p>
-                        <a href="/blog" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                        <a href="/blog" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold [text-shadow:0_1px_3px_rgb(0_0_0_/_0.25)] py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
                             <ArrowLeftIcon className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
                             <span>Back to Blog</span>
                         </a>
