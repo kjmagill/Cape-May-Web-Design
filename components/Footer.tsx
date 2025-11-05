@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
                     className={`mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: '200ms' }}
                 >
-                    Building beautiful and functional websites from the heart of Cape May.
+                    Empowering local businesses to make waves online.
                 </p>
                 <div 
                     className={`mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
@@ -70,11 +70,14 @@ const Footer: React.FC = () => {
                     className={`flex flex-col sm:flex-row justify-center items-center gap-y-2 sm:gap-x-4 mb-6 text-sm transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: '500ms' }}
                 >
-                    <a href="/blog" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Blog</a>
-                    <span className="text-slate-600 hidden sm:block">|</span>
                     <a href="https://www.freeprivacypolicy.com/live/0ca54af8-fd0f-4c58-a1f2-19da2b034053" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Privacy Policy</a>
                     <span className="text-slate-600 hidden sm:block">|</span>
-                    <a href="/terms" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Terms of Service</a>
+                    <span className="relative group cursor-not-allowed" title="Our Terms of Service page is coming soon.">
+                        Terms of Service
+                        <span className="absolute hidden lg:block -top-10 left-1/2 -translate-x-1/2 w-max bg-slate-700 text-white text-xs rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                            Coming Soon
+                        </span>
+                    </span>
                 </div>
                 <p 
                     className={`text-sm transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}

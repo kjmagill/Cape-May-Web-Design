@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, AnimatedCheckCircleIcon, MapPinIcon, PhoneIcon, ExclamationCircleIcon, ClipboardDocumentListIcon, ChevronDownIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
