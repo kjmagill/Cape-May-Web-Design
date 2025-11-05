@@ -304,7 +304,7 @@ const Contact: React.FC = () => {
                             </ul>
                         </div>
                         {/* Right Column: Form */}
-                        <div>
+                        <div id="contact-form">
                              {formStatus === 'success' ? (
                                 <div role="status" aria-live="polite" className="text-center h-full flex flex-col justify-center items-center py-10 transition-all duration-300 ease-in-out">
                                     <AnimatedCheckCircleIcon className="w-20 h-20 mx-auto" />
