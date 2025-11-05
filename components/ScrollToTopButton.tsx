@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpIcon } from './icons';
 
 // Add type definition for Elevator.js on the window object
@@ -14,6 +14,7 @@ declare global {
 
 const ScrollToTopButton: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const elevatorRef = useRef<HTMLAnchorElement>(null);
 
     const toggleVisibility = () => {
         if (window.scrollY > 300) {
@@ -33,13 +34,13 @@ const ScrollToTopButton: React.FC = () => {
 
     // Initialize Elevator.js on component mount
     useEffect(() => {
-        const buttonElement = document.getElementById('elevator-button');
+        const elevatorElement = elevatorRef.current;
         
         // Ensure the script has loaded and the element exists
-        if (buttonElement && window.Elevator) {
+        if (elevatorElement && window.Elevator) {
             try {
                 new window.Elevator({
-                    element: buttonElement,
+                    element: elevatorElement,
                     mainAudio: 'https://raw.githubusercontent.com/tholman/elevator.js/master/demo/music/elevator.mp3',
                     endAudio: 'https://raw.githubusercontent.com/tholman/elevator.js/master/demo/music/ding.mp3',
                 });
@@ -49,9 +50,27 @@ const ScrollToTopButton: React.FC = () => {
         }
     }, []);
 
+    const handleFallbackClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        // This is a fallback for when Elevator.js fails to initialize or is blocked.
+        // If Elevator.js is loaded, it will handle the click and prevent this default behavior.
+        if (!window.Elevator) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        }
+        // If Elevator.js is initialized, it has its own listener that will handle the click
+        // and prevent the default href="#" behavior. So we don't need to do anything here.
+    };
+
     return (
-        <button
+        <a
+            ref={elevatorRef}
             id="elevator-button"
+            href="#"
+            onClick={handleFallbackClick}
+            role="button"
             className={`
                 fixed bottom-6 right-6 z-50
                 w-12 h-12 rounded-full
@@ -67,7 +86,7 @@ const ScrollToTopButton: React.FC = () => {
             aria-label="Scroll to top"
         >
             <ArrowUpIcon className="w-6 h-6" />
-        </button>
+        </a>
     );
 };
 
