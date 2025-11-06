@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
                         isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}
                 >
-                    We build strategic, performance-driven websites that don't just look great—they deliver measurable results and fuel your business growth.
+                    We build strategic, performance-driven websites to help local businesses establish a strong online presence and fuel business growth.
                 </p>
                 <div
                     className={`flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 transition-all duration-700 ease-out delay-500 ${

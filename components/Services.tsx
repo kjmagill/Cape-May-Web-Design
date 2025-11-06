@@ -27,7 +27,7 @@ const Services: React.FC = () => {
         },
         {
             icon: <ShoppingCartIcon className="w-12 h-12" />,
-            title: 'Next-Gen Online Stores',
+            title: 'Smart Online Stores',
             description: 'Launch a powerful online store designed to drive sales. We build secure, user-friendly e-commerce platforms that scale with your business.',
             id: 'service-ecommerce',
             serviceType: 'E-commerce Development'
