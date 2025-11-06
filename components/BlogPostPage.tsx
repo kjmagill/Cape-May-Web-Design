@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { blogPosts } from './blogPosts';
-import { ArrowLeftIcon, CalendarDaysIcon, UserIcon } from './icons';
+import { ArrowLeftIcon, CalendarDaysIcon, UserIcon, ClockIcon } from './icons';
 
 const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
     const post = blogPosts.find(p => p.slug === slug);
@@ -52,7 +52,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                         <article>
                             <header className="mb-8">
                                 <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">{post.title}</h1>
-                                <div className="text-slate-400 flex items-center space-x-6">
+                                <div className="text-slate-400 flex flex-wrap items-center gap-x-6 gap-y-2">
                                     <div className="flex items-center space-x-2">
                                         <UserIcon className="w-5 h-5" />
                                         <span>By {post.author}</span>
@@ -61,8 +61,18 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                                         <CalendarDaysIcon className="w-5 h-5" />
                                         <span>{post.date}</span>
                                     </div>
+                                    <div className="flex items-center space-x-2">
+                                        <ClockIcon className="w-5 h-5" />
+                                        <span>{post.readingTime}</span>
+                                    </div>
                                 </div>
                             </header>
+                            
+                            <div className="flex flex-wrap gap-2 mb-8">
+                                {post.tags.map(tag => (
+                                    <span key={tag} className="text-sm font-semibold text-cyan-200 bg-cyan-900/60 px-3 py-1.5 rounded-full">{tag}</span>
+                                ))}
+                            </div>
                             
                             <div className="prose prose-invert prose-lg tracking-wide prose-p:leading-loose prose-p:text-slate-300 prose-headings:text-white prose-strong:text-white">
                                 <p>{post.excerpt}</p>

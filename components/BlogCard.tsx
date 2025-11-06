@@ -1,6 +1,6 @@
 import React from 'react';
 import { BlogPost } from './blogPosts';
-import { CalendarDaysIcon, UserIcon, ArrowRightIcon } from './icons';
+import { CalendarDaysIcon, UserIcon, ArrowRightIcon, ClockIcon } from './icons';
 import { useImageLoader } from '../hooks/useImageLoader';
 
 const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
@@ -22,7 +22,7 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
                 />
             </a>
             <div className="p-6 flex flex-col flex-grow">
-                <div className="mb-4 text-sm text-slate-400 flex items-center space-x-4">
+                <div className="mb-4 text-sm text-slate-400 flex flex-wrap items-center gap-x-4 gap-y-2">
                     <div className="flex items-center space-x-2">
                         <UserIcon className="w-4 h-4" />
                         <span>{post.author}</span>
@@ -31,12 +31,21 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
                         <CalendarDaysIcon className="w-4 h-4" />
                         <span>{post.date}</span>
                     </div>
+                    <div className="flex items-center space-x-2">
+                        <ClockIcon className="w-4 h-4" />
+                        <span>{post.readingTime}</span>
+                    </div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2 flex-grow">
+                <h3 className="text-xl font-bold text-white mb-2">
                      <a href={post.url} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">{post.title}</a>
                 </h3>
-                <p className="text-slate-400 mb-4">{post.excerpt}</p>
-                <a href={post.url} target="_blank" rel="noopener noreferrer" className="mt-auto text-cyan-400 font-semibold inline-flex items-center space-x-2 group-hover:text-cyan-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">
+                <p className="text-slate-400 mb-6 flex-grow">{post.excerpt}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                    {post.tags.map(tag => (
+                        <span key={tag} className="text-xs font-semibold text-cyan-300 bg-cyan-900/50 px-2.5 py-1 rounded-full">{tag}</span>
+                    ))}
+                </div>
+                <a href={post.url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 font-semibold inline-flex items-center space-x-2 group-hover:text-cyan-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">
                     <span>Read More</span>
                     <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>

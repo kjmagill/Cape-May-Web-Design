@@ -93,7 +93,7 @@ const Header: React.FC = () => {
         <>
             <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-30' : 'z-50'} ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md">
+                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
                         <CapeMayLogo className="w-11 h-11" />
                         <LogoText />
                     </a>
@@ -123,7 +123,7 @@ const Header: React.FC = () => {
             </header>
 
             <button 
-                className="fixed top-5 right-6 lg:hidden text-white z-[60] focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-md" 
+                className="fixed top-5 right-6 lg:hidden text-white z-[60] focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-md hover:opacity-80 transition-opacity duration-300" 
                 onClick={() => setIsMenuOpen(!isMenuOpen)} 
                 aria-label="Toggle navigation menu" 
                 aria-expanded={isMenuOpen} 
