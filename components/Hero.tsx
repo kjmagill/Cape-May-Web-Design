@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
     return (
         <section
             id="home"
-            className="relative min-h-dynamic-screen flex flex-col items-center justify-center text-center px-2 sm:px-6 pt-24 pb-12 md:py-20 bg-gradient-to-b from-slate-900 to-slate-800"
+            className="relative min-h-dynamic-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-12 md:py-20 bg-gradient-to-b from-slate-900 to-slate-800"
         >
             <div className="absolute inset-0 bg-grid-pattern-40 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
             <div className="relative z-10">
@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
                         isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}
                 >
-                    We build strategic, performance-driven websites to help local businesses establish a strong online presence and fuel business growth.
+                    We build strategic, performance-driven websites to help local businesses establish a strong online presence and fuel growth.
                 </p>
                 <div
                     className={`flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 transition-all duration-700 ease-out delay-500 ${
