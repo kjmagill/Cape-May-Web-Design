@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
     return (
         <section
             id="home"
-            className="relative min-h-dynamic-screen flex flex-col items-center justify-center text-center px-6 pt-24 pb-12 md:py-20 bg-gradient-to-b from-slate-900 to-slate-800"
+            className="relative min-h-dynamic-screen flex flex-col items-center justify-center text-center px-2 sm:px-6 pt-24 pb-12 md:py-20 bg-gradient-to-b from-slate-900 to-slate-800"
         >
             <div className="absolute inset-0 bg-grid-pattern-40 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
             <div className="relative z-10">
