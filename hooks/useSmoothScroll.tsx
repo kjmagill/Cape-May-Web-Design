@@ -38,13 +38,8 @@ export const useSmoothScroll = () => {
       // Ensure the event target is an element, then check if it's an anchor or inside one
       const anchorTarget = (event.target as Element).closest('a');
       
-      // If there's no anchor, or if it's the elevator button, do nothing.
-      // This prevents this global handler from interfering with elevator.js.
-      if (!anchorTarget || anchorTarget.id === 'elevator-button') {
-        return;
-      }
-
       if (
+        anchorTarget &&
         anchorTarget.hash && // Check for a hash (e.g., #services)
         anchorTarget.pathname === window.location.pathname // Ensure it's a link on the current page
       ) {
