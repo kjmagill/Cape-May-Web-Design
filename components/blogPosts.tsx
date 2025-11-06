@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Elevate your local search rankings with these actionable strategies. This deep dive covers everything from Google Business Profile optimization to building local citations.',
     author: 'Mordy Oberstein',
     date: 'June 19, 2024',
-    imageUrl: 'https://i.postimg.cc/8sjnV74B/local-seo-phone.png',
+    imageUrl: 'https://i.postimg.cc/W4xZckd5/google-ranking.png',
     url: 'https://www.semrush.com/blog/how-to-improve-local-seo/?utm_source=capemaywebdesign.com',
   },
   {
