@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
         >
             <div className="absolute inset-0 bg-grid-pattern-40 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
             <div className="relative z-10">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4">
+                <h1 className="text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4">
                     <span className={`block transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                         More Than a Website.
                     </span>
