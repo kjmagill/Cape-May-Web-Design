@@ -67,13 +67,18 @@ const Header: React.FC = () => {
     };
 
     const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        // If on the landing page, smooth scroll to top
-        if (window.location.pathname === '/') {
+        const path = window.location.pathname;
+        // If on the landing page, which can be '/' or '/index.html', smooth scroll to top
+        if (path === '/' || path === '/index.html') {
             event.preventDefault();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
             });
+            // Also, update the URL to be the clean root path if necessary
+            if (path === '/index.html' && window.history.pushState) {
+                window.history.pushState({}, '', '/');
+            }
         }
         // On other pages, the default href="/" will navigate to the homepage.
     };
