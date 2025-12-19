@@ -84,11 +84,11 @@ const Header: React.FC = () => {
     };
 
     const LogoText: React.FC = () => (
-        <div className="flex flex-col leading-tight">
-            <div className="font-oswald text-2xl lg:text-3xl font-bold text-white uppercase tracking-wider">
+        <div className="flex flex-col leading-[1.1]">
+            <div className="font-oswald text-xl lg:text-2xl font-bold text-white uppercase tracking-wider">
                 Cape May
             </div>
-            <div className="font-oswald text-xs lg:text-sm font-bold text-cyan-400 uppercase tracking-[0.22em] ml-px">
+            <div className="font-oswald text-[10px] lg:text-[11px] font-bold text-cyan-400 uppercase tracking-[0.24em] ml-px">
                 Web Design
             </div>
         </div>
@@ -98,8 +98,8 @@ const Header: React.FC = () => {
         <>
             <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-30' : 'z-50'} ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
-                        <CapeMayLogo className="w-11 h-11" />
+                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
+                        <CapeMayLogo className="w-10 h-10" />
                         <LogoText />
                     </a>
                     <nav role="navigation" aria-label="Main" className="hidden lg:flex items-center space-x-8">

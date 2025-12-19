@@ -23,19 +23,19 @@ const Testimonials: React.FC = () => {
 
     const testimonialsData = [
         {
-            quote: "Working with Cape May Web Design was the best decision for my boutique. The new online store they built is not only beautiful but so easy to use. Our online sales have taken off, and customers are always saying how much they love the new site.",
-            name: "Jessica P.",
-            company: "Local Boutique Owner",
+            quote: "When we started Golden Paver, we didn't even have a logo, let alone a website. KJ helped us build our brand from the ground up and created a website that looks like a well-established company. We're already seeing local leads coming in directly through the new site!",
+            name: "Josh & Chris",
+            company: "Golden Paver Owners",
         },
         {
-            quote: "They really captured the vibe of our restaurant with the new website. It's beautiful. But more importantly, it works. The online reservation system has streamlined everything, made my life easier, and our nights busier.",
-            name: "David R.",
-            company: "Restaurant Owner",
+            quote: "As a CPA and small business owner, I needed a website that projected professionalism and expertise to my clients. KJ designed a clean, modern site that makes scheduling consultations incredibly simple. It’s one of the best investments I’ve made in my business so far.",
+            name: "Lauren T.",
+            company: "Certified Public Accountant",
         },
         {
-            quote: "My business was basically invisible online before I found these folks. They didn't just give me a great-looking site; they got it to the top of Google. Now, my phone rings consistently with actual, quality leads. It's completely changed how I find new customers.",
-            name: "Michael B.",
-            company: "Local Service Provider",
+            quote: "My online business was basically invisible before I found this guy. He built me a great-looking website and somehow got me to the top of Google search results for my niche. Now, my phone's constantly buzzing with new sales & leads. This has completely changed the game for me.",
+            name: "Mike M.",
+            company: "E-commerce Entrepreneur",
         },
     ];
 
