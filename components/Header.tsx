@@ -84,11 +84,11 @@ const Header: React.FC = () => {
     };
 
     const LogoText: React.FC = () => (
-        <div className="flex flex-col leading-[1.05]">
-            <div className="font-oswald text-[1.4rem] lg:text-[1.7rem] font-bold text-white uppercase tracking-wider">
+        <div className="flex flex-col leading-[1.2]">
+            <div className="font-oswald text-[1.3rem] lg:text-[1.6rem] font-bold text-white uppercase tracking-wider">
                 Cape May
             </div>
-            <div className="font-oswald text-[11px] lg:text-[13px] font-bold text-cyan-400 uppercase tracking-[0.26em] ml-px">
+            <div className="font-oswald text-[10.5px] lg:text-[12px] font-bold text-cyan-400 uppercase tracking-[0.26em] ml-px">
                 Web Design
             </div>
         </div>
@@ -147,7 +147,7 @@ const Header: React.FC = () => {
                 id="mobile-menu"
                 ref={menuRef}
                 tabIndex={-1}
-                className={`fixed top-0 right-0 h-full w-4/5 max-w-sm bg-slate-900 z-50 transition-all duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}`}
+                className={`fixed top-0 right-0 h-full w-4/5 max-sm max-w-sm bg-slate-900 z-50 transition-all duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}`}
                 role="dialog"
                 aria-modal="true"
                 aria-hidden={!isMenuOpen}
