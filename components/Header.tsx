@@ -84,11 +84,11 @@ const Header: React.FC = () => {
     };
 
     const LogoText: React.FC = () => (
-        <div className="flex flex-col leading-[1.1]">
-            <div className="font-oswald text-xl lg:text-2xl font-bold text-white uppercase tracking-wider">
+        <div className="flex flex-col leading-[1.05]">
+            <div className="font-oswald text-[1.4rem] lg:text-[1.7rem] font-bold text-white uppercase tracking-wider">
                 Cape May
             </div>
-            <div className="font-oswald text-[10px] lg:text-[11px] font-bold text-cyan-400 uppercase tracking-[0.24em] ml-px">
+            <div className="font-oswald text-[11px] lg:text-[13px] font-bold text-cyan-400 uppercase tracking-[0.26em] ml-px">
                 Web Design
             </div>
         </div>
