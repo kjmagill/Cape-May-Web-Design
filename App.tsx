@@ -43,9 +43,9 @@ const LandingPage: React.FC = () => {
   const metadata = useMemo(() => getEmbeddedMetadata(), []);
 
   useSeo({
-    title: metadata?.pageTitle || 'Cape May Web Design | Custom Websites for Local Businesses',
-    description: metadata?.pageDescription || 'Cape May Web Design builds strategic, performance-driven websites for local businesses in South Jersey.',
-    keywords: metadata?.keywords || 'web design, web development, Cape May',
+    title: metadata?.pageTitle || 'Cape May Web Design | Custom Websites & Brand Identity',
+    description: metadata?.pageDescription || 'Cape May Web Design builds strategic, performance-driven websites and powerful brand identities for local businesses in South Jersey.',
+    keywords: metadata?.keywords || 'web design, branding, web development, Cape May',
     ogImage: metadata?.ogImage,
     twitterImage: metadata?.twitterImage,
     canonicalUrl: metadata?.canonicalUrl,
