@@ -1,7 +1,6 @@
 
-
 import React, { useEffect } from 'react';
-import { CodeIcon, ShoppingCartIcon, BullseyeIcon, GearIcon } from './icons';
+import { CodeIcon, SparklesIcon, BullseyeIcon, GearIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
@@ -26,11 +25,11 @@ const Services: React.FC = () => {
             serviceType: 'Web Design'
         },
         {
-            icon: <ShoppingCartIcon className="w-12 h-12" />,
-            title: 'Smart Online Stores',
-            description: 'Launch a powerful online store designed to drive sales. We build secure, user-friendly e-commerce platforms that scale with your business.',
-            id: 'service-ecommerce',
-            serviceType: 'E-commerce Development'
+            icon: <SparklesIcon className="w-12 h-12" />,
+            title: 'Brand Strategy & Identity',
+            description: 'We craft cohesive brand identities that tell your story. From logo development to strategic positioning, we ensure your business makes a lasting impact.',
+            id: 'service-branding',
+            serviceType: 'Brand Strategy'
         },
         {
             icon: <BullseyeIcon className="w-12 h-12" />,
