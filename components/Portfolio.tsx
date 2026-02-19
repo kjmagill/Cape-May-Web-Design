@@ -6,7 +6,7 @@ const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string 
     const isLoading = useImageLoader(imgUrl);
 
     return (
-        <div className="group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10 bg-slate-700 border border-slate-700 hover:border-cyan-500/50">
+        <div className="group relative overflow-hidden rounded-lg shadow-lg aspect-[3/2] transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10 bg-slate-700 border border-slate-700 hover:border-cyan-500/50">
             {isLoading && (
                 <div className="absolute inset-0 bg-slate-700 animate-pulse z-0"></div>
             )}
@@ -30,12 +30,42 @@ const Portfolio: React.FC = () => {
     const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
 
     const projects = [
-        { imgUrl: 'https://i.postimg.cc/L5qwBkSd/golden-paver.png', title: 'Golden Paver Restorations', category: 'goldenpaver.com', url: 'https://goldenpaver.com' },
-        { imgUrl: 'https://kjmagill.com/img/projects/contrax.jpg', title: 'Contrax', category: 'contrax.finance', url: 'https://contrax.finance' },
-        { imgUrl: 'https://kjmagill.com/img/projects/todesko_banner.jpg', title: 'Todesko Bookkeeping', category: 'todeskobookkeeping.com', url: 'https://todeskobookkeeping.com' },
-        { imgUrl: 'https://kjmagill.com/img/projects/kids_fly.jpg', title: 'Kids Fly', category: 'React web app', url: 'https://github.com/KidsFly-1/Frontend/tree/master' },
-        { imgUrl: 'https://kjmagill.com/img/projects/care_for_life.jpg', title: 'Care For Life', category: 'Offline-first Android app', url: 'https://careforlife.org' },
-        { imgUrl: 'https://kjmagill.com/img/projects/airbnb_tool.jpg', title: 'Airbnb Host Tool', category: 'React web app', url: 'https://github.com/AirBnB-dream-team/Front-End' },
+        { 
+            imgUrl: 'https://kjmagill.com/img/projects/gp_social.png', 
+            title: 'Golden Paver Restorations', 
+            category: 'Paver Cleaning and Restoration Services', 
+            url: 'https://goldenpaver.com' 
+        },
+        { 
+            imgUrl: 'https://kjmagill.com/img/projects/cantocurb_project.png', 
+            title: 'CanToCurb.com', 
+            category: 'Trash and Recycling Valet Services', 
+            url: 'https://cantocurb.com' 
+        },
+        { 
+            imgUrl: 'https://kjmagill.com/img/projects/todesko_banner.jpg', 
+            title: 'Todesko Bookkeeping', 
+            category: 'Professional Bookkeeping Services', 
+            url: 'https://todeskobookkeeping.com' 
+        },
+        { 
+            imgUrl: 'https://kjmagill.com/img/projects/tmc_project.png', 
+            title: 'Tom Magill Construction', 
+            category: 'NJ Home Builder and Remodeler', 
+            url: 'https://tommagillconstruction.com' 
+        },
+        { 
+            imgUrl: 'https://kjmagill.com/img/projects/contrax.jpg', 
+            title: 'Contrax.finance', 
+            category: 'Permissionless DeFi Vaults', 
+            url: 'https://contrax.finance' 
+        },
+        { 
+            imgUrl: 'https://kjmagill.com/img/projects/care_for_life.jpg', 
+            title: 'Care For Life', 
+            category: 'Global Non-profit Organization', 
+            url: 'https://careforlife.org' 
+        },
     ];
 
     return (
