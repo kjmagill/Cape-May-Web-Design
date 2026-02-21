@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
                     className={`flex justify-center items-center mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: '100ms' }}
                 >
-                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
+                    <a href="/" onClick={handleLogoClick} aria-label="Cape May Web Design - Home" className="flex items-center space-x-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
                         <CapeMayLogo className="w-[2.875rem] h-[2.875rem]" />
                         <LogoText />
                     </a>

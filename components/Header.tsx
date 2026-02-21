@@ -6,6 +6,7 @@ const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const toggleRef = useRef<HTMLButtonElement>(null);
 
     // Effect to check screen size for conditional linking
     useEffect(() => {
@@ -33,14 +34,46 @@ const Header: React.FC = () => {
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
                 setIsMenuOpen(false);
+                toggleRef.current?.focus();
+            }
+
+            if (event.key === 'Tab' && isMenuOpen) {
+                const focusableElements = menuRef.current?.querySelectorAll(
+                    'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+                );
+                
+                if (!focusableElements || !toggleRef.current) return;
+
+                const elements = Array.from(focusableElements) as HTMLElement[];
+                // Add the toggle button to the focusable elements list since it's the "close" button
+                const allFocusable = [toggleRef.current, ...elements];
+                
+                const firstElement = allFocusable[0];
+                const lastElement = allFocusable[allFocusable.length - 1];
+
+                if (event.shiftKey) {
+                    if (document.activeElement === firstElement) {
+                        event.preventDefault();
+                        lastElement.focus();
+                    }
+                } else {
+                    if (document.activeElement === lastElement) {
+                        event.preventDefault();
+                        firstElement.focus();
+                    }
+                }
             }
         };
 
         if (isMenuOpen) {
             document.documentElement.classList.add('overflow-hidden');
             document.addEventListener('keydown', handleKeyDown);
-            // Focus the menu panel for accessibility
-            setTimeout(() => menuRef.current?.focus(), 100);
+            
+            // Focus the first link in the menu when opened
+            const firstLink = menuRef.current?.querySelector('a');
+            if (firstLink) {
+                setTimeout(() => (firstLink as HTMLElement).focus(), 100);
+            }
         } else {
             document.documentElement.classList.remove('overflow-hidden');
         }
@@ -52,6 +85,15 @@ const Header: React.FC = () => {
     }, [isMenuOpen]);
 
 
+    const [activeHash, setActiveHash] = useState('');
+
+    useEffect(() => {
+        const handleHashChange = () => setActiveHash(window.location.hash);
+        window.addEventListener('hashchange', handleHashChange);
+        handleHashChange(); // Set initial hash
+        return () => window.removeEventListener('hashchange', handleHashChange);
+    }, []);
+
     const navLinks = [
         { name: 'Services', href: '#services' },
         { name: 'Why Us', href: '#why-us' },
@@ -62,8 +104,9 @@ const Header: React.FC = () => {
 
     const quoteHref = isMobile ? '#contact-form' : '#contact';
 
-    const handleLinkClick = () => {
+    const handleLinkClick = (href: string) => {
         setIsMenuOpen(false);
+        setActiveHash(href);
     };
 
     const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -98,7 +141,7 @@ const Header: React.FC = () => {
         <>
             <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-30' : 'z-50'} ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
                 <div className="container mx-auto px-6 lg:px-4 xl:px-6 py-4 flex justify-between items-center">
-                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-3.5 mr-4 xl:mr-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
+                    <a href="/" onClick={handleLogoClick} aria-label="Cape May Web Design - Home" className="flex items-center space-x-3.5 mr-4 xl:mr-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
                         <CapeMayLogo className="w-10 h-10" />
                         <LogoText />
                     </a>
@@ -128,6 +171,7 @@ const Header: React.FC = () => {
             </header>
 
             <button 
+                ref={toggleRef}
                 className="fixed top-5 right-6 lg:hidden text-white z-[60] focus:outline-none focus-visible:ring-2 focus-visible:ring-white rounded-md hover:opacity-80 transition-opacity duration-300" 
                 onClick={() => setIsMenuOpen(!isMenuOpen)} 
                 aria-label="Toggle navigation menu" 
@@ -190,7 +234,10 @@ const Header: React.FC = () => {
             {/* Overlay */}
             <div 
                 className={`fixed inset-0 bg-black/60 z-40 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} 
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                    setIsMenuOpen(false);
+                    toggleRef.current?.focus();
+                }}
                 aria-hidden="true"
             ></div>
         </>

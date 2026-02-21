@@ -9,8 +9,36 @@ const BlogListingPage: React.FC = () => {
     useSeo({
         title: 'Blog | Cape May Web Design',
         description: 'A curated collection of web design trends, local SEO strategies, and digital marketing insights to help businesses in South Jersey succeed.',
+        keywords: 'web design blog, local SEO tips, digital marketing South Jersey, Cape May business growth, website strategy',
         canonicalUrl: 'https://www.capemaywebdesign.com/blog'
     });
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "The Jersey Shore Business & Web Journal",
+        "description": "A curated collection of web design trends, local SEO strategies, and digital marketing insights to help businesses in South Jersey succeed.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Cape May Web Design",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://kjmagill.com/img/logos/cmwd_logo.png"
+            }
+        },
+        "blogPost": blogPosts.map(post => ({
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "author": {
+                "@type": "Person",
+                "name": post.author
+            },
+            "datePublished": post.date,
+            "url": post.url,
+            "image": post.imageUrl,
+            "description": post.excerpt
+        }))
+    };
 
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
@@ -20,6 +48,10 @@ const BlogListingPage: React.FC = () => {
 
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Header />
             <main className="pt-32 md:pt-40 pb-24 md:pb-32">
                 <div className="container mx-auto px-6 max-w-7xl">

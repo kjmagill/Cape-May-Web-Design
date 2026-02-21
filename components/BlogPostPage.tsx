@@ -5,10 +5,40 @@ import Header from './Header';
 import Footer from './Footer';
 import { blogPosts } from './blogPosts';
 import { ArrowLeftIcon, CalendarDaysIcon, UserIcon, ClockIcon } from './icons';
+import { useSeo } from '../hooks/useSeo';
 
 const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
     const post = blogPosts.find(p => p.slug === slug);
     
+    useSeo({
+        title: post ? `${post.title} | Cape May Web Design` : 'Post Not Found | Cape May Web Design',
+        description: post ? post.excerpt : 'The requested blog post could not be found.',
+        keywords: post ? post.tags.join(', ') : '',
+        canonicalUrl: post ? `https://www.capemaywebdesign.com/blog/${post.slug}` : undefined
+    });
+
+    const jsonLd = post ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "author": {
+            "@type": "Person",
+            "name": post.author
+        },
+        "datePublished": post.date,
+        "url": post.url,
+        "image": post.imageUrl,
+        "description": post.excerpt,
+        "publisher": {
+            "@type": "Organization",
+            "name": "Cape May Web Design",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://kjmagill.com/img/logos/cmwd_logo.png"
+            }
+        }
+    } : null;
+
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
         const timer = setTimeout(() => setIsLoaded(true), 100);
@@ -36,6 +66,12 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
     
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
+            {jsonLd && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            )}
             <Header />
             <main className="pt-32 md:pt-40 pb-24 md:pb-32">
                 <div className="container mx-auto px-6 max-w-7xl">

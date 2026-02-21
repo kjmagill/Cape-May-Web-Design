@@ -20,28 +20,28 @@ const Services: React.FC = () => {
         {
             icon: <CodeIcon className="w-12 h-12" />,
             title: 'Custom Website Design',
-            description: 'We create stunning, responsive websites tailored to your unique brand. Our designs captivate visitors and convert them into loyal customers.',
+            description: 'Stunning, responsive websites tailored for Cape May businesses. Our designs captivate visitors and convert them into loyal customers.',
             id: 'service-web-design',
             serviceType: 'Web Design'
         },
         {
             icon: <SparklesIcon className="w-12 h-12" />,
             title: 'Brand Strategy & Identity',
-            description: 'We craft cohesive brand identities that tell your story. From logo development to strategic positioning, we ensure your business makes a lasting impact.',
+            description: 'We craft cohesive brand identities for South Jersey startups and established shops. From logos to strategy, we ensure you make an impact.',
             id: 'service-branding',
             serviceType: 'Brand Strategy'
         },
         {
             icon: <BullseyeIcon className="w-12 h-12" />,
-            title: 'Targeted SEO & Marketing',
-            description: 'Increase your online visibility and attract more customers. Our proven SEO and marketing strategies are designed to deliver qualified traffic.',
+            title: 'Local SEO & Marketing',
+            description: 'Dominate local search in Wildwood, Ocean City, and Cape May. Our proven SEO strategies are designed to deliver qualified local traffic.',
             id: 'service-seo',
             serviceType: 'Search Engine Optimization'
         },
         {
             icon: <GearIcon className="w-12 h-12" />,
             title: 'Custom Apps & Automations',
-            description: 'Gain a competitive edge with custom software. We build applications and automation tools to streamline processes and boost efficiency.',
+            description: 'Gain a competitive edge with custom software. We build applications and automation tools for businesses throughout Cape May County.',
             id: 'service-apps',
             serviceType: 'Software Development'
         },

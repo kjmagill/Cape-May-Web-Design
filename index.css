@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Accessibility: Skip to Content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom Utilities */
+.min-h-dynamic-screen {
+  min-height: var(--app-height, 100vh);
+}
+
+.bg-grid-pattern-20 {
+  background-image: radial-gradient(rgba(51, 65, 85, 0.2) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+}
+
+.bg-grid-pattern-40 {
+  background-image: radial-gradient(rgba(51, 65, 85, 0.4) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+}

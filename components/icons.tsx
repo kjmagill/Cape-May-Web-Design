@@ -70,7 +70,7 @@ export const ArrowUpIcon: React.FC<IconProps> = ({ className }) => (
                 <stop offset="100%" stopColor="#06b6d4" /> {/* cyan-500 */}
             </linearGradient>
         </defs>
-        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" stroke="url(#cmwdTealGradient)" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 13.75 7.5-7.5 7.5 7.5" stroke="url(#cmwdTealGradient)" />
     </svg>
 );
 

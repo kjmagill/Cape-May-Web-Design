@@ -43,9 +43,9 @@ const LandingPage: React.FC = () => {
   const metadata = useMemo(() => getEmbeddedMetadata(), []);
 
   useSeo({
-    title: metadata?.pageTitle || 'Cape May Web Design | Custom Websites & Brand Identity',
-    description: metadata?.pageDescription || 'Cape May Web Design builds strategic, performance-driven websites and powerful brand identities for local businesses in South Jersey.',
-    keywords: metadata?.keywords || 'web design, branding, web development, Cape May',
+    title: metadata?.pageTitle || 'Cape May Web Design | Custom Websites & App Development NJ',
+    description: metadata?.pageDescription || 'Cape May Web Design builds high-performance websites and custom apps for businesses in Cape May County, Wildwood, Ocean City, and South Jersey.',
+    keywords: metadata?.keywords || 'Cape May web design, Wildwood NJ web development, Ocean City NJ website design, local SEO Cape May, South Jersey app development',
     ogImage: metadata?.ogImage,
     twitterImage: metadata?.twitterImage,
     canonicalUrl: metadata?.canonicalUrl,
@@ -53,8 +53,14 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="bg-slate-900 min-h-screen">
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-6 focus:py-3 focus:bg-cyan-500 focus:text-white focus:font-bold focus:rounded-full focus:shadow-xl focus:outline-none focus:ring-2 focus:ring-white"
+      >
+        Skip to main content
+      </a>
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <Services />
         <WhyChooseUs />

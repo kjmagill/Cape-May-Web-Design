@@ -9,6 +9,27 @@ const Blog: React.FC = () => {
     // Show the 3 most recent posts
     const recentPosts = blogPosts.slice(0, 3);
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": recentPosts.map((post, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "BlogPosting",
+                "headline": post.title,
+                "author": {
+                    "@type": "Person",
+                    "name": post.author
+                },
+                "datePublished": post.date,
+                "url": post.url,
+                "image": post.imageUrl,
+                "description": post.excerpt
+            }
+        }))
+    };
+
     return (
         <section 
             id="blog" 
@@ -16,6 +37,10 @@ const Blog: React.FC = () => {
             className="py-24 md:py-32 bg-slate-800"
             aria-labelledby="blog-heading"
         >
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="container mx-auto px-6 max-w-7xl">
                 <div 
                     className={`text-center mb-20 transition-all duration-1000 ease-out ${

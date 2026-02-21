@@ -19,7 +19,7 @@ const WhyChooseUs: React.FC = () => {
         {
             icon: <MapPinIcon className="w-8 h-8" />,
             title: 'Deep Local Market Insight',
-            description: "Based in Cape May, we know the shore. We leverage our understanding of local seasons and market trends to build websites that truly connect.",
+            description: "Based in Cape May, we know the shore. From Wildwood boardwalks to Ocean City shops, we build websites that connect with the unique South Jersey community.",
         },
         {
             icon: <InterlockingCirclesIcon className="w-8 h-8" />,
