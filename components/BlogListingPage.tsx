@@ -21,17 +21,17 @@ const BlogListingPage: React.FC = () => {
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
             <Header />
-            <main className="pt-24 md:pt-32 pb-16 md:pb-20">
-                <div className="container mx-auto px-6">
+            <main className="pt-32 md:pt-40 pb-24 md:pb-32">
+                <div className="container mx-auto px-6 max-w-7xl">
                     <div 
-                        className={`text-center mb-16 transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                        className={`text-center mb-20 transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                     >
-                        <h1 className="text-5xl md:text-6xl font-extrabold text-white">The Jersey Shore Business &amp; Web Journal</h1>
-                        <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight">The Jersey Shore Business &amp; Web Journal</h1>
+                        <p className="text-slate-400 mt-6 text-lg max-w-2xl mx-auto leading-relaxed">
                            A curated collection of web design trends, local SEO strategies, and digital marketing insights to help businesses in South Jersey succeed.
                         </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                         {blogPosts.map((post, index) => (
                             <div
                                 key={post.slug}

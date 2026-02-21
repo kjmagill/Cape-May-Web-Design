@@ -37,13 +37,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'how-to-build-an-online-presence-for-small-business',
-    title: 'How to Build An Online Presence For Small Businesses in 2024',
+    title: 'How to Build An Online Presence For Small Businesses',
     excerpt: 'Discover the essential steps to building a powerful online presence. Learn how to leverage your website, social media, and more to attract and engage customers.',
     author: 'Ryan Shelley',
     date: 'February 23, 2024',
     imageUrl: 'https://i.postimg.cc/PxMtC7jy/online-presence.jpg',
     url: 'https://ciderhouse.media/small-business-online-presence/?utm_source=capemaywebdesign.com',
-    tags: ['Marketing', 'Small Business', 'Branding'],
+    tags: ['SEO', 'Branding', 'Marketing'],
     readingTime: '7 min read',
   },
 ];

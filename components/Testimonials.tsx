@@ -2,17 +2,17 @@ import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const TestimonialCard: React.FC<{ quote: string; name: string; company: string }> = ({ quote, name, company }) => (
-    <figure className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 flex flex-col h-full transition-all duration-300 transform hover:-translate-y-1 hover:border-cyan-500 hover:shadow-2xl hover:shadow-cyan-500/10">
-        <blockquote className="text-slate-300 italic mb-6 flex-grow">
+    <figure className="bg-slate-800/50 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-slate-700/50 flex flex-col h-full transition-all duration-500 transform hover:-translate-y-2 hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-500/10">
+        <blockquote className="text-slate-300 italic mb-8 flex-grow text-lg leading-relaxed">
             <p>"{quote}"</p>
         </blockquote>
-        <figcaption className="flex items-center">
-            <div className="w-12 h-12 rounded-full bg-cyan-500 flex items-center justify-center font-bold text-white mr-4 flex-shrink-0" aria-hidden="true">
+        <figcaption className="flex items-center pt-6 border-t border-slate-700/50">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-cyan-500 to-teal-500 flex items-center justify-center font-bold text-white text-xl mr-4 flex-shrink-0 shadow-lg shadow-cyan-500/20" aria-hidden="true">
                 {name.charAt(0)}
             </div>
             <div>
-                <cite className="font-bold text-white not-italic">{name}</cite>
-                <div className="text-slate-400 text-sm">{company}</div>
+                <cite className="font-bold text-white not-italic text-lg tracking-tight">{name}</cite>
+                <div className="text-cyan-400/80 text-sm font-medium uppercase tracking-wider mt-0.5">{company}</div>
             </div>
         </figcaption>
     </figure>
@@ -43,19 +43,19 @@ const Testimonials: React.FC = () => {
         <section 
             id="testimonials" 
             ref={sectionRef}
-            className="py-16 md:py-20 bg-slate-900"
+            className="py-24 md:py-32 bg-slate-900"
             aria-labelledby="testimonials-heading"
         >
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 max-w-7xl">
                 <div 
-                    className={`text-center mb-12 transition-all duration-700 ease-out ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    className={`text-center mb-20 transition-all duration-1000 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                 >
-                    <h2 id="testimonials-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Trusted by Businesses at the Shore</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">Hear directly from local business owners about how our work has impacted their success.</p>
+                    <h2 id="testimonials-heading" className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Trusted by Businesses at the Shore</h2>
+                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">Hear directly from local business owners about how our work has impacted their success.</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {testimonialsData.map((testimonial, index) => (
                         <div
                             key={index}

@@ -3,12 +3,12 @@ import { InterlockingCirclesIcon, MapPinIcon, ChartTrendingUpIcon } from './icon
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className="group bg-slate-900/70 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-slate-700 text-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full">
-        <div className="mx-auto mb-6 text-cyan-400 w-16 h-16 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
+    <div className="group bg-slate-900/40 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-slate-700/50 text-center transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full">
+        <div className="mx-auto mb-8 text-cyan-400 w-20 h-20 flex items-center justify-center rounded-2xl bg-slate-800/80 border border-slate-700 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:border-cyan-500/50 flex-shrink-0 shadow-inner">
             {icon}
         </div>
-        <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-        <p className="text-slate-400 leading-relaxed">{description}</p>
+        <h3 className="text-2xl font-bold text-white mb-4 tracking-tight leading-tight">{title}</h3>
+        <p className="text-slate-400 leading-relaxed text-lg">{description}</p>
     </div>
 );
 
@@ -37,20 +37,20 @@ const WhyChooseUs: React.FC = () => {
         <section
             id="why-us"
             ref={sectionRef}
-            className="relative py-16 md:py-20 bg-slate-800"
+            className="relative py-24 md:py-32 bg-slate-800 overflow-hidden"
             aria-labelledby="why-us-heading"
         >
              <div className="absolute inset-y-0 w-full h-full bg-grid-pattern-20 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
-            <div className="container mx-auto px-6 relative">
+            <div className="container mx-auto px-6 relative max-w-7xl">
                 <div 
-                    className={`text-center mb-16 transition-all duration-700 ease-out ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    className={`text-center mb-20 transition-all duration-1000 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                 >
-                    <h2 id="why-us-heading" className="text-3xl sm:text-4xl font-extrabold text-white">The Local Advantage</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">We're more than a web design agency; we're your local partner dedicated to the success of businesses in our community.</p>
+                    <h2 id="why-us-heading" className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">The Local Advantage</h2>
+                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">We're more than a web design agency; we're your local partner dedicated to the success of businesses in our community.</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {features.map((feature, index) => (
                         <div
                             key={index}

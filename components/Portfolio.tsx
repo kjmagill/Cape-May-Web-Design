@@ -1,25 +1,46 @@
 import React from 'react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { useImageLoader } from '../hooks/useImageLoader';
+import { ArrowRightIcon } from './icons';
 
 const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string }> = ({ imgUrl, title, category }) => {
     const isLoading = useImageLoader(imgUrl);
 
     return (
-        <div className="group relative overflow-hidden rounded-lg shadow-lg aspect-[3/2] transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10 bg-slate-700 border border-slate-700 hover:border-cyan-500/50">
-            {isLoading && (
-                <div className="absolute inset-0 bg-slate-700 animate-pulse z-0"></div>
-            )}
-            <img 
-                src={imgUrl} 
-                alt={`Portfolio image for ${title}, a ${category} project.`} 
-                loading="lazy"
-                decoding="async"
-                className={`w-full h-full object-cover transform group-hover:scale-110 transition-all duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'} filter md:brightness-75 saturate-90 group-hover:filter-none`} 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent md:bg-black md:bg-opacity-0 md:group-hover:bg-opacity-70 transition-all duration-500 flex flex-col justify-end p-6">
-                <h3 className="text-white text-xl font-bold opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300">{title}</h3>
-                <p className="text-cyan-400 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300 delay-100">{category}</p>
+        <div className="group flex flex-col h-full">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[3/2] transition-all duration-500 lg:hover:shadow-2xl lg:hover:shadow-cyan-500/20 bg-slate-700 border border-slate-700/50 lg:hover:border-cyan-500/50">
+                {isLoading && (
+                    <div className="absolute inset-0 bg-slate-700 animate-pulse z-0"></div>
+                )}
+                <img 
+                    src={imgUrl} 
+                    alt={`Portfolio image for ${title}, a ${category} project.`} 
+                    loading="lazy"
+                    decoding="async"
+                    className={`w-full h-full object-cover transform lg:group-hover:scale-110 transition-all duration-700 ${isLoading ? 'opacity-0' : 'opacity-100'} filter brightness-[0.85] saturate-[0.8] lg:group-hover:brightness-50 lg:group-hover:blur-[2px]`} 
+                />
+                
+                {/* Desktop Hover Overlay - Hidden on Mobile */}
+                <div className="hidden lg:flex absolute inset-0 flex flex-col justify-center items-center p-6 text-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-slate-900/40 backdrop-blur-[2px]">
+                    <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out">
+                        {title}
+                    </h3>
+                    <div className="w-12 h-0.5 bg-cyan-500 my-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100 ease-out"></div>
+                    <p className="text-cyan-400 font-bold text-xs uppercase tracking-[0.25em] transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-200 ease-out">
+                        {category}
+                    </p>
+                </div>
+            </div>
+            
+            {/* Mobile Info - Visible only on Mobile (< 1024px) */}
+            <div className="mt-5 lg:hidden px-1">
+                <div className="flex items-center justify-between gap-4">
+                    <h3 className="text-white text-xl font-bold tracking-tight leading-tight">{title}</h3>
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                         <ArrowRightIcon className="w-4 h-4" />
+                    </div>
+                </div>
+                <p className="text-cyan-400/80 font-bold text-[10px] uppercase tracking-[0.2em] mt-1.5">{category}</p>
             </div>
         </div>
     );
@@ -72,19 +93,19 @@ const Portfolio: React.FC = () => {
         <section 
             id="portfolio" 
             ref={sectionRef}
-            className="py-16 md:py-20 bg-slate-800"
+            className="py-24 md:py-32 bg-slate-800"
             aria-labelledby="portfolio-heading"
         >
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 max-w-7xl">
                 <div 
-                    className={`text-center mb-12 transition-all duration-700 ease-out ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    className={`text-center mb-20 transition-all duration-1000 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                 >
-                    <h2 id="portfolio-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Our Recent Work</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">Take a look at some of the stunning, high-performance websites and applications we've recently delivered.</p>
+                    <h2 id="portfolio-heading" className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Our Recent Work</h2>
+                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">Take a look at some of the stunning, high-performance websites and applications we've recently delivered.</p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {projects.map((project, index) => (
                         <a
                             key={index}

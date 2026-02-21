@@ -24,10 +24,10 @@ const Footer: React.FC = () => {
 
     const LogoText: React.FC = () => (
         <div className="flex flex-col leading-tight text-left">
-            <div className="font-oswald text-2xl font-bold text-white uppercase tracking-wider">
+            <div className="font-oswald text-[1.75rem] font-bold text-white uppercase tracking-wider">
                 Cape May
             </div>
-            <div className="font-oswald text-sm font-bold text-cyan-400 uppercase tracking-[0.2em] ml-px">
+            <div className="font-oswald text-[1rem] font-bold text-cyan-400 uppercase tracking-[0.2em] ml-px">
                 Web Design
             </div>
         </div>
@@ -35,13 +35,13 @@ const Footer: React.FC = () => {
 
     return (
         <footer ref={footerRef} className="bg-slate-900 border-t border-slate-800" role="contentinfo">
-            <div className="container mx-auto px-6 py-8 text-center text-slate-400">
+            <div className="container mx-auto px-6 py-16 md:py-20 text-center text-slate-400 max-w-7xl">
                 <div
                     className={`flex justify-center items-center mb-6 transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                     style={{ transitionDelay: '100ms' }}
                 >
                     <a href="/" onClick={handleLogoClick} className="flex items-center space-x-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
-                        <CapeMayLogo className="w-10 h-10" />
+                        <CapeMayLogo className="w-[2.875rem] h-[2.875rem]" />
                         <LogoText />
                     </a>
                 </div>

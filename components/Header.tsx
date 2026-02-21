@@ -85,10 +85,10 @@ const Header: React.FC = () => {
 
     const LogoText: React.FC = () => (
         <div className="flex flex-col leading-[1.2]">
-            <div className="font-oswald text-[1.3rem] lg:text-[1.6rem] font-bold text-white uppercase tracking-wider">
+            <div className="font-oswald text-[1.3rem] lg:text-[1.4rem] xl:text-[1.6rem] font-bold text-white uppercase tracking-wider">
                 Cape May
             </div>
-            <div className="font-oswald text-[10.5px] lg:text-[12px] font-bold text-cyan-400 uppercase tracking-[0.26em] ml-px">
+            <div className="font-oswald text-[10.5px] lg:text-[11px] xl:text-[12px] font-bold text-cyan-400 uppercase tracking-[0.26em] ml-px">
                 Web Design
             </div>
         </div>
@@ -97,30 +97,30 @@ const Header: React.FC = () => {
     return (
         <>
             <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-30' : 'z-50'} ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
-                <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
+                <div className="container mx-auto px-6 lg:px-4 xl:px-6 py-4 flex justify-between items-center">
+                    <a href="/" onClick={handleLogoClick} className="flex items-center space-x-3.5 mr-4 xl:mr-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
                         <CapeMayLogo className="w-10 h-10" />
                         <LogoText />
                     </a>
-                    <nav role="navigation" aria-label="Main" className="hidden lg:flex items-center space-x-8">
+                    <nav role="navigation" aria-label="Main" className="hidden lg:flex items-center space-x-4 xl:space-x-8">
                         {navLinks.map((link) => (
                             <a 
                                 key={link.name} 
                                 href={link.href} 
-                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 text-sm xl:text-base after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                             >
                                 {link.name}
                             </a>
                         ))}
                         <a 
                             href="tel:6093006464" 
-                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 text-sm xl:text-base after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                         >
-                            <PhoneIcon className="w-5 h-5" />
+                            <PhoneIcon className="w-4 h-4 xl:w-5 xl:h-5" />
                             <span>(609) 300-6464</span>
                         </a>
-                        <a href={quoteHref} className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold [text-shadow:0_1px_3px_rgb(0_0_0_/_0.25)] py-3 px-5 rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900 hover:animate-pulse-glow">
-                           <span>Get a Quote</span>
+                        <a href={quoteHref} className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold [text-shadow:0_1px_3px_rgb(0_0_0_/_0.25)] py-2.5 px-4 xl:py-3 xl:px-5 rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900 hover:animate-pulse-glow">
+                           <span className="text-sm xl:text-base">Get a Quote</span>
                            <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                     </nav>

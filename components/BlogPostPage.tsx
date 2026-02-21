@@ -37,44 +37,44 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
             <Header />
-            <main className="pt-24 md:pt-32 pb-16 md:pb-20">
-                <div className="container mx-auto px-6">
+            <main className="pt-32 md:pt-40 pb-24 md:pb-32">
+                <div className="container mx-auto px-6 max-w-7xl">
                     <div 
-                        className={`max-w-4xl mx-auto transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                        className={`max-w-4xl mx-auto transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                     >
-                        <div className="mb-8">
+                        <div className="mb-12">
                             <a href="/blog" className="group inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">
                                 <ArrowLeftIcon className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
-                                <span>Back to Blog</span>
+                                <span className="font-semibold">Back to Blog</span>
                             </a>
                         </div>
 
                         <article>
-                            <header className="mb-8">
-                                <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">{post.title}</h1>
-                                <div className="text-slate-400 flex flex-wrap items-center gap-x-6 gap-y-2">
-                                    <div className="flex items-center space-x-2">
-                                        <UserIcon className="w-5 h-5" />
-                                        <span>By {post.author}</span>
+                            <header className="mb-12">
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-6">{post.title}</h1>
+                                <div className="text-slate-400 flex flex-wrap items-center gap-x-8 gap-y-3">
+                                    <div className="flex items-center space-x-2.5">
+                                        <UserIcon className="w-5 h-5 text-cyan-500/80" />
+                                        <span className="font-medium">By {post.author}</span>
                                     </div>
-                                    <div className="flex items-center space-x-2">
-                                        <CalendarDaysIcon className="w-5 h-5" />
-                                        <span>{post.date}</span>
+                                    <div className="flex items-center space-x-2.5">
+                                        <CalendarDaysIcon className="w-5 h-5 text-cyan-500/80" />
+                                        <span className="font-medium">{post.date}</span>
                                     </div>
-                                    <div className="flex items-center space-x-2">
-                                        <ClockIcon className="w-5 h-5" />
-                                        <span>{post.readingTime}</span>
+                                    <div className="flex items-center space-x-2.5">
+                                        <ClockIcon className="w-5 h-5 text-cyan-500/80" />
+                                        <span className="font-medium">{post.readingTime}</span>
                                     </div>
                                 </div>
                             </header>
                             
-                            <div className="flex flex-wrap gap-2 mb-8">
+                            <div className="flex flex-wrap gap-2.5 mb-12">
                                 {post.tags.map(tag => (
-                                    <span key={tag} className="text-sm font-semibold text-cyan-200 bg-cyan-900/60 px-3 py-1.5 rounded-full">{tag}</span>
+                                    <span key={tag} className="text-sm font-semibold text-cyan-200 bg-cyan-900/60 px-4 py-2 rounded-full border border-cyan-500/20">{tag}</span>
                                 ))}
                             </div>
                             
-                            <div className="prose prose-invert prose-lg tracking-wide prose-p:leading-loose prose-p:text-slate-300 prose-headings:text-white prose-strong:text-white">
+                            <div className="prose prose-invert prose-lg md:prose-xl tracking-wide prose-p:leading-relaxed prose-p:text-slate-300 prose-headings:text-white prose-strong:text-white prose-headings:tracking-tight">
                                 <p>{post.excerpt}</p>
                                 <p className="mt-6">
                                     <a href={post.url} target="_blank" rel="noopener noreferrer" className="text-cyan-400 font-semibold hover:text-cyan-300 no-underline focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">

@@ -30,25 +30,25 @@ const Hero: React.FC = () => {
     return (
         <section
             id="home"
-            className="relative min-h-dynamic-screen flex flex-col items-center justify-center text-center px-4 md:px-6 pt-24 pb-12 md:py-20 bg-gradient-to-b from-slate-900 to-slate-800"
+            className="relative min-h-dynamic-screen flex flex-col items-center justify-center text-center px-4 md:px-6 pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-b from-slate-900 to-slate-800"
         >
             <div className="absolute inset-0 bg-grid-pattern-40 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
-            <div className="relative z-10 w-full">
-                <h1 className="text-[2.1rem] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4">
-                    <span className={`block transition-all duration-700 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <div className="relative z-10 w-full max-w-5xl mx-auto">
+                <h1 className="text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.1] tracking-tight mb-8">
+                    <span className={`block transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         More Than a Website.
                     </span>
-                    <span className={`block text-cyan-400 transition-all duration-700 ease-out delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                    <span className={`block text-cyan-400 transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         A Growth Engine.
                     </span>
                 </h1>
                 <div className="px-2 md:px-0">
                     <p
-                        className={`text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8 transition-all duration-700 ease-out delay-400 ${
-                            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                        className={`text-lg md:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed transition-all duration-1000 ease-out delay-500 ${
+                            isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                         }`}
                     >
-                        We build high-impact websites, custom AI workflows, and autonomous AI agents designed to help South Jersey businesses thrive online.
+                        We design high-impact websites and AI-powered systems engineered to drive real leads and revenue for South Jersey businesses.
                     </p>
                     <div
                         className={`flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 transition-all duration-700 ease-out delay-500 ${

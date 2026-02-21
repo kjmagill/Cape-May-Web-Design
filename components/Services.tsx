@@ -4,12 +4,12 @@ import { CodeIcon, SparklesIcon, BullseyeIcon, GearIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className="group bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 hover:border-cyan-500/80 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full">
-        <div className="mb-4 text-cyan-400 transition-transform duration-300 group-hover:scale-110">
+    <div className="group bg-slate-800/50 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full">
+        <div className="mb-6 text-cyan-400 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
             {icon}
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">{title}</h3>
-        <p className="text-slate-400">{description}</p>
+        <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">{title}</h3>
+        <p className="text-slate-400 leading-relaxed text-lg">{description}</p>
     </div>
 );
 
@@ -91,19 +91,19 @@ const Services: React.FC = () => {
         <section 
             id="services" 
             ref={sectionRef}
-            className="py-16 md:py-20 bg-slate-900"
+            className="py-24 md:py-32 bg-slate-900"
             aria-labelledby="services-heading"
         >
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 max-w-7xl">
                 <div 
-                    className={`text-center mb-12 transition-all duration-700 ease-out ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    className={`text-center mb-20 transition-all duration-1000 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                 >
-                    <h2 id="services-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Our Professional Services</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">From stunning designs to powerful marketing, we offer everything your South Jersey business needs to succeed online.</p>
+                    <h2 id="services-heading" className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Our Professional Services</h2>
+                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">From stunning designs to powerful marketing, we offer everything your South Jersey business needs to succeed online.</p>
                 </div>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
                     {servicesData.map((service, index) => (
                          <div
                             key={index}

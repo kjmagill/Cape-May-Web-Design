@@ -128,12 +128,6 @@ const Contact: React.FC = () => {
             setFormStatus('success');
             setFormData(initialFormState);
             setTouched(initialTouchState);
-            setTimeout(() => {
-                if (formStatus === 'success') {
-                    setFormStatus('idle');
-                }
-            }, 5000);
-
         } catch (error) {
             console.error("Form submission error:", error);
             setFormStatus('error');
@@ -250,23 +244,23 @@ const Contact: React.FC = () => {
         <section 
             id="contact" 
             ref={sectionRef}
-            className="py-16 md:py-20 bg-slate-800"
+            className="py-24 md:py-32 bg-slate-800"
             aria-labelledby="contact-heading"
         >
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 max-w-7xl">
                 <div 
-                    className={`text-center mb-12 transition-all duration-700 ease-out ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    className={`text-center mb-20 transition-all duration-1000 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                 >
-                    <h2 id="contact-heading" className="text-3xl sm:text-4xl font-extrabold text-white">Ready to Grow Your Business?</h2>
-                    <p className="text-slate-400 mt-2 max-w-2xl mx-auto">
+                    <h2 id="contact-heading" className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Ready to Grow Your Business?</h2>
+                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">
                         Tell us about your project. We'll provide a free, no-obligation quote and a clear strategy to help you achieve your goals online.
                     </p>
                 </div>
                 <div 
-                    className={`max-w-4xl mx-auto bg-slate-900 rounded-xl shadow-2xl p-8 md:p-12 border border-slate-700 transition-all duration-700 ease-out ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    className={`max-w-5xl mx-auto bg-slate-900 rounded-2xl shadow-2xl p-8 md:p-16 border border-slate-700/50 transition-all duration-1000 ease-out ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                     style={{ transitionDelay: '200ms' }}
                 >
@@ -307,7 +301,14 @@ const Contact: React.FC = () => {
                                 <div role="status" aria-live="polite" className="text-center h-full flex flex-col justify-center items-center py-10 transition-all duration-300 ease-in-out">
                                     <AnimatedCheckCircleIcon className="w-20 h-20 mx-auto" />
                                     <h3 className="text-2xl font-bold text-white mt-4">Thank you!</h3>
-                                    <p className="text-slate-300 mt-2">Your message has been sent successfully. We'll be in touch soon.</p>
+                                    <p className="text-slate-300 mt-2 mb-8">Your message has been sent successfully. We'll be in touch soon.</p>
+                                    <button 
+                                        onClick={() => setFormStatus('idle')}
+                                        className="inline-flex items-center space-x-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md px-4 py-2 border border-cyan-500/30 hover:bg-cyan-500/10"
+                                    >
+                                        <span>Send Another Message</span>
+                                        <ArrowRightIcon className="w-4 h-4" />
+                                    </button>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} noValidate>
