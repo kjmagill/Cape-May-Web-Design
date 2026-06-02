@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, AnimatedCheckCircleIcon, MapPinIcon, PhoneIcon, ExclamationCircleIcon, ClipboardDocumentListIcon, ChevronDownIcon } from './icons';
+import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, AnimatedCheckCircleIcon, MapPinIcon, PhoneIcon, ExclamationCircleIcon, ClipboardDocumentListIcon, ChevronDownIcon, ClipboardIcon, CheckIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxwUfQ1gDlEQSBKLRohNoVfV3zlRVR8m6aECn-WRQyQFKAc20MhLsXiwHzCbMYDP0SK/exec';
@@ -34,6 +34,21 @@ const Contact: React.FC = () => {
     const [errors, setErrors] = useState<ErrorState>({});
     const [touched, setTouched] = useState<TouchState>(initialTouchState);
     const [formStatus, setFormStatus] = useState<FormStatus>('idle');
+    const [copied, setCopied] = useState(false);
+
+    const handleCopy = async (event?: React.MouseEvent<HTMLButtonElement>) => {
+        const button = event?.currentTarget;
+        if (button) {
+            button.blur();
+        }
+        try {
+            await navigator.clipboard.writeText('capemaywebdesign@gmail.com');
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        } catch (err) {
+            console.error('Failed to copy email:', err);
+        }
+    };
 
     const validate = useCallback((data: FormState): ErrorState => {
         const newErrors: ErrorState = {};
@@ -283,7 +298,29 @@ const Contact: React.FC = () => {
                                     <div className="mt-1 flex-shrink-0"><EnvelopeIcon className="w-5 h-5 text-cyan-400"/></div>
                                     <div>
                                         <span className="text-white font-semibold">Email</span><br/>
-                                        <a href="mailto:capemaywebdev@gmail.com" className="text-slate-300 hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900 rounded-sm">capemaywebdev@gmail.com</a>
+                                        <div className="flex items-center space-x-2 mt-1">
+                                            <a href="mailto:capemaywebdesign@gmail.com" className="text-slate-300 hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900 rounded-sm">capemaywebdesign@gmail.com</a>
+                                            <div className="relative flex items-center">
+                                                <button
+                                                    onClick={handleCopy}
+                                                    type="button"
+                                                    className="p-1.5 text-slate-400 hover:text-cyan-400 focus:text-cyan-400 hover:bg-slate-800/80 focus:bg-slate-800/80 rounded transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                                                    title="Copy email address"
+                                                    aria-label="Copy email address"
+                                                >
+                                                    {copied ? (
+                                                        <CheckIcon className="w-4 h-4 text-emerald-400" />
+                                                     ) : (
+                                                        <ClipboardIcon className="w-4 h-4" />
+                                                     )}
+                                                </button>
+                                                {copied && (
+                                                    <span role="tooltip" className="absolute left-1/2 -translate-x-1/2 -top-10 bg-slate-950 text-white text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap transition-all duration-200 z-10 border border-slate-800">
+                                                        Copied!
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                                 <li className="flex items-start space-x-4">

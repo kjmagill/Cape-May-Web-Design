@@ -48,7 +48,7 @@ const WhyChooseUs: React.FC = () => {
                     }`}
                 >
                     <h2 id="why-us-heading" className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">The Local Advantage</h2>
-                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">We're more than a web design agency; we're your local partner dedicated to the success of businesses in our community.</p>
+                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">We're more than a web design agency; we're your local partner dedicated to the success of businesses in Cape May County.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {features.map((feature, index) => (
