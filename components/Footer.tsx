@@ -86,15 +86,15 @@ const Footer: React.FC = () => {
                             {/* Phone Button */}
                             <a 
                                 href="tel:6093006464" 
-                                className="w-full sm:w-auto h-11 sm:h-12 inline-flex items-center justify-center space-x-2.5 bg-slate-900 hover:bg-slate-800/80 border border-slate-800 hover:border-cyan-500/50 text-sm sm:text-base font-semibold text-slate-200 hover:text-white px-5 rounded-full transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-950"
+                                className="w-full sm:w-64 h-11 sm:h-12 inline-flex items-center justify-center space-x-2.5 bg-slate-900 hover:bg-slate-800/80 border border-slate-800 hover:border-cyan-500/50 text-sm sm:text-base font-semibold text-slate-200 hover:text-white px-5 rounded-full transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-950"
                             >
                                 <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400"/>
                                 <span>(609) 300-6464</span>
                             </a>
 
                             {/* Email Button with Copy Option */}
-                            <div className="w-full sm:w-auto h-11 sm:h-12 inline-flex items-center justify-between bg-slate-900 hover:bg-slate-800/80 border border-slate-800 hover:border-cyan-500/50 text-sm sm:text-base font-semibold text-slate-200 hover:text-white px-4 sm:px-5 rounded-full transition-all duration-300 transform hover:scale-[1.02] focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-cyan-500 focus-within:ring-offset-slate-950">
-                                <div className="w-8" aria-hidden="true" />
+                            <div className="w-full sm:w-64 h-11 sm:h-12 inline-flex items-center justify-between bg-slate-900 hover:bg-slate-800/80 border border-slate-800 hover:border-cyan-500/50 text-sm sm:text-base font-semibold text-slate-200 hover:text-white px-4 sm:px-5 rounded-full transition-all duration-300 transform hover:scale-[1.02] focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-cyan-500 focus-within:ring-offset-slate-950">
+                                <div className="w-10 sm:w-7 flex-shrink-0" aria-hidden="true" />
                                 <a 
                                     href="mailto:capemaywebdesign@gmail.com" 
                                     className="flex-1 inline-flex items-center justify-center space-x-2.5 focus:outline-none focus-visible:underline rounded text-sm sm:text-base"
@@ -102,11 +102,11 @@ const Footer: React.FC = () => {
                                     <EnvelopeIcon className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400"/>
                                     <span>Email Us</span>
                                 </a>
-                                <div className="relative flex items-center justify-end w-8 border-l border-slate-800/60 pl-2">
+                                <div className="relative flex items-center justify-end w-10 sm:w-7 border-l border-slate-800/60 pl-2 sm:pl-1 flex-shrink-0">
                                     <button
                                         onClick={handleCopy}
                                         type="button"
-                                        className="p-1.5 text-slate-500 hover:text-cyan-400 focus:text-cyan-400 rounded transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
+                                        className="p-1.5 sm:p-1 text-slate-500 hover:text-cyan-400 focus:text-cyan-400 rounded transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400"
                                         title="Copy email address"
                                         aria-label="Copy email address"
                                     >
