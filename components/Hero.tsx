@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
                             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                         }`}
                     >
-                        <a href={quoteHref} className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 border-2 border-transparent bg-gradient-to-r from-cyan-500 to-teal-500 hover:from-teal-500 hover:to-cyan-500 text-white font-bold text-lg [text-shadow:0_1px_3px_rgb(0_0_0_/_0.3)] py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-500/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
+                        <a href={quoteHref} className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 border-2 border-transparent bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-teal-600 hover:to-cyan-600 text-white font-bold text-lg [text-shadow:0_1px_4px_rgba(0,0,0,0.4)] py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-600/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
                             <span>Start Growing Today</span>
                             <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
