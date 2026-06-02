@@ -274,7 +274,7 @@ const Contact: React.FC = () => {
                     </p>
                 </div>
                 <div 
-                    className={`max-w-5xl mx-auto bg-slate-900 rounded-2xl shadow-2xl p-8 md:p-16 border border-slate-700/50 transition-all duration-1000 ease-out ${
+                    className={`max-w-5xl mx-auto bg-slate-900 rounded-2xl shadow-2xl p-6 sm:p-10 md:p-16 border border-slate-700/50 transition-all duration-1000 ease-out ${
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                     style={{ transitionDelay: '200ms' }}
@@ -296,11 +296,17 @@ const Contact: React.FC = () => {
                                 </li>
                                 <li className="flex items-start space-x-4">
                                     <div className="mt-1 flex-shrink-0"><EnvelopeIcon className="w-5 h-5 text-cyan-400"/></div>
-                                    <div>
+                                    <div className="min-w-0 flex-1">
                                         <span className="text-white font-semibold">Email</span><br/>
-                                        <div className="flex items-center space-x-2 mt-1">
-                                            <a href="mailto:capemaywebdesign@gmail.com" className="text-slate-300 hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900 rounded-sm">capemaywebdesign@gmail.com</a>
-                                            <div className="relative flex items-center">
+                                        <div className="flex items-center gap-1.5 mt-1 w-full overflow-hidden">
+                                            <a 
+                                                href="mailto:capemaywebdesign@gmail.com" 
+                                                className="text-slate-300 hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900 rounded-sm text-xs min-[340px]:text-sm sm:text-base truncate block"
+                                                title="capemaywebdesign@gmail.com"
+                                            >
+                                                capemaywebdesign@gmail.com
+                                            </a>
+                                            <div className="relative flex items-center flex-shrink-0">
                                                 <button
                                                     onClick={handleCopy}
                                                     type="button"

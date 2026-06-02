@@ -5,6 +5,11 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* Accessibility: Skip to Content */
 .sr-only {
   position: absolute;

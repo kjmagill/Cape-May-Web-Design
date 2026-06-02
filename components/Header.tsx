@@ -196,8 +196,8 @@ const Header: React.FC = () => {
                 aria-modal="true"
                 aria-hidden={!isMenuOpen}
             >
-                <nav aria-label="Mobile" className="pt-28 p-8 h-full flex flex-col overflow-y-auto">
-                    <ul className="flex flex-col items-center text-center space-y-6">
+                <nav aria-label="Mobile" className="p-8 h-full flex flex-col justify-center items-center overflow-y-auto">
+                    <ul className="w-full flex flex-col items-center text-center space-y-6 my-auto py-8">
                         {navLinks.map((link, index) => (
                             <li 
                                 key={link.name}

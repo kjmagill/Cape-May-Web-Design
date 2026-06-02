@@ -93,15 +93,16 @@ const Footer: React.FC = () => {
                             </a>
 
                             {/* Email Button with Copy Option */}
-                            <div className="w-full sm:w-auto h-11 sm:h-12 inline-flex items-center justify-between sm:justify-start bg-slate-900 hover:bg-slate-800/80 border border-slate-800 hover:border-cyan-500/50 text-sm sm:text-base font-semibold text-slate-200 hover:text-white pl-5 pr-3 rounded-full transition-all duration-300 transform hover:scale-[1.02] focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-cyan-500 focus-within:ring-offset-slate-950">
+                            <div className="w-full sm:w-auto h-11 sm:h-12 inline-flex items-center justify-between bg-slate-900 hover:bg-slate-800/80 border border-slate-800 hover:border-cyan-500/50 text-sm sm:text-base font-semibold text-slate-200 hover:text-white px-4 sm:px-5 rounded-full transition-all duration-300 transform hover:scale-[1.02] focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-cyan-500 focus-within:ring-offset-slate-950">
+                                <div className="w-8" aria-hidden="true" />
                                 <a 
                                     href="mailto:capemaywebdesign@gmail.com" 
-                                    className="inline-flex items-center justify-center space-x-2.5 focus:outline-none focus-visible:underline rounded pr-3"
+                                    className="flex-1 inline-flex items-center justify-center space-x-2.5 focus:outline-none focus-visible:underline rounded text-sm sm:text-base"
                                 >
                                     <EnvelopeIcon className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400"/>
-                                    <span className="text-xs sm:text-sm md:text-base">Email Us</span>
+                                    <span>Email Us</span>
                                 </a>
-                                <div className="relative flex items-center border-l border-slate-800 pl-2">
+                                <div className="relative flex items-center justify-end w-8 border-l border-slate-800/60 pl-2">
                                     <button
                                         onClick={handleCopy}
                                         type="button"
