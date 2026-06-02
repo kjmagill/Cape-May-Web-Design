@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
                             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                         }`}
                     >
-                        We design high-impact websites and AI-powered systems engineered to drive real leads and revenue for South Jersey businesses.
+                        We design high-impact websites and AI-powered systems engineered to drive real growth for South Jersey businesses.
                     </p>
                     <div
                         className={`flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 transition-all duration-700 ease-out delay-500 ${
