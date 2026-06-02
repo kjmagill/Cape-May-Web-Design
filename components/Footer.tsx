@@ -36,10 +36,10 @@ const Footer: React.FC = () => {
 
     const LogoText: React.FC = () => (
         <div className="flex flex-col leading-tight text-left">
-            <div className="font-oswald text-2xl sm:text-[1.75rem] font-bold text-white uppercase tracking-wider">
+            <div className="font-oswald text-3xl sm:text-[2.2rem] font-bold text-white uppercase tracking-wider">
                 Cape May
             </div>
-            <div className="font-oswald text-sm sm:text-[1rem] font-bold text-cyan-400 uppercase tracking-[0.2em] ml-px">
+            <div className="font-oswald text-xs sm:text-[1.25rem] font-bold text-cyan-400 uppercase tracking-[0.2em] ml-px">
                 Web Design
             </div>
         </div>
@@ -60,9 +60,9 @@ const Footer: React.FC = () => {
                             href="/" 
                             onClick={handleLogoClick} 
                             aria-label="Cape May Web Design - Home" 
-                            className="flex items-center space-x-3.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300"
+                            className="flex items-center space-x-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300"
                         >
-                            <CapeMayLogo className="w-10 h-10 sm:w-12 sm:h-12" />
+                            <CapeMayLogo className="w-12 h-12 sm:w-[3.75rem] sm:h-[3.75rem]" />
                             <LogoText />
                         </a>
                     </div>
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
                                     className="inline-flex items-center justify-center space-x-2.5 focus:outline-none focus-visible:underline rounded pr-3"
                                 >
                                     <EnvelopeIcon className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400"/>
-                                    <span className="text-xs sm:text-sm md:text-base">capemaywebdesign@gmail.com</span>
+                                    <span className="text-xs sm:text-sm md:text-base">Email Us</span>
                                 </a>
                                 <div className="relative flex items-center border-l border-slate-800 pl-2">
                                     <button
