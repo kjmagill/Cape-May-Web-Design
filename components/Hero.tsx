@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
         >
             <div className="absolute inset-0 bg-grid-pattern-40 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
             <div className="relative z-10 w-full max-w-5xl mx-auto">
-                <h1 className="text-[8.2vw] sm:text-[7.5vw] md:text-[6.5vw] lg:text-8xl font-extrabold text-white leading-[1.15] tracking-tight mb-8">
+                <h1 className="text-[8.2vw] sm:text-[7.5vw] md:text-[6.5vw] lg:text-8xl font-extrabold text-white leading-[1.15] tracking-tight mb-5 sm:mb-8">
                     <span className={`block whitespace-nowrap transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         More Than a Website.
                     </span>
@@ -44,22 +44,22 @@ const Hero: React.FC = () => {
                 </h1>
                 <div className="px-2 md:px-0">
                     <p
-                        className={`text-lg md:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed transition-all duration-1000 ease-out delay-500 ${
+                        className={`text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed transition-all duration-1000 ease-out delay-500 ${
                             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                         }`}
                     >
                         We design high-impact websites and AI-powered systems engineered to drive real growth for South Jersey businesses.
                     </p>
                     <div
-                        className={`flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 transition-all duration-700 ease-out delay-500 ${
+                        className={`flex flex-col sm:flex-row items-center justify-center space-y-3.5 sm:space-y-0 sm:space-x-4 max-w-[280px] sm:max-w-none mx-auto transition-all duration-700 ease-out delay-500 ${
                             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                         }`}
                     >
-                        <a href={quoteHref} className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 border-2 border-transparent bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-teal-600 hover:to-cyan-600 text-white font-bold text-lg [text-shadow:0_1px_4px_rgba(0,0,0,0.4)] py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-600/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
+                        <a href={quoteHref} className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 border-2 border-transparent bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-teal-600 hover:to-cyan-600 text-white font-bold text-base sm:text-lg [text-shadow:0_1px_4px_rgba(0,0,0,0.4)] py-3 px-6 sm:py-4 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-600/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
                             <span>Start Growing Today</span>
-                            <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                            <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
-                        <a href="#portfolio" aria-label="View our portfolio of recent work" className="w-full sm:w-auto bg-transparent border-2 border-slate-600 hover:bg-slate-600 text-white font-bold text-lg py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800">
+                        <a href="#portfolio" aria-label="View our portfolio of recent work" className="w-full sm:w-auto bg-transparent border-2 border-slate-600 hover:bg-slate-600 text-white font-bold text-base sm:text-lg py-3 px-6 sm:py-4 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800">
                             View Our Work
                         </a>
                     </div>
