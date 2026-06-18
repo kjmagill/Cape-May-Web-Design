@@ -34,11 +34,11 @@ const Hero: React.FC = () => {
         >
             <div className="absolute inset-0 bg-grid-pattern-40 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
             <div className="relative z-10 w-full max-w-5xl mx-auto">
-                <h1 className="text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.1] tracking-tight mb-8">
-                    <span className={`block transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                <h1 className="text-[8.2vw] sm:text-[7.5vw] md:text-[6.5vw] lg:text-8xl font-extrabold text-white leading-[1.15] tracking-tight mb-8">
+                    <span className={`block whitespace-nowrap transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         More Than a Website.
                     </span>
-                    <span className={`block text-cyan-400 transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                    <span className={`block text-cyan-400 whitespace-nowrap transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         A Growth Engine.
                     </span>
                 </h1>
