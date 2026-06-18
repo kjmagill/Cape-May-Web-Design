@@ -113,7 +113,7 @@ export const ClipboardDocumentListIcon: React.FC<IconProps> = ({ className }) =>
 );
 
 export const CapeMayLogo: React.FC<IconProps> = ({ className }) => (
-    <img src="https://kjmagill.com/img/logos/cmwd_logo.png" alt="Cape May Web Design Logo" className={className} />
+    <img src="https://kjmagill.com/img/logos/cmwd_logo_w_text.png" alt="Cape May Web Design Logo" className={className} />
 );
 
 export const AnimatedCheckCircleIcon: React.FC<IconProps> = ({ className }) => (

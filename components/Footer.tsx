@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CapeMayLogo, PhoneIcon, EnvelopeIcon, ClipboardIcon, CheckIcon } from './icons';
+import { PhoneIcon, EnvelopeIcon, ClipboardIcon, CheckIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Footer: React.FC = () => {
@@ -34,17 +34,6 @@ const Footer: React.FC = () => {
         }
     };
 
-    const LogoText: React.FC = () => (
-        <div className="flex flex-col leading-tight text-left">
-            <div className="font-oswald text-3xl sm:text-[2.2rem] font-bold text-white uppercase tracking-wider">
-                Cape May
-            </div>
-            <div className="font-oswald text-xs sm:text-[1.25rem] font-bold text-cyan-400 uppercase tracking-[0.2em] ml-px">
-                Web Design
-            </div>
-        </div>
-    );
-
     return (
         <footer ref={footerRef} className="bg-slate-900 border-t border-slate-800" role="contentinfo">
             <div className="container mx-auto px-6 pt-16 pb-12 max-w-7xl">
@@ -60,10 +49,9 @@ const Footer: React.FC = () => {
                             href="/" 
                             onClick={handleLogoClick} 
                             aria-label="Cape May Web Design - Home" 
-                            className="flex items-center space-x-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300"
+                            className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300"
                         >
-                            <CapeMayLogo className="w-12 h-12 sm:w-[3.75rem] sm:h-[3.75rem]" />
-                            <LogoText />
+                            <img src="https://kjmagill.com/img/logos/cmwd_logo_w_text.png" alt="Cape May Web Design" className="h-20 sm:h-24 w-auto object-contain" referrerPolicy="no-referrer" />
                         </a>
                     </div>
 
