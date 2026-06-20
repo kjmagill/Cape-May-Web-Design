@@ -268,7 +268,15 @@ const Contact: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                 >
-                    <h2 id="contact-heading" className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Ready to Grow Your Business?</h2>
+                    {/* 3. Pre-header accent framing matching the logo's custom line elements */}
+                    <div className="flex items-center justify-center gap-3.5 mb-4">
+                        <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-blue-500"></span>
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 uppercase inline-block">
+                            Connect Today
+                        </span>
+                        <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-blue-500"></span>
+                    </div>
+                    <h2 id="contact-heading" className="text-4xl sm:text-5xl font-black text-white italic tracking-tight">Ready to Grow Your Business?</h2>
                     <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">
                         Tell us about your project. We'll provide a free, no-obligation quote and a clear strategy to help you achieve your goals online.
                     </p>
@@ -365,7 +373,7 @@ const Contact: React.FC = () => {
                                     <div className="mt-6">
                                         <button 
                                             type="submit" 
-                                            className="group w-full justify-center flex items-center bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-teal-600 hover:to-cyan-600 text-white font-bold [text-shadow:0_1px_4px_rgba(0,0,0,0.4)] py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-600/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900"
+                                            className="group w-full justify-center flex items-center bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-teal-600 hover:to-cyan-500 text-white font-bold text-shadow-cta py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-cyan-500/15 disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900 hover:animate-pulse-glow"
                                             disabled={formStatus === 'submitting'}
                                         >
                                             {formStatus === 'submitting' ? (

@@ -3,12 +3,16 @@ import React, { useEffect } from 'react';
 import { CodeIcon, SparklesIcon, BullseyeIcon, GearIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
-const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className="group bg-slate-800/50 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full">
+const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string; indexVal: number }> = ({ icon, title, description, indexVal }) => (
+    <div className="group bg-slate-800/50 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full relative overflow-hidden">
+        {/* Precise brand numbering style mapped after technical logs */}
+        <div className="absolute top-0 right-0 p-5 font-mono text-xs text-slate-700 group-hover:text-cyan-500/20 font-semibold transition-colors duration-500 select-none">
+            [0{indexVal}]
+        </div>
         <div className="mb-6 text-cyan-400 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
             {icon}
         </div>
-        <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">{title}</h3>
+        <h3 className="text-2xl font-black text-white mb-4 tracking-tight italic transition-colors duration-300 group-hover:text-cyan-400">{title}</h3>
         <p className="text-slate-400 leading-relaxed text-lg">{description}</p>
     </div>
 );
@@ -100,7 +104,15 @@ const Services: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                 >
-                    <h2 id="services-heading" className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Our Professional Services</h2>
+                    {/* 3. Pre-header accent framing matching the logo's custom line elements */}
+                    <div className="flex items-center justify-center gap-3.5 mb-4">
+                        <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-blue-500"></span>
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 uppercase inline-block">
+                            Elite Capabilities
+                        </span>
+                        <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-blue-500"></span>
+                    </div>
+                    <h2 id="services-heading" className="text-4xl sm:text-5xl font-black text-white italic tracking-tight">Our Professional Services</h2>
                     <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">From stunning designs to powerful marketing, we offer everything your South Jersey business needs to succeed online.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -112,7 +124,7 @@ const Services: React.FC = () => {
                             }`}
                             style={{ transitionDelay: `${150 + index * 100}ms` }}
                         >
-                            <ServiceCard {...service} />
+                            <ServiceCard {...service} indexVal={index + 1} />
                         </div>
                     ))}
                 </div>

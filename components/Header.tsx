@@ -133,26 +133,26 @@ const Header: React.FC = () => {
                     <a href="/" onClick={handleLogoClick} aria-label="Cape May Web Design - Home" className="flex items-center mr-4 xl:mr-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
                         <img src="https://kjmagill.com/img/logos/cmwd_logo_w_text.png" alt="Cape May Web Design" className="h-12 md:h-14 w-auto object-contain" referrerPolicy="no-referrer" />
                     </a>
-                    <nav role="navigation" aria-label="Main" className="hidden lg:flex items-center space-x-4 xl:space-x-8">
+                    <nav role="navigation" aria-label="Main" className="hidden xl:flex items-center space-x-6 xl:space-x-8">
                         {navLinks.map((link) => (
                             <a 
                                 key={link.name} 
                                 href={link.href} 
-                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 text-sm xl:text-base after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 font-mono text-xs uppercase tracking-[0.2em] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                             >
                                 {link.name}
                             </a>
                         ))}
                         <a 
                             href="tel:6093006464" 
-                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 text-sm xl:text-base after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 font-mono text-xs uppercase tracking-[0.2em] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                         >
-                            <PhoneIcon className="w-4 h-4 xl:w-5 xl:h-5" />
+                            <PhoneIcon className="w-3.5 h-3.5" />
                             <span>(609) 300-6464</span>
                         </a>
-                        <a href={quoteHref} className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-teal-600 hover:to-cyan-600 text-white font-bold [text-shadow:0_1px_4px_rgba(0,0,0,0.4)] py-2.5 px-4 xl:py-3 xl:px-5 rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900 hover:animate-pulse-glow">
-                           <span className="text-sm xl:text-base">Get a Quote</span>
-                           <ArrowRightIcon className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                        <a href={quoteHref} className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-teal-600 hover:to-cyan-500 text-white font-bold text-shadow-cta py-2 px-4 xl:py-2.5 xl:px-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900 hover:animate-pulse-glow">
+                           <span className="text-xs uppercase tracking-wider font-extrabold">Get a Quote</span>
+                           <ArrowRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                     </nav>
                 </div>
@@ -160,7 +160,7 @@ const Header: React.FC = () => {
 
             <button 
                 ref={toggleRef}
-                className={`fixed top-4 right-6 lg:hidden z-[60] w-11 h-11 flex items-center justify-center rounded-full transition-all duration-300 border focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
+                className={`fixed top-4 right-6 xl:hidden z-[60] w-11 h-11 flex items-center justify-center rounded-full transition-all duration-300 border focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 ${
                     isMenuOpen 
                         ? 'bg-slate-800 border-slate-700 text-white shadow-lg' 
                         : isScrolled 
@@ -306,7 +306,7 @@ const Header: React.FC = () => {
                         <a 
                             href={quoteHref} 
                             onClick={() => handleLinkClick(quoteHref)} 
-                            className="w-full text-center bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-teal-600 hover:to-cyan-600 text-white font-bold [text-shadow:0_1px_4px_rgba(0,0,0,0.3)] py-2.5 px-5 rounded-full transition-all duration-300 transform hover:scale-[1.01] inline-flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+                            className="w-full text-center bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-teal-600 hover:to-cyan-500 text-white font-bold text-shadow-cta py-2.5 px-5 rounded-full transition-all duration-300 transform hover:scale-[1.01] inline-flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shadow-md shadow-cyan-500/15"
                         >
                             <span className="text-[10px] uppercase tracking-wider font-extrabold">Get an Instant Quote</span>
                             <ArrowRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -325,7 +325,7 @@ const Header: React.FC = () => {
 
             {/* Overlay */}
             <div 
-                className={`fixed inset-0 bg-black/60 z-40 lg:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} 
+                className={`fixed inset-0 bg-black/60 z-40 xl:hidden transition-opacity duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} 
                 onClick={() => {
                     setIsMenuOpen(false);
                     toggleRef.current?.focus();

@@ -7,7 +7,7 @@ const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description:
         <div className="mx-auto mb-8 text-cyan-400 w-20 h-20 flex items-center justify-center rounded-2xl bg-slate-800/80 border border-slate-700 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:border-cyan-500/50 flex-shrink-0 shadow-inner">
             {icon}
         </div>
-        <h3 className="text-2xl font-bold text-white mb-4 tracking-tight leading-tight">{title}</h3>
+        <h3 className="text-2xl font-black text-white mb-4 tracking-tight leading-tight italic transition-colors duration-300 group-hover:text-cyan-400">{title}</h3>
         <p className="text-slate-400 leading-relaxed text-lg">{description}</p>
     </div>
 );
@@ -47,7 +47,15 @@ const WhyChooseUs: React.FC = () => {
                         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                     }`}
                 >
-                    <h2 id="why-us-heading" className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">The Local Advantage</h2>
+                    {/* 3. Pre-header accent framing matching the logo's custom line elements */}
+                    <div className="flex items-center justify-center gap-3.5 mb-4">
+                        <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-blue-500"></span>
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 uppercase inline-block">
+                            Why Partner With Us
+                        </span>
+                        <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-blue-500"></span>
+                    </div>
+                    <h2 id="why-us-heading" className="text-4xl sm:text-5xl font-black text-white italic tracking-tight">The Local Advantage</h2>
                     <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">We're more than a web design agency; we're your local partner dedicated to the success of businesses in Cape May County.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

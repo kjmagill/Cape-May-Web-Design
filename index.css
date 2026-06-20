@@ -48,3 +48,8 @@ html, body {
   background-image: radial-gradient(rgba(51, 65, 85, 0.4) 1px, transparent 1px);
   background-size: 2rem 2rem;
 }
+
+/* Premium micro-shadow to ensure perfect contrast/legibility of light text on light gradients */
+.text-shadow-cta {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 0.5px 1px rgba(0, 0, 0, 0.3);
+}

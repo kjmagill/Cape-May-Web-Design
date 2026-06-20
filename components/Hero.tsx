@@ -30,15 +30,20 @@ const Hero: React.FC = () => {
     return (
         <section
             id="home"
-            className="relative min-h-dynamic-screen flex flex-col items-center justify-center text-center px-4 md:px-6 pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-b from-slate-900 to-slate-800"
+            className="relative min-h-dynamic-screen flex flex-col items-center justify-center text-center px-4 md:px-6 pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden"
         >
             <div className="absolute inset-0 bg-grid-pattern-40 [mask-image:linear-gradient(to_bottom,white_20%,transparent_100%)]"></div>
+            
+            {/* Subtle background ambient glows to introduce the vivid royal blue and cyan brand colors in a highly refined, classy manner */}
+            <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-blue-600/10 rounded-full blur-[110px] pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }}></div>
+            <div className="absolute top-1/3 right-1/4 w-[250px] h-[250px] bg-cyan-500/10 rounded-full blur-[110px] pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '12s' }}></div>
+
             <div className="relative z-10 w-full max-w-5xl mx-auto">
-                <h1 className="text-[8.2vw] sm:text-[7.5vw] md:text-[6.5vw] lg:text-8xl font-extrabold text-white leading-[1.15] tracking-tight mb-5 sm:mb-8">
-                    <span className={`block whitespace-nowrap transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                <h1 className="text-[8.2vw] sm:text-[7.5vw] md:text-[6.5vw] lg:text-8xl font-black leading-[1.12] tracking-tight mb-5 sm:mb-8">
+                    <span className={`block whitespace-nowrap italic transition-all duration-1000 ease-out text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         More Than a Website.
                     </span>
-                    <span className={`block text-cyan-400 whitespace-nowrap transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                    <span className={`block text-cyan-400 whitespace-nowrap italic transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         A Growth Engine.
                     </span>
                 </h1>
@@ -55,11 +60,12 @@ const Hero: React.FC = () => {
                             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                         }`}
                     >
-                        <a href={quoteHref} className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 border-2 border-transparent bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-teal-600 hover:to-cyan-600 text-white font-bold text-base sm:text-lg [text-shadow:0_1px_4px_rgba(0,0,0,0.4)] py-3 px-6 sm:py-4 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg shadow-cyan-600/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
+                        {/* 2. Primary button using precise cyan and teal ocean-inspired classy gradient with enhanced readable text shadow */}
+                        <a href={quoteHref} className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 border-2 border-transparent bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-teal-600 hover:to-cyan-500 text-white font-bold text-base sm:text-lg text-shadow-cta py-3 px-6 sm:py-4 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 shadow-lg shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
                             <span>Start Growing Today</span>
                             <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
-                        <a href="#portfolio" aria-label="View our portfolio of recent work" className="w-full sm:w-auto bg-transparent border-2 border-slate-600 hover:bg-slate-600 text-white font-bold text-base sm:text-lg py-3 px-6 sm:py-4 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800">
+                        <a href="#portfolio" aria-label="View our portfolio of recent work" className="w-full sm:w-auto bg-slate-900/40 backdrop-blur-xs border-2 border-slate-700 hover:bg-slate-800 hover:border-cyan-500 text-white font-bold text-base sm:text-lg py-3 px-6 sm:py-4 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800">
                             View Our Work
                         </a>
                     </div>
