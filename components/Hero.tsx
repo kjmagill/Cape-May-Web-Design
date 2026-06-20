@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
             <div className="absolute top-1/3 right-1/4 w-[250px] h-[250px] bg-cyan-500/10 rounded-full blur-[110px] pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '12s' }}></div>
 
             <div className="relative z-10 w-full max-w-5xl mx-auto">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.12] tracking-tight mb-5 sm:mb-8">
+                <h1 className="text-[8vw] sm:text-[3.25rem] md:text-[4.25rem] lg:text-[5rem] xl:text-[5.75rem] font-black leading-[1.12] tracking-tight mb-5 sm:mb-8">
                     <span className={`block whitespace-nowrap italic transition-all duration-1000 ease-out text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         More Than a Website.
                     </span>
@@ -61,11 +61,11 @@ const Hero: React.FC = () => {
                         }`}
                     >
                         {/* 2. Primary button using precise cyan gradient with enhanced readable text shadow */}
-                        <a href={quoteHref} className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 border-2 border-transparent bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-base sm:text-lg text-shadow-cta py-3 px-6 sm:py-4 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 shadow-lg shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
+                        <a href={quoteHref} className="w-full sm:w-auto h-12 sm:h-14 group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-base sm:text-lg text-shadow-cta px-6 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 shadow-lg shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
                             <span>Start Growing Today</span>
                             <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
-                        <a href="#portfolio" aria-label="View our portfolio of recent work" className="w-full sm:w-auto bg-slate-900/40 backdrop-blur-xs border-2 border-slate-700 hover:bg-slate-800 hover:border-cyan-500 text-white font-bold text-base sm:text-lg py-3 px-6 sm:py-4 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800">
+                        <a href="#portfolio" aria-label="View our portfolio of recent work" className="w-full sm:w-auto h-[50px] sm:h-[58px] inline-flex items-center justify-center bg-slate-900/40 backdrop-blur-xs border-2 border-slate-700 hover:bg-slate-800 hover:border-cyan-500 text-white font-bold text-base sm:text-lg px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800">
                             View Our Work
                         </a>
                     </div>
