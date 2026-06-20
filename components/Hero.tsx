@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
             <div className="absolute top-1/3 right-1/4 w-[250px] h-[250px] bg-cyan-500/10 rounded-full blur-[110px] pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '12s' }}></div>
 
             <div className="relative z-10 w-full max-w-5xl mx-auto">
-                <h1 className="text-[8.2vw] sm:text-[7.5vw] md:text-[6.5vw] lg:text-8xl font-black leading-[1.12] tracking-tight mb-5 sm:mb-8">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.12] tracking-tight mb-5 sm:mb-8">
                     <span className={`block whitespace-nowrap italic transition-all duration-1000 ease-out text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         More Than a Website.
                     </span>
