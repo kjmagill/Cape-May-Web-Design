@@ -7,7 +7,7 @@ const TestimonialCard: React.FC<{ quote: string; name: string; company: string }
             <p>"{quote}"</p>
         </blockquote>
         <figcaption className="flex items-center pt-6 border-t border-slate-700/50">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center font-bold text-white text-xl mr-4 flex-shrink-0 shadow-lg shadow-blue-500/20" aria-hidden="true">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-600 flex items-center justify-center font-bold text-white text-xl mr-4 flex-shrink-0 shadow-lg shadow-cyan-500/20" aria-hidden="true">
                 {name.charAt(0)}
             </div>
             <div>
@@ -54,11 +54,11 @@ const Testimonials: React.FC = () => {
                 >
                     {/* 3. Pre-header accent framing matching the logo's custom line elements */}
                     <div className="flex items-center justify-center gap-3.5 mb-4">
-                        <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-blue-500"></span>
-                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 uppercase inline-block">
+                        <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-cyan-500"></span>
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500 uppercase inline-block font-outfit">
                             Local Testimonials
                         </span>
-                        <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-blue-500"></span>
+                        <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-cyan-500"></span>
                     </div>
                     <h2 id="testimonials-heading" className="text-4xl sm:text-5xl font-black text-white italic tracking-tight">Trusted by Shore Businesses</h2>
                     <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">Hear directly from local business owners about how our work has impacted their success.</p>

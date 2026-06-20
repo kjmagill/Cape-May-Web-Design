@@ -49,11 +49,11 @@ const WhyChooseUs: React.FC = () => {
                 >
                     {/* 3. Pre-header accent framing matching the logo's custom line elements */}
                     <div className="flex items-center justify-center gap-3.5 mb-4">
-                        <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-blue-500"></span>
-                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 uppercase inline-block">
+                        <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-cyan-500"></span>
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500 uppercase inline-block font-outfit">
                             Why Partner With Us
                         </span>
-                        <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-blue-500"></span>
+                        <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-cyan-500"></span>
                     </div>
                     <h2 id="why-us-heading" className="text-4xl sm:text-5xl font-black text-white italic tracking-tight">The Local Advantage</h2>
                     <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">We're more than a web design agency; we're your local partner dedicated to the success of businesses in Cape May County.</p>

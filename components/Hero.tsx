@@ -60,8 +60,8 @@ const Hero: React.FC = () => {
                             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                         }`}
                     >
-                        {/* 2. Primary button using precise cyan and teal ocean-inspired classy gradient with enhanced readable text shadow */}
-                        <a href={quoteHref} className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 border-2 border-transparent bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-teal-600 hover:to-cyan-500 text-white font-bold text-base sm:text-lg text-shadow-cta py-3 px-6 sm:py-4 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 shadow-lg shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
+                        {/* 2. Primary button using precise cyan gradient with enhanced readable text shadow */}
+                        <a href={quoteHref} className="w-full sm:w-auto group inline-flex items-center justify-center space-x-2 border-2 border-transparent bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-base sm:text-lg text-shadow-cta py-3 px-6 sm:py-4 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 shadow-lg shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
                             <span>Start Growing Today</span>
                             <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>

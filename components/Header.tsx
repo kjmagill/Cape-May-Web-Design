@@ -138,19 +138,19 @@ const Header: React.FC = () => {
                             <a 
                                 key={link.name} 
                                 href={link.href} 
-                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 font-mono text-xs uppercase tracking-[0.2em] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 font-outfit text-xs font-semibold uppercase tracking-[0.14em] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                             >
                                 {link.name}
                             </a>
                         ))}
                         <a 
                             href="tel:6093006464" 
-                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 font-mono text-xs uppercase tracking-[0.2em] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 font-outfit text-xs font-semibold uppercase tracking-[0.14em] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                         >
                             <PhoneIcon className="w-3.5 h-3.5" />
                             <span>(609) 300-6464</span>
                         </a>
-                        <a href={quoteHref} className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-teal-600 hover:to-cyan-500 text-white font-bold text-shadow-cta py-2 px-4 xl:py-2.5 xl:px-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900 hover:animate-pulse-glow">
+                        <a href={quoteHref} className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-shadow-cta py-2 px-4 xl:py-2.5 xl:px-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900 hover:animate-pulse-glow">
                            <span className="text-xs uppercase tracking-wider font-extrabold">Get a Quote</span>
                            <ArrowRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
@@ -306,7 +306,7 @@ const Header: React.FC = () => {
                         <a 
                             href={quoteHref} 
                             onClick={() => handleLinkClick(quoteHref)} 
-                            className="w-full text-center bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-teal-600 hover:to-cyan-500 text-white font-bold text-shadow-cta py-2.5 px-5 rounded-full transition-all duration-300 transform hover:scale-[1.01] inline-flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shadow-md shadow-cyan-500/15"
+                            className="w-full text-center bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-shadow-cta py-2.5 px-5 rounded-full transition-all duration-300 transform hover:scale-[1.01] inline-flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shadow-md shadow-cyan-500/15"
                         >
                             <span className="text-[10px] uppercase tracking-wider font-extrabold">Get an Instant Quote</span>
                             <ArrowRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />

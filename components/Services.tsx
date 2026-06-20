@@ -106,11 +106,11 @@ const Services: React.FC = () => {
                 >
                     {/* 3. Pre-header accent framing matching the logo's custom line elements */}
                     <div className="flex items-center justify-center gap-3.5 mb-4">
-                        <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-blue-500"></span>
-                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 uppercase inline-block">
+                        <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-cyan-500"></span>
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500 uppercase inline-block font-outfit">
                             Elite Capabilities
                         </span>
-                        <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-blue-500"></span>
+                        <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-cyan-500"></span>
                     </div>
                     <h2 id="services-heading" className="text-4xl sm:text-5xl font-black text-white italic tracking-tight">Our Professional Services</h2>
                     <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">From stunning designs to powerful marketing, we offer everything your South Jersey business needs to succeed online.</p>
