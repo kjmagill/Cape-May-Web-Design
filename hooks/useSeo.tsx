@@ -10,33 +10,45 @@ interface SeoProps {
 }
 
 export const updateMetaTag = (name: string, content: string) => {
-    let element = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
-    if (!element) {
-        element = document.createElement('meta');
-        element.setAttribute('name', name);
-        document.head.appendChild(element);
+    try {
+        let element = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+        if (!element) {
+            element = document.createElement('meta');
+            element.setAttribute('name', name);
+            document.head.appendChild(element);
+        }
+        element.setAttribute('content', content);
+    } catch (error) {
+        console.error(`Failed to update meta tag with name: ${name}`, error);
     }
-    element.setAttribute('content', content);
 };
 
 export const updatePropertyMetaTag = (property: string, content: string) => {
-    let element = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
-    if (!element) {
-        element = document.createElement('meta');
-        element.setAttribute('property', property);
-        document.head.appendChild(element);
+    try {
+        let element = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
+        if (!element) {
+            element = document.createElement('meta');
+            element.setAttribute('property', property);
+            document.head.appendChild(element);
+        }
+        element.setAttribute('content', content);
+    } catch (error) {
+        console.error(`Failed to update property meta tag with property: ${property}`, error);
     }
-    element.setAttribute('content', content);
 };
 
 const updateLinkTag = (rel: string, href: string) => {
-    let element = document.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
-    if (!element) {
-        element = document.createElement('link');
-        element.setAttribute('rel', rel);
-        document.head.appendChild(element);
+    try {
+        let element = document.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
+        if (!element) {
+            element = document.createElement('link');
+            element.setAttribute('rel', rel);
+            document.head.appendChild(element);
+        }
+        element.setAttribute('href', href);
+    } catch (error) {
+        console.error(`Failed to update link tag with rel: ${rel}`, error);
     }
-    element.setAttribute('href', href);
 }
 
 export const useSeo = ({ title, description, keywords, ogImage, twitterImage, canonicalUrl }: SeoProps) => {

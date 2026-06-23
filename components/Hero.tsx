@@ -60,12 +60,20 @@ const Hero: React.FC = () => {
                             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                         }`}
                     >
-                        {/* 2. Primary button using precise cyan gradient with enhanced readable text shadow */}
-                        <a href={quoteHref} className="w-full sm:w-auto h-12 sm:h-14 group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-base sm:text-lg text-shadow-cta px-6 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 shadow-lg shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 hover:animate-pulse-glow">
-                            <span>Start Growing Today</span>
-                            <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                        {/* 2. Primary button using precise vivid cyan-blue gradient with high-contrast text and multi-layered glow */}
+                        <a 
+                            href={quoteHref} 
+                            className="w-full sm:w-auto h-12 sm:h-14 group inline-flex items-center justify-center space-x-2.5 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold text-base sm:text-lg px-6 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_20px_rgba(34,211,238,0.25)] hover:shadow-[0_4px_16px_rgba(59,130,246,0.2),_0_0_35px_rgba(34,211,238,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
+                        >
+                            <span className="tracking-tight">Start Growing Today</span>
+                            <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-300 group-hover:translate-x-1.5" />
                         </a>
-                        <a href="#portfolio" aria-label="View our portfolio of recent work" className="w-full sm:w-auto h-[50px] sm:h-[58px] inline-flex items-center justify-center bg-slate-900/40 backdrop-blur-xs border-2 border-slate-700 hover:bg-slate-800 hover:border-cyan-500 text-white font-bold text-base sm:text-lg px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800">
+                        {/* 3. Secondary Glass Button with subtle hover border and drop shadow */}
+                        <a 
+                            href="#portfolio" 
+                            aria-label="View our portfolio of recent work" 
+                            className="w-full sm:w-auto h-12 sm:h-14 inline-flex items-center justify-center bg-slate-950/40 backdrop-blur-sm border border-slate-700/80 hover:bg-slate-900/60 hover:border-cyan-400/80 text-slate-200 hover:text-white font-bold text-base sm:text-lg px-6 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.08)] shadow-black/10"
+                        >
                             View Our Work
                         </a>
                     </div>

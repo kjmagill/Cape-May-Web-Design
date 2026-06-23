@@ -120,7 +120,11 @@ const Header: React.FC = () => {
             });
             // Also, update the URL to be the clean root path if necessary
             if (path === '/index.html' && window.history.pushState) {
-                window.history.pushState({}, '', '/');
+                try {
+                    window.history.pushState({}, '', '/');
+                } catch (e) {
+                    console.warn("Failed to update URL path due to iframe sandbox restrictions:", e);
+                }
             }
         }
         // On other pages, the default href="/" will navigate to the homepage.
@@ -138,21 +142,24 @@ const Header: React.FC = () => {
                             <a 
                                 key={link.name} 
                                 href={link.href} 
-                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 font-outfit text-xs font-semibold uppercase tracking-[0.14em] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 font-outfit text-sm font-medium tracking-wide after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                             >
                                 {link.name}
                             </a>
                         ))}
                         <a 
                             href="tel:6093006464" 
-                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 font-outfit text-xs font-semibold uppercase tracking-[0.14em] after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 font-outfit text-sm font-medium tracking-wide after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-cyan-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                         >
                             <PhoneIcon className="w-3.5 h-3.5" />
                             <span>(609) 300-6464</span>
                         </a>
-                        <a href={quoteHref} className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-shadow-cta py-2 px-4 xl:py-2.5 xl:px-5 rounded-full transition-all duration-300 transform hover:scale-105 shadow-md shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900 hover:animate-pulse-glow">
+                        <a 
+                            href={quoteHref} 
+                            className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold py-2.5 px-5 xl:py-2.5 xl:px-6 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_12px_rgba(59,130,246,0.15),_0_0_25px_rgba(34,211,238,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
+                        >
                            <span className="text-xs uppercase tracking-wider font-extrabold">Get a Quote</span>
-                           <ArrowRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                           <ArrowRightIcon className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                     </nav>
                 </div>
@@ -306,10 +313,10 @@ const Header: React.FC = () => {
                         <a 
                             href={quoteHref} 
                             onClick={() => handleLinkClick(quoteHref)} 
-                            className="w-full text-center bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-shadow-cta py-2.5 px-5 rounded-full transition-all duration-300 transform hover:scale-[1.01] inline-flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shadow-md shadow-cyan-500/15"
+                            className="w-full text-center bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold py-2.5 px-5 rounded-full transition-all duration-300 transform hover:scale-[1.01] inline-flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_12px_rgba(59,130,246,0.15),_0_0_25px_rgba(34,211,238,0.45)]"
                         >
                             <span className="text-[10px] uppercase tracking-wider font-extrabold">Get an Instant Quote</span>
-                            <ArrowRightIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                            <ArrowRightIcon className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                     </div>
                     

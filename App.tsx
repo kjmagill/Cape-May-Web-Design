@@ -9,6 +9,7 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import TermsOfService from './components/TermsOfService';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import BlogListingPage from './components/BlogListingPage';
 import BlogPostPage from './components/BlogPostPage';
@@ -90,48 +91,39 @@ const App: React.FC = () => {
     handleResize(); // Set initial height
 
     const setFavicon = () => {
-      const faviconUrl = 'https://kjmagill.com/img/logos/cmwd_logo.png';
-      const img = new Image();
-      img.crossOrigin = 'Anonymous';
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = 32;
-        canvas.height = 32;
-        const ctx = canvas.getContext('2d');
-        if (ctx) {
-          ctx.drawImage(img, 0, 0, 32, 32);
-          const dataUrl = canvas.toDataURL('image/png');
-          
-          const existingLinks = document.querySelectorAll<HTMLLinkElement>("link[rel*='icon']");
-          existingLinks.forEach(link => link.parentNode?.removeChild(link));
+      try {
+        const faviconUrl = 'https://kjmagill.com/img/logos/cmwd_logo.png';
+        const existingLinks = document.querySelectorAll<HTMLLinkElement>("link[rel*='icon']");
+        existingLinks.forEach(link => link.parentNode?.removeChild(link));
 
-          const link = document.createElement('link');
-          link.rel = 'icon';
-          link.type = 'image/png';
-          link.href = dataUrl;
-          document.head.appendChild(link);
-        }
-      };
-      img.onerror = () => {
-        console.error('Failed to load image for favicon generation.');
-      };
-      img.src = faviconUrl;
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.type = 'image/png';
+        link.href = faviconUrl;
+        document.head.appendChild(link);
+      } catch (error) {
+        console.error("Failed to set favicon:", error);
+      }
     };
     
     setFavicon();
 
     const setCanonicalUrl = () => {
-      let element = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-      if (!element) {
-        element = document.createElement('link');
-        element.setAttribute('rel', 'canonical');
-        document.head.appendChild(element);
+      try {
+        let element = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+        if (!element) {
+          element = document.createElement('link');
+          element.setAttribute('rel', 'canonical');
+          document.head.appendChild(element);
+        }
+        
+        const metadata = getEmbeddedMetadata();
+        // Use the canonical from embedded metadata if it exists, otherwise default to the current URL.
+        const url = metadata?.canonicalUrl || window.location.href;
+        element.setAttribute('href', url);
+      } catch (error) {
+        console.error("Failed to set canonical URL:", error);
       }
-      
-      const metadata = getEmbeddedMetadata();
-      // Use the canonical from embedded metadata if it exists, otherwise default to the current URL.
-      const url = metadata?.canonicalUrl || window.location.href;
-      element.setAttribute('href', url);
     };
 
     setCanonicalUrl();
@@ -150,22 +142,14 @@ const App: React.FC = () => {
 
   if (path.startsWith('/blog/')) {
     const slug = path.substring(path.lastIndexOf('/') + 1);
-    const post = blogPosts.find(p => p.slug === slug);
-    
-    useSeo({
-        title: post ? `${post.title} | Cape May Web Design` : 'Post Not Found | Cape May Web Design',
-        description: post ? post.excerpt : "Sorry, we couldn't find the blog post you were looking for.",
-        ogImage: post ? post.imageUrl : undefined,
-        twitterImage: post ? post.imageUrl : undefined,
-        canonicalUrl: post ? `https://www.capemaywebdesign.com/blog/${post.slug}` : undefined
-    });
-    
     return <BlogPostPage slug={slug} />;
   }
   
   switch (path) {
     case '/terms':
       return <TermsOfService />;
+    case '/privacy':
+      return <PrivacyPolicy />;
     case '/blog':
       return <BlogListingPage />;
     default:

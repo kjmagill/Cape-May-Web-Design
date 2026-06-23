@@ -17,7 +17,6 @@ const BlogCard: React.FC<{ post: BlogPost }> = ({ post }) => {
                     alt={post.title}
                     loading="lazy"
                     decoding="async"
-                    crossOrigin="anonymous"
                     className={`w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700 ${isLoading ? 'opacity-0' : 'opacity-100'} filter brightness-[0.85] saturate-[0.8] group-hover:filter-none`}
                 />
             </a>

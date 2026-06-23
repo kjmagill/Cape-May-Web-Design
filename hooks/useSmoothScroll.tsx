@@ -52,11 +52,15 @@ export const useSmoothScroll = () => {
           
           // Optional: Update the URL hash in the address bar without causing a jump.
           // This provides a better user experience and allows for link sharing.
-          if (history.pushState) {
-            history.pushState(null, '', anchorTarget.hash);
-          } else {
-            // Fallback for older browsers
-            window.location.hash = anchorTarget.hash;
+          try {
+            if (window.history && window.history.pushState) {
+              window.history.pushState(null, '', anchorTarget.hash);
+            } else {
+              // Fallback for older browsers
+              window.location.hash = anchorTarget.hash;
+            }
+          } catch (e) {
+            console.warn("Failed to update URL hash due to iframe sandbox restrictions:", e);
           }
         }
       }

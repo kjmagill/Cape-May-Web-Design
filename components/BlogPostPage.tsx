@@ -17,7 +17,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
         canonicalUrl: post ? `https://www.capemaywebdesign.com/blog/${post.slug}` : undefined
     });
 
-    const jsonLd = post ? {
+    const jsonLd = React.useMemo(() => post ? {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": post.title,
@@ -37,7 +37,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                 "url": "https://kjmagill.com/img/logos/cmwd_logo.png"
             }
         }
-    } : null;
+    } : null, [post]);
 
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
@@ -53,8 +53,11 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
                     <div className="container mx-auto px-6 text-center">
                         <h1 className="text-4xl font-extrabold text-white mb-6">Post Not Found</h1>
                         <p className="text-slate-400 mb-8">Sorry, we couldn't find the blog post you were looking for.</p>
-                        <a href="/blog" className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-shadow-cta py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/15">
-                            <ArrowLeftIcon className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
+                        <a 
+                            href="/blog" 
+                            className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_12px_rgba(59,130,246,0.15),_0_0_25px_rgba(34,211,238,0.45)]"
+                        >
+                            <ArrowLeftIcon className="w-5 h-5 text-white transition-transform duration-300 group-hover:-translate-x-1" />
                             <span>Back to Blog</span>
                         </a>
                     </div>
@@ -64,14 +67,27 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
         );
     }
     
+    useEffect(() => {
+        if (!jsonLd) return;
+        try {
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.id = 'blog-post-structured-data';
+            script.innerHTML = JSON.stringify(jsonLd);
+            document.head.appendChild(script);
+
+            return () => {
+                if (script.parentNode) {
+                    script.parentNode.removeChild(script);
+                }
+            };
+        } catch (error) {
+            console.error("Failed to inject BlogPost JSON-LD script:", error);
+        }
+    }, [slug, jsonLd]);
+
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
-            {jsonLd && (
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
-            )}
             <Header />
             <main className="pt-32 md:pt-40 pb-24 md:pb-32">
                 <div className="container mx-auto px-6 max-w-7xl">

@@ -41,14 +41,14 @@ const PrivacyPolicy: React.FC = () => {
                             Please click the button below to review our full policy. This will open in a new tab on our trusted policy provider's website.
                         </p>
                         <div className="text-center">
-                             <a 
+                              <a 
                                 href={privacyPolicyUrl} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-400 to-cyan-600 hover:from-cyan-500 hover:to-cyan-700 text-white font-bold text-shadow-cta py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800"
+                                className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_20px_rgba(34,211,238,0.25)] hover:shadow-[0_4px_16px_rgba(59,130,246,0.2),_0_0_35px_rgba(34,211,238,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900"
                             >
                                 <span>View Our Privacy Policy</span>
-                                <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                                <ArrowRightIcon className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
                             </a>
                         </div>
                     </div>

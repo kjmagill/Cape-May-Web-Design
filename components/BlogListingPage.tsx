@@ -5,6 +5,33 @@ import { blogPosts } from './blogPosts';
 import BlogCard from './BlogCard';
 import { useSeo } from '../hooks/useSeo';
 
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "The Jersey Shore Business & Web Journal",
+    "description": "A curated collection of web design trends, local SEO strategies, and digital marketing insights to help businesses in South Jersey succeed.",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Cape May Web Design",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://kjmagill.com/img/logos/cmwd_logo.png"
+        }
+    },
+    "blogPost": blogPosts.map(post => ({
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "author": {
+            "@type": "Person",
+            "name": post.author
+        },
+        "datePublished": post.date,
+        "url": post.url,
+        "image": post.imageUrl,
+        "description": post.excerpt
+    }))
+};
+
 const BlogListingPage: React.FC = () => {
     useSeo({
         title: 'Blog | Cape May Web Design',
@@ -13,45 +40,32 @@ const BlogListingPage: React.FC = () => {
         canonicalUrl: 'https://www.capemaywebdesign.com/blog'
     });
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Blog",
-        "name": "The Jersey Shore Business & Web Journal",
-        "description": "A curated collection of web design trends, local SEO strategies, and digital marketing insights to help businesses in South Jersey succeed.",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Cape May Web Design",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://kjmagill.com/img/logos/cmwd_logo.png"
-            }
-        },
-        "blogPost": blogPosts.map(post => ({
-            "@type": "BlogPosting",
-            "headline": post.title,
-            "author": {
-                "@type": "Person",
-                "name": post.author
-            },
-            "datePublished": post.date,
-            "url": post.url,
-            "image": post.imageUrl,
-            "description": post.excerpt
-        }))
-    };
-
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
         const timer = setTimeout(() => setIsLoaded(true), 100); // small delay to ensure render
         return () => clearTimeout(timer);
     }, []);
 
+    useEffect(() => {
+        try {
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.id = 'blog-listing-structured-data';
+            script.innerHTML = JSON.stringify(jsonLd);
+            document.head.appendChild(script);
+
+            return () => {
+                if (script.parentNode) {
+                    script.parentNode.removeChild(script);
+                }
+            };
+        } catch (error) {
+            console.error("Failed to inject BlogListing JSON-LD script:", error);
+        }
+    }, []);
+
     return (
         <div className="bg-slate-900 min-h-screen text-slate-300">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
             <Header />
             <main className="pt-32 md:pt-40 pb-24 md:pb-32">
                 <div className="container mx-auto px-6 max-w-7xl">

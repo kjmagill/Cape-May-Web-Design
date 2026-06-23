@@ -1,5 +1,6 @@
 {
   "name": "Cape May Web Design",
   "description": "A modern landing page for Cape May Web Design, specializing in custom websites and brand strategy for South Jersey businesses.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

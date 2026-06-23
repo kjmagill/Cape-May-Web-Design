@@ -13,40 +13,42 @@ export function useIntersectionObserver<T extends Element>(
     const [isIntersecting, setIntersecting] = useState(false);
     const elementRef = useRef<T>(null);
 
+    const { root = null, rootMargin = '0px', threshold = 0.1, triggerOnce = true } = options;
+
     useEffect(() => {
         const element = elementRef.current;
         if (!element) return;
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIntersecting(true);
-                    if (options.triggerOnce) {
-                        observer.unobserve(element);
+        try {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setIntersecting(true);
+                        if (triggerOnce) {
+                            observer.unobserve(element);
+                        }
+                    } else if (!triggerOnce) {
+                        setIntersecting(false);
                     }
-                } else if (!options.triggerOnce) {
-                    setIntersecting(false);
+                },
+                {
+                    root,
+                    rootMargin,
+                    threshold,
                 }
-            },
-            {
-                root: options.root,
-                rootMargin: options.rootMargin,
-                threshold: options.threshold,
-            }
-        );
+            );
 
-        observer.observe(element);
+            observer.observe(element);
 
-        return () => {
-            if (element) {
-                observer.unobserve(element);
-            }
-        };
-    // We disable the exhaustive-deps rule here because we are stringifying the options
-    // object to prevent re-running the effect on every render if the options object
-    // is defined inline. This is a safe and common pattern for this use case.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [elementRef, JSON.stringify(options)]);
+            return () => {
+                if (element) {
+                    observer.unobserve(element);
+                }
+            };
+        } catch (error) {
+            console.error('IntersectionObserver initialization failed:', error);
+        }
+    }, [elementRef, root, rootMargin, JSON.stringify(threshold), triggerOnce]);
 
     return [elementRef, isIntersecting];
 }

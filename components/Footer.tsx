@@ -29,7 +29,11 @@ const Footer: React.FC = () => {
                 behavior: 'smooth',
             });
             if (path === '/index.html' && window.history.pushState) {
-                window.history.pushState({}, '', '/');
+                try {
+                    window.history.pushState({}, '', '/');
+                } catch (e) {
+                    console.warn("Failed to update URL path in footer due to iframe sandbox restrictions:", e);
+                }
             }
         }
     };
@@ -133,14 +137,9 @@ const Footer: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left text-slate-500 text-xs sm:text-sm">
                     {/* Legal Links */}
                     <div className="flex items-center gap-5 order-1 md:order-2">
-                        <a href="https://www.freeprivacypolicy.com/live/0ca54af8-fd0f-4c58-a1f2-19da2b034053" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Privacy Policy</a>
+                        <a href="/privacy" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Privacy Policy</a>
                         <span className="text-slate-800" aria-hidden="true">|</span>
-                        <span className="relative group cursor-not-allowed text-slate-500" title="Our Terms of Service page is coming soon.">
-                            Terms of Service
-                            <span className="absolute hidden lg:block -top-10 left-1/2 -translate-x-1/2 w-max bg-slate-800 text-white text-xs rounded-md px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-slate-700/50">
-                                Coming Soon
-                            </span>
-                        </span>
+                        <a href="/terms" className="hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 rounded-sm">Terms of Service</a>
                     </div>
 
                     {/* Copyright Note */}

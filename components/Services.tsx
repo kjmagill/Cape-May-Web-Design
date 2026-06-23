@@ -3,6 +3,33 @@ import React, { useEffect } from 'react';
 import { CodeIcon, SparklesIcon, BullseyeIcon, GearIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
+const SERVICES_DATA = [
+    {
+        title: 'Custom Website Design',
+        description: 'Stunning, responsive websites tailored for Cape May businesses. Our designs captivate visitors and convert them into loyal customers.',
+        id: 'service-web-design',
+        serviceType: 'Web Design'
+    },
+    {
+        title: 'Brand Strategy & Identity',
+        description: 'We craft cohesive brand identities for South Jersey startups and established shops. From logos to strategy, we ensure you make an impact.',
+        id: 'service-branding',
+        serviceType: 'Brand Strategy'
+    },
+    {
+        title: 'Local SEO & Marketing',
+        description: 'Dominate local search in Wildwood, Ocean City, and Cape May. Our proven SEO strategies are designed to deliver qualified local traffic.',
+        id: 'service-seo',
+        serviceType: 'Search Engine Optimization'
+    },
+    {
+        title: 'Custom Apps & Automations',
+        description: 'Gain a competitive edge with custom software. We build applications and automation tools for businesses throughout Cape May County.',
+        id: 'service-apps',
+        serviceType: 'Software Development'
+    }
+];
+
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string; indexVal: number }> = ({ icon, title, description, indexVal }) => (
     <div className="group bg-slate-800/50 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full relative overflow-hidden">
         {/* Precise brand numbering style mapped after technical logs */}
@@ -23,31 +50,19 @@ const Services: React.FC = () => {
     const servicesData = [
         {
             icon: <CodeIcon className="w-12 h-12" />,
-            title: 'Custom Website Design',
-            description: 'Stunning, responsive websites tailored for Cape May businesses. Our designs captivate visitors and convert them into loyal customers.',
-            id: 'service-web-design',
-            serviceType: 'Web Design'
+            ...SERVICES_DATA[0]
         },
         {
             icon: <SparklesIcon className="w-12 h-12" />,
-            title: 'Brand Strategy & Identity',
-            description: 'We craft cohesive brand identities for South Jersey startups and established shops. From logos to strategy, we ensure you make an impact.',
-            id: 'service-branding',
-            serviceType: 'Brand Strategy'
+            ...SERVICES_DATA[1]
         },
         {
             icon: <BullseyeIcon className="w-12 h-12" />,
-            title: 'Local SEO & Marketing',
-            description: 'Dominate local search in Wildwood, Ocean City, and Cape May. Our proven SEO strategies are designed to deliver qualified local traffic.',
-            id: 'service-seo',
-            serviceType: 'Search Engine Optimization'
+            ...SERVICES_DATA[2]
         },
         {
             icon: <GearIcon className="w-12 h-12" />,
-            title: 'Custom Apps & Automations',
-            description: 'Gain a competitive edge with custom software. We build applications and automation tools for businesses throughout Cape May County.',
-            id: 'service-apps',
-            serviceType: 'Software Development'
+            ...SERVICES_DATA[3]
         },
     ];
 
@@ -56,7 +71,7 @@ const Services: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "ItemList",
             "name": "Web Design Services",
-            "itemListElement": servicesData.map((service, index) => ({
+            "itemListElement": SERVICES_DATA.map((service, index) => ({
                 "@type": "ListItem",
                 "position": index + 1,
                 "item": {
@@ -76,18 +91,21 @@ const Services: React.FC = () => {
             }))
         };
 
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.id = 'services-structured-data';
-        script.innerHTML = JSON.stringify(structuredData);
-        document.head.appendChild(script);
+        try {
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.id = 'services-structured-data';
+            script.innerHTML = JSON.stringify(structuredData);
+            document.head.appendChild(script);
 
-        return () => {
-            const existingScript = document.getElementById('services-structured-data');
-            if (existingScript) {
-                document.head.removeChild(existingScript);
-            }
-        };
+            return () => {
+                if (script.parentNode) {
+                    script.parentNode.removeChild(script);
+                }
+            };
+        } catch (error) {
+            console.error("Failed to inject Services JSON-LD script:", error);
+        }
     }, []);
 
 
