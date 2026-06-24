@@ -7,7 +7,7 @@ const TestimonialCard: React.FC<{ quote: string; name: string; company: string }
             <p>"{quote}"</p>
         </blockquote>
         <figcaption className="flex items-center pt-6 border-t border-slate-700/50">
-            <div className="w-14 h-14 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-600 flex items-center justify-center font-bold text-white text-xl mr-4 flex-shrink-0 shadow-lg shadow-cyan-500/20" aria-hidden="true">
+            <div className="w-14 h-14 rounded-full bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 flex items-center justify-center font-bold text-white text-xl mr-4 flex-shrink-0 shadow-lg shadow-cyan-500/20" aria-hidden="true">
                 {name.charAt(0)}
             </div>
             <div>
@@ -23,19 +23,19 @@ const Testimonials: React.FC = () => {
 
     const testimonialsData = [
         {
-            quote: "When we started Golden Paver, we didn't even have a logo, let alone a website. KJ helped us build our brand from the ground up and created a website that looks like a well-established company. We're already seeing local leads coming in directly through the new site!",
+            quote: "KJ took us from absolutely nothing to a fully polished brand. The design is clean, and we started getting solid local leads within the first week of going live.",
             name: "Josh & Chris",
             company: "Golden Paver Owners",
         },
         {
-            quote: "As a CPA and small business owner, I needed a website that projected professionalism and expertise to my clients. KJ designed a clean, modern site that makes scheduling consultations incredibly simple. It’s one of the best investments I’ve made in my business so far.",
+            quote: "Needed a modern website that didn't feel corporate or boring. KJ nailed what I was looking for, and clients are constantly commenting on how much they like it.",
             name: "Lauren T.",
             company: "Certified Public Accountant",
         },
         {
-            quote: "My online business was basically invisible before I found this guy. He built me a great-looking website and somehow got me to the top of Google search results for my niche. Now, my phone's constantly buzzing with new sales & leads. This has completely changed the game for me.",
-            name: "Mike M.",
-            company: "E-commerce Entrepreneur",
+            quote: "Launching our new business was a massive project, but KJ made the website process completely seamless. We are already getting local inquiries directly through it.",
+            name: "Dan & Paul",
+            company: "Back Bay Owners",
         },
     ];
 
@@ -55,7 +55,7 @@ const Testimonials: React.FC = () => {
                     {/* 3. Pre-header accent framing matching the logo's custom line elements */}
                     <div className="flex items-center justify-center gap-3.5 mb-4">
                         <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-cyan-500"></span>
-                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500 uppercase inline-block font-outfit">
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 uppercase inline-block font-outfit">
                             Local Testimonials
                         </span>
                         <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-cyan-500"></span>

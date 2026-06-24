@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
                     <span className={`block whitespace-nowrap italic transition-all duration-1000 ease-out text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         More Than a Website.
                     </span>
-                    <span className={`block text-cyan-400 whitespace-nowrap italic transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                    <span className={`block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 whitespace-nowrap italic transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         A Growth Engine.
                     </span>
                 </h1>
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
                         <a 
                             href="#portfolio" 
                             aria-label="View our portfolio of recent work" 
-                            className="w-full sm:w-auto h-12 sm:h-14 inline-flex items-center justify-center bg-slate-950/40 backdrop-blur-sm border border-slate-700/80 hover:bg-slate-900/60 hover:border-cyan-400/80 text-slate-200 hover:text-white font-bold text-base sm:text-lg px-6 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.08)] shadow-black/10"
+                            className="box-content w-full sm:w-auto h-12 sm:h-14 inline-flex items-center justify-center bg-slate-950/40 backdrop-blur-sm border border-slate-700/80 hover:bg-slate-900/60 hover:border-cyan-400/80 text-slate-200 hover:text-white font-bold text-base sm:text-lg px-6 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.08)] shadow-black/10"
                         >
                             View Our Work
                         </a>

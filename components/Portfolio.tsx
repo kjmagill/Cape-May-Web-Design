@@ -25,7 +25,7 @@ const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string 
                     <h3 className="text-white text-xl md:text-2xl font-bold tracking-tight transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 ease-out">
                         {title}
                     </h3>
-                    <div className="w-12 h-0.5 bg-cyan-500 my-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100 ease-out"></div>
+                    <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 my-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 delay-100 ease-out"></div>
                     <p className="text-cyan-400 font-bold text-xs uppercase tracking-[0.25em] transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-200 ease-out">
                         {category}
                     </p>
@@ -105,7 +105,7 @@ const Portfolio: React.FC = () => {
                     {/* 3. Pre-header accent framing matching the logo's custom line elements */}
                     <div className="flex items-center justify-center gap-3.5 mb-4">
                         <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-cyan-500"></span>
-                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500 uppercase inline-block font-outfit">
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 uppercase inline-block font-outfit">
                             Successful Deployments
                         </span>
                         <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-cyan-500"></span>

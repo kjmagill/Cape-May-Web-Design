@@ -6,25 +6,25 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 const SERVICES_DATA = [
     {
         title: 'Custom Website Design',
-        description: 'Stunning, responsive websites tailored for Cape May businesses. Our designs captivate visitors and convert them into loyal customers.',
+        description: 'Fast, modern websites built to turn local traffic into actual customers. No templates or bloat, just clean design that works.',
         id: 'service-web-design',
         serviceType: 'Web Design'
     },
     {
         title: 'Brand Strategy & Identity',
-        description: 'We craft cohesive brand identities for South Jersey startups and established shops. From logos to strategy, we ensure you make an impact.',
+        description: 'Complete visual identities designed to stand out. We build your logos, typography, and guidelines so your business looks established from day one.',
         id: 'service-branding',
         serviceType: 'Brand Strategy'
     },
     {
         title: 'Local SEO & Marketing',
-        description: 'Dominate local search in Wildwood, Ocean City, and Cape May. Our proven SEO strategies are designed to deliver qualified local traffic.',
+        description: 'Get your business found on Google where it actually matters. We optimize your local presence to bring in real phone calls and walk-ins.',
         id: 'service-seo',
         serviceType: 'Search Engine Optimization'
     },
     {
         title: 'Custom Apps & Automations',
-        description: 'Gain a competitive edge with custom software. We build applications and automation tools for businesses throughout Cape May County.',
+        description: 'Custom software built to automate repetitive tasks and save hours of manual paperwork. If you can define the workflow, we can build it.',
         id: 'service-apps',
         serviceType: 'Software Development'
     }
@@ -125,7 +125,7 @@ const Services: React.FC = () => {
                     {/* 3. Pre-header accent framing matching the logo's custom line elements */}
                     <div className="flex items-center justify-center gap-3.5 mb-4">
                         <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-cyan-500"></span>
-                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500 uppercase inline-block font-outfit">
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 uppercase inline-block font-outfit">
                             Elite Capabilities
                         </span>
                         <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-cyan-500"></span>

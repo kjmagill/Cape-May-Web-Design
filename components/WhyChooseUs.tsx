@@ -18,18 +18,18 @@ const WhyChooseUs: React.FC = () => {
     const features = [
         {
             icon: <MapPinIcon className="w-8 h-8" />,
-            title: 'Deep Local Market Insight',
-            description: "Based in Cape May, we know the shore. From Wildwood boardwalks to Ocean City shops, we build websites that connect with the unique South Jersey community.",
+            title: 'We Know the Shore',
+            description: "No generic templates or distant agencies. We live here, shop here, and understand exactly what makes South Jersey businesses tick.",
         },
         {
             icon: <InterlockingCirclesIcon className="w-8 h-8" />,
-            title: 'A Personalized Approach to Every Project',
-            description: "You're more than a client to us. We work closely with you to understand your specific goals and craft a solution that perfectly fits your vision.",
+            title: 'One-on-One Partner',
+            description: "You work directly with us, not account managers. We talk face-to-face, understand your real goals, and deliver exactly what you need.",
         },
         {
             icon: <ChartTrendingUpIcon className="w-8 h-8" />,
-            title: 'A Strategic Focus on Growth',
-            description: 'We measure our success by yours. Our websites are engineered not just to look good, but to generate leads, drive sales, and grow your business.',
+            title: 'Built for Real Results',
+            description: "A pretty website is useless if it doesn't bring in business. We build with a single focus: getting you more calls, more leads, and more sales.",
         },
     ];
 
@@ -50,13 +50,13 @@ const WhyChooseUs: React.FC = () => {
                     {/* 3. Pre-header accent framing matching the logo's custom line elements */}
                     <div className="flex items-center justify-center gap-3.5 mb-4">
                         <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-cyan-500"></span>
-                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-500 uppercase inline-block font-outfit">
+                        <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 uppercase inline-block font-outfit">
                             Why Partner With Us
                         </span>
                         <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-cyan-500"></span>
                     </div>
                     <h2 id="why-us-heading" className="text-4xl sm:text-5xl font-black text-white italic tracking-tight">The Local Advantage</h2>
-                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">We're more than a web design agency; we're your local partner dedicated to the success of businesses in Cape May County.</p>
+                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">We don't just design websites. We partner with local Cape May County businesses to help them win.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {features.map((feature, index) => (
