@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import TechStack from './components/TechStack';
 import Services from './components/Services';
 import WhyChooseUs from './components/WhyChooseUs';
 import Portfolio from './components/Portfolio';
+import Process from './components/Process';
 import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -63,10 +66,13 @@ const LandingPage: React.FC = () => {
       <Header />
       <main id="main-content">
         <Hero />
+        <TechStack />
         <Services />
         <WhyChooseUs />
         <Portfolio />
+        <Process />
         <Testimonials />
+        <FAQ />
         <Blog />
         <Contact />
       </main>

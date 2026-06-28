@@ -52,40 +52,40 @@ const Portfolio: React.FC = () => {
 
     const projects = [
         { 
+            imgUrl: 'https://kjmagill.com/img/projects/hornless.jpg', 
+            title: 'Hornless Horse', 
+            category: 'Radically transparent open-source models', 
+            url: 'https://hornlesshorse.com' 
+        },
+        { 
+            imgUrl: 'https://kjmagill.com/img/projects/backbay.jpg', 
+            title: 'Back Bay Buggies', 
+            category: 'Golf Cart Rentals & Booking', 
+            url: 'https://backbaybuggies.com' 
+        },
+        { 
             imgUrl: 'https://kjmagill.com/img/projects/gp_social.png', 
             title: 'Golden Paver Restorations', 
             category: 'Paver Cleaning and Restoration Services', 
             url: 'https://goldenpaver.com' 
         },
         { 
+            imgUrl: 'https://kjmagill.com/img/projects/tmc_project.png', 
+            title: 'Tom Magill Construction', 
+            category: 'Premium Custom Home Building & Remodeling', 
+            url: 'https://tommagillconstruction.com' 
+        },
+        { 
             imgUrl: 'https://kjmagill.com/img/projects/cantocurb_project.png', 
-            title: 'CanToCurb.com', 
+            title: 'Can To Curb', 
             category: 'Trash and Recycling Valet Services', 
             url: 'https://cantocurb.com' 
         },
         { 
             imgUrl: 'https://kjmagill.com/img/projects/todesko_banner.jpg', 
-            title: 'Todesko Bookkeeping', 
+            title: 'Lauren Todesko Bookkeeping', 
             category: 'Professional Bookkeeping Services', 
             url: 'https://todeskobookkeeping.com' 
-        },
-        { 
-            imgUrl: 'https://kjmagill.com/img/projects/tmc_project.png', 
-            title: 'Tom Magill Construction', 
-            category: 'NJ Home Builder and Remodeler', 
-            url: 'https://tommagillconstruction.com' 
-        },
-        { 
-            imgUrl: 'https://kjmagill.com/img/projects/contrax.jpg', 
-            title: 'Contrax.finance', 
-            category: 'Permissionless DeFi Vaults', 
-            url: 'https://contrax.finance' 
-        },
-        { 
-            imgUrl: 'https://kjmagill.com/img/projects/care_for_life.jpg', 
-            title: 'Care For Life', 
-            category: 'Global Non-profit Organization', 
-            url: 'https://careforlife.org' 
         },
     ];
 
@@ -93,7 +93,7 @@ const Portfolio: React.FC = () => {
         <section 
             id="portfolio" 
             ref={sectionRef}
-            className="py-24 md:py-32 bg-slate-800"
+            className="py-24 md:py-32 bg-slate-900"
             aria-labelledby="portfolio-heading"
         >
             <div className="container mx-auto px-6 max-w-7xl">

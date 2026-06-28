@@ -23,17 +23,17 @@ const Testimonials: React.FC = () => {
 
     const testimonialsData = [
         {
-            quote: "KJ took us from absolutely nothing to a fully polished brand. The design is clean, and we started getting solid local leads within the first week of going live.",
+            quote: "KJ took us from zero online presence to a polished brand in just a couple of weeks. We started getting solid local leads almost immediately.",
             name: "Josh & Chris",
             company: "Golden Paver Owners",
         },
         {
-            quote: "Needed a modern website that didn't feel corporate or boring. KJ nailed what I was looking for, and clients are constantly commenting on how much they like it.",
+            quote: "Needed a modern website that didn't feel corporate or boring. KJ nailed what I was looking for, and clients are constantly telling me how much they love it.",
             name: "Lauren T.",
             company: "Certified Public Accountant",
         },
         {
-            quote: "Launching our new business was a massive project, but KJ made the website process completely seamless. We are already getting local inquiries directly through it.",
+            quote: "Launching our new business was a big undertaking, but KJ made the technical side of things a breeze. Everything's now automated which is awesome!",
             name: "Dan & Paul",
             company: "Back Bay Owners",
         },

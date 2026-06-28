@@ -52,7 +52,7 @@ const Blog: React.FC = () => {
         <section 
             id="blog" 
             ref={sectionRef}
-            className="py-24 md:py-32 bg-slate-800"
+            className="py-24 md:py-32 bg-slate-900"
             aria-labelledby="blog-heading"
         >
             <div className="container mx-auto px-6 max-w-7xl">

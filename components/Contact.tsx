@@ -153,7 +153,8 @@ const Contact: React.FC = () => {
         'Custom Website Design',
         'E-commerce Store',
         'Targeted SEO & Marketing',
-        'Custom App & Automation',
+        'AI Workflows & Automations',
+        'Agentic Digital Employees',
         'Other Inquiry'
     ];
 

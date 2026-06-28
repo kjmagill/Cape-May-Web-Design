@@ -1,5 +1,5 @@
 import React from 'react';
-import { InterlockingCirclesIcon, MapPinIcon, ChartTrendingUpIcon } from './icons';
+import { InterlockingCirclesIcon, MapPinIcon, ChartTrendingUpIcon, UserIcon, InfinityIcon } from './icons';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
@@ -56,7 +56,7 @@ const WhyChooseUs: React.FC = () => {
                         <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-cyan-500"></span>
                     </div>
                     <h2 id="why-us-heading" className="text-4xl sm:text-5xl font-black text-white italic tracking-tight">The Local Advantage</h2>
-                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">We don't just design websites. We partner with local Cape May County businesses to help them win.</p>
+                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">We don't just design websites. We integrate advanced AI-driven workflows and automation systems to help local Cape May County businesses scale.</p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {features.map((feature, index) => (
@@ -70,6 +70,77 @@ const WhyChooseUs: React.FC = () => {
                             <FeatureCard {...feature} />
                         </div>
                     ))}
+                </div>
+
+                {/* Modern AI & Automation Tech Stack / Capability Panel */}
+                <div 
+                    className={`mt-24 bg-slate-900/40 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-slate-700/50 relative overflow-hidden transition-all duration-1000 ease-out shadow-[0_0_50px_rgba(6,182,212,0.05)] hover:shadow-[0_0_60px_rgba(6,182,212,0.12)] ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+                    }`}
+                    style={{ transitionDelay: '500ms' }}
+                >
+                    {/* Atmospheric Glow Elements */}
+                    <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    {/* Section Header */}
+                    <div className="relative z-10 max-w-3xl mb-12">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-xs font-bold tracking-wider uppercase mb-4 shadow-sm shadow-cyan-500/5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                            [ Intelligent Automation ]
+                        </div>
+                        <h3 className="text-3xl sm:text-4xl font-black text-white italic tracking-tight leading-tight">
+                            Autonomous Agency Solutions
+                        </h3>
+                        <p className="text-slate-400 mt-3 text-lg leading-relaxed">
+                            We go beyond static page layouts. We design and deploy custom digital agents and robust automation pipelines that run your business operations 24/7.
+                        </p>
+                    </div>
+
+                    {/* 3 Large, Impactful Cards */}
+                    <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {/* Card 1 */}
+                        <div className="group bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 hover:border-cyan-500/40 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20 hover:-translate-y-1">
+                            <div>
+                                <div className="text-cyan-400 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 border border-slate-700/60 group-hover:scale-110 group-hover:border-cyan-500/40 transition-all duration-300 mb-6 shadow-inner">
+                                    <ChartTrendingUpIcon className="w-6 h-6" />
+                                </div>
+                                <span className="font-mono text-cyan-400 font-extrabold text-[11px] tracking-wider block mb-2">01 // AUTOMATIONS</span>
+                                <h4 className="text-white font-extrabold text-xl italic tracking-tight group-hover:text-cyan-300 transition-colors duration-300">Smart Pipelines</h4>
+                            </div>
+                            <p className="text-slate-400 text-sm md:text-base mt-4 leading-relaxed">
+                                Automate lead capture, score prospects, draft service contracts, and synchronize your CRM platforms seamlessly with no manual data entry.
+                            </p>
+                        </div>
+
+                        {/* Card 2 */}
+                        <div className="group bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 hover:border-cyan-500/40 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20 hover:-translate-y-1">
+                            <div>
+                                <div className="text-cyan-400 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 border border-slate-700/60 group-hover:scale-110 group-hover:border-cyan-500/40 transition-all duration-300 mb-6 shadow-inner">
+                                    <UserIcon className="w-6 h-6" />
+                                </div>
+                                <span className="font-mono text-cyan-400 font-extrabold text-[11px] tracking-wider block mb-2">02 // DIGITAL AGENTS</span>
+                                <h4 className="text-white font-extrabold text-xl italic tracking-tight group-hover:text-cyan-300 transition-colors duration-300">Digital Employees</h4>
+                            </div>
+                            <p className="text-slate-400 text-sm md:text-base mt-4 leading-relaxed">
+                                Deploy highly trained conversational agents that answer customer inquiries, schedule client meetings, and qualify incoming South Jersey leads 24/7.
+                            </p>
+                        </div>
+
+                        {/* Card 3 */}
+                        <div className="group bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 hover:border-cyan-500/40 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20 hover:-translate-y-1">
+                            <div>
+                                <div className="text-cyan-400 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 border border-slate-700/60 group-hover:scale-110 group-hover:border-cyan-500/40 transition-all duration-300 mb-6 shadow-inner">
+                                    <InfinityIcon className="w-6 h-6" />
+                                </div>
+                                <span className="font-mono text-cyan-400 font-extrabold text-[11px] tracking-wider block mb-2">03 // INGESTION</span>
+                                <h4 className="text-white font-extrabold text-xl italic tracking-tight group-hover:text-cyan-300 transition-colors duration-300">System Glue</h4>
+                            </div>
+                            <p className="text-slate-400 text-sm md:text-base mt-4 leading-relaxed">
+                                Connect legacy databases, email accounts, and billing software like QuickBooks directly to state-of-the-art AI systems with zero friction.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -23,10 +23,10 @@ const SERVICES_DATA = [
         serviceType: 'Search Engine Optimization'
     },
     {
-        title: 'Custom Apps & Automations',
-        description: 'Custom software built to automate repetitive tasks and save hours of manual paperwork. If you can define the workflow, we can build it.',
+        title: 'AI Workflows & Automations',
+        description: 'Smart AI workflows, integrations, and autonomous digital agents built to eliminate tedious tasks and automate your daily business operations.',
         id: 'service-apps',
-        serviceType: 'Software Development'
+        serviceType: 'AI & Smart Automation'
     }
 ];
 
@@ -126,12 +126,12 @@ const Services: React.FC = () => {
                     <div className="flex items-center justify-center gap-3.5 mb-4">
                         <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-cyan-500"></span>
                         <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 uppercase inline-block font-outfit">
-                            Elite Capabilities
+                            Our Expertise
                         </span>
                         <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-cyan-500"></span>
                     </div>
                     <h2 id="services-heading" className="text-4xl sm:text-5xl font-black text-white italic tracking-tight">Our Professional Services</h2>
-                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">From stunning designs to powerful marketing, we offer everything your South Jersey business needs to succeed online.</p>
+                    <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">From modern web designs to intelligent AI-driven automations, we build the digital leverage your South Jersey business needs to win.</p>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
                     {servicesData.map((service, index) => (
