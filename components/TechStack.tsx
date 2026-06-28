@@ -96,9 +96,13 @@ const TechStack: React.FC = () => {
         <section 
             id="tech-stack" 
             ref={sectionRef}
-            className="py-5 sm:py-6 bg-slate-950/20 border-y border-slate-800/40 relative overflow-hidden"
+            className="py-5 sm:py-6 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden"
             aria-labelledby="tech-stack-heading"
         >
+            {/* Extremely subtle, modern top and bottom fade-out dividers to maintain a seamless transition without visual blockiness */}
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-700/15 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-700/15 to-transparent"></div>
+
             <div className="container mx-auto px-6 max-w-7xl relative z-10">
                 <div 
                     className={`flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-8 transition-all duration-1000 ease-out ${
