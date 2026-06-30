@@ -368,10 +368,11 @@ const FAQ: React.FC = () => {
                     </p>
                     <a 
                         href="#contact" 
-                        className="group inline-flex items-center gap-2 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 hover:from-cyan-300 hover:via-sky-300 hover:to-blue-400 text-white font-extrabold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-[0_4px_12px_rgba(34,211,238,0.15)] hover:shadow-[0_4px_20px_rgba(34,211,238,0.45)] text-sm"
+                        className="group relative overflow-hidden inline-flex items-center gap-2 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 hover:from-cyan-300 hover:via-sky-300 hover:to-blue-400 text-white font-extrabold px-6 py-3 rounded-full transition-all duration-300 transform hover:scale-[1.02] shadow-[0_4px_12px_rgba(34,211,238,0.15)] hover:shadow-[0_4px_20px_rgba(34,211,238,0.45)] text-sm"
                     >
-                        <span>Get in Touch Directly</span>
-                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        <span className="absolute inset-0 w-full h-full rounded-full bg-slate-950/15 group-hover:bg-slate-950/5 transition-colors duration-300 pointer-events-none" />
+                        <span className="relative z-10">Get in Touch Directly</span>
+                        <ArrowRight className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </a>
                 </motion.div>
             </div>

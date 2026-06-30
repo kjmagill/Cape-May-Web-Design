@@ -40,10 +40,10 @@ const Hero: React.FC = () => {
 
             <div className="relative z-10 w-full max-w-5xl mx-auto">
                 <h1 className="text-[8.5vw] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.75rem] xl:text-[5.5rem] font-black leading-[1.08] tracking-tighter mb-6 sm:mb-8">
-                    <span className={`block whitespace-nowrap italic transition-all duration-1000 ease-out text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                    <span className={`block whitespace-nowrap italic px-2 -mx-2 transition-all duration-1000 ease-out text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         More Than a Website.
                     </span>
-                    <span className={`block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 whitespace-nowrap italic transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                    <span className={`block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 whitespace-nowrap italic px-2 -mx-2 pb-3 -mb-3 transition-all duration-1000 ease-out delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         A Growth Engine.
                     </span>
                 </h1>
@@ -63,10 +63,11 @@ const Hero: React.FC = () => {
                         {/* Primary button with precise layout, elegant tracking, and balanced, premium glow shadows */}
                         <a 
                             href={quoteHref} 
-                            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-bold text-sm sm:text-[15.5px] py-3 px-7 sm:py-3.5 sm:px-9 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.1),_0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_16px_rgba(59,130,246,0.15),_0_0_30px_rgba(34,211,238,0.5)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
+                            className="group relative overflow-hidden w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-bold text-sm sm:text-[15.5px] py-3 px-7 sm:py-3.5 sm:px-9 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.1),_0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_16px_rgba(59,130,246,0.15),_0_0_30px_rgba(34,211,238,0.5)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
                         >
-                            <span className="tracking-tight">Start Growing Today</span>
-                            <ArrowRightIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-white transition-transform duration-300 group-hover:translate-x-1" />
+                            <span className="absolute inset-0 w-full h-full rounded-full bg-slate-950/15 group-hover:bg-slate-950/5 transition-colors duration-300 pointer-events-none" />
+                            <span className="relative z-10 tracking-tight">Start Growing Today</span>
+                            <ArrowRightIcon className="relative z-10 w-4 h-4 sm:w-[18px] sm:h-[18px] text-white transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                         {/* Secondary Premium Glass Button, perfectly matched in height and padding proportions */}
                         <a 

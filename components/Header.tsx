@@ -161,10 +161,11 @@ const Header: React.FC = () => {
                         </a>
                         <a 
                             href={quoteHref} 
-                            className="group inline-flex items-center justify-center space-x-1.5 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-bold py-1.5 px-4.5 xl:py-2 xl:px-5 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.1),_0_0_12px_rgba(34,211,238,0.15)] hover:shadow-[0_4px_12px_rgba(59,130,246,0.12),_0_0_20px_rgba(34,211,238,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
+                            className="group relative overflow-hidden inline-flex items-center justify-center space-x-1.5 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-bold py-1.5 px-4.5 xl:py-2 xl:px-5 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.1),_0_0_12px_rgba(34,211,238,0.15)] hover:shadow-[0_4px_12px_rgba(59,130,246,0.12),_0_0_20px_rgba(34,211,238,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
                         >
-                           <span className="text-[12.5px] xl:text-[13px] font-semibold tracking-tight">Get a Quote</span>
-                           <ArrowRightIcon className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+                            <span className="absolute inset-0 w-full h-full rounded-full bg-slate-950/15 group-hover:bg-slate-950/5 transition-colors duration-300 pointer-events-none" />
+                            <span className="relative z-10 text-[12.5px] xl:text-[13px] font-semibold tracking-tight">Get a Quote</span>
+                            <ArrowRightIcon className="relative z-10 w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                     </nav>
                 </div>
@@ -318,10 +319,11 @@ const Header: React.FC = () => {
                         <a 
                             href={quoteHref} 
                             onClick={() => handleLinkClick(quoteHref)} 
-                            className="w-full text-center bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold py-2.5 px-5 rounded-full transition-all duration-300 transform hover:scale-[1.01] inline-flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_12px_rgba(59,130,246,0.15),_0_0_25px_rgba(34,211,238,0.45)]"
+                            className="group relative overflow-hidden w-full text-center bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold py-2.5 px-5 rounded-full transition-all duration-300 transform hover:scale-[1.01] inline-flex items-center justify-center space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_12px_rgba(59,130,246,0.15),_0_0_25px_rgba(34,211,238,0.45)]"
                         >
-                            <span className="text-[10px] uppercase tracking-wider font-extrabold">Get an Instant Quote</span>
-                            <ArrowRightIcon className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
+                            <span className="absolute inset-0 w-full h-full rounded-full bg-slate-950/15 group-hover:bg-slate-950/5 transition-colors duration-300 pointer-events-none" />
+                            <span className="relative z-10 text-[10px] uppercase tracking-wider font-extrabold">Get an Instant Quote</span>
+                            <ArrowRightIcon className="relative z-10 w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                     </div>
                     

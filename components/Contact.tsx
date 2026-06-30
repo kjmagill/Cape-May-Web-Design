@@ -374,16 +374,17 @@ const Contact: React.FC = () => {
                                     <div className="mt-6">
                                         <button 
                                             type="submit" 
-                                            className="group w-full justify-center flex items-center bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_20px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_16px_rgba(59,130,246,0.2),_0_0_30px_rgba(34,211,238,0.55)] disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900"
+                                            className="group relative overflow-hidden w-full justify-center flex items-center bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold py-3.5 px-8 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_20px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_16px_rgba(59,130,246,0.2),_0_0_30px_rgba(34,211,238,0.55)] disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-900"
                                             disabled={formStatus === 'submitting'}
                                         >
+                                            <span className="absolute inset-0 w-full h-full rounded-full bg-slate-950/15 group-hover:bg-slate-950/5 transition-colors duration-300 pointer-events-none" />
                                             {formStatus === 'submitting' ? (
-                                                <>
+                                                <span className="relative z-10 flex items-center justify-center">
                                                     <SpinnerIcon className="-ml-1 mr-3 h-5 w-5 text-white animate-spin" />
                                                     Sending...
-                                                </>
+                                                </span>
                                             ) : (
-                                                <span className="flex items-center space-x-2">
+                                                <span className="relative z-10 flex items-center space-x-2">
                                                     <span>Send Message</span>
                                                     <ArrowRightIcon className="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
                                                 </span>
