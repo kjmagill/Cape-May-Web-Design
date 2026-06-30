@@ -29,7 +29,7 @@ const FaqItemRow: React.FC<{
                     onClick={onToggle}
                     className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-bold text-lg sm:text-xl text-white hover:text-cyan-400 transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-2xl cursor-pointer"
                 >
-                    <span className="tracking-tight italic">{item.question}</span>
+                    <span className="tracking-tight">{item.question}</span>
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-900/50 flex items-center justify-center border border-slate-700/50 group-hover:border-cyan-500/30 transition-colors">
                         <ChevronDownIcon 
                             className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${

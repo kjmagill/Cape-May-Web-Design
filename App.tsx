@@ -18,6 +18,7 @@ import BlogListingPage from './components/BlogListingPage';
 import BlogPostPage from './components/BlogPostPage';
 import { useSeo, updateMetaTag, updatePropertyMetaTag } from './hooks/useSeo';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
+import { useWebVitals } from './hooks/useWebVitals';
 import { blogPosts } from './components/blogPosts';
 
 interface SeoMetadata {
@@ -85,6 +86,7 @@ const LandingPage: React.FC = () => {
 
 const App: React.FC = () => {
   useSmoothScroll();
+  useWebVitals();
   
   useEffect(() => {
     // FIX FOR MOBILE VIEWPORT HEIGHT: This prevents the "bounce" on scroll

@@ -121,7 +121,7 @@ const Process: React.FC = () => {
                                         <span className="font-mono text-cyan-400 font-extrabold text-[10px] sm:text-[11px] tracking-wider block mb-1 uppercase">
                                             {step.number} // {step.badge}
                                         </span>
-                                        <h3 className="text-2xl font-black text-white tracking-tight italic transition-colors duration-300 group-hover:text-cyan-400">
+                                        <h3 className="text-2xl font-black text-white tracking-tight transition-colors duration-300 group-hover:text-cyan-400">
                                             {step.title}
                                         </h3>
                                     </div>

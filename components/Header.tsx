@@ -142,14 +142,14 @@ const Header: React.FC = () => {
                             <a 
                                 key={link.name} 
                                 href={link.href} 
-                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 font-outfit text-sm font-medium tracking-wide after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-cyan-300 after:via-sky-400 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 font-sans text-sm font-medium tracking-wide after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-cyan-300 after:via-sky-400 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                             >
                                 {link.name}
                             </a>
                         ))}
                         <a 
                             href="tel:6093006464" 
-                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 font-outfit text-sm font-medium tracking-wide after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-cyan-300 after:via-sky-400 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 font-sans text-sm font-medium tracking-wide after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-cyan-300 after:via-sky-400 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                         >
                             <PhoneIcon className="w-3.5 h-3.5" />
                             <span>(609) 300-6464</span>

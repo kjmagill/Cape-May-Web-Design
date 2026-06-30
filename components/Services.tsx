@@ -39,7 +39,7 @@ const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description:
         <div className="mb-6 text-cyan-400 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
             {icon}
         </div>
-        <h3 className="text-2xl font-black text-white mb-4 tracking-tight italic transition-colors duration-300 group-hover:text-cyan-400">{title}</h3>
+        <h3 className="text-2xl font-black text-white mb-4 tracking-tight transition-colors duration-300 group-hover:text-cyan-400">{title}</h3>
         <p className="text-slate-400 leading-relaxed text-lg">{description}</p>
     </div>
 );
