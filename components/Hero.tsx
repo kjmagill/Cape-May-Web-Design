@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
                         <a 
                             href="#portfolio" 
                             aria-label="View our portfolio of recent work" 
-                            className="w-full sm:w-auto inline-flex items-center justify-center bg-slate-950/40 backdrop-blur-sm border border-slate-700/80 hover:bg-slate-900/65 hover:border-cyan-400/80 text-slate-200 hover:text-white font-semibold text-sm sm:text-[15.5px] py-3 px-7 sm:py-3.5 sm:px-9 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.06)] shadow-black/10"
+                            className="w-full sm:w-auto inline-flex items-center justify-center bg-slate-950/40 backdrop-blur-sm border border-slate-700/80 hover:bg-slate-900/65 hover:border-cyan-400/80 text-slate-200 hover:text-white font-semibold text-sm sm:text-[15.5px] py-[13px] px-7 sm:py-[15px] sm:px-9 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.06)] shadow-black/10"
                         >
                             View Our Work
                         </a>
