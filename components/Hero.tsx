@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
             <div className="absolute top-1/3 right-1/4 w-[250px] h-[250px] bg-cyan-500/10 rounded-full blur-[110px] pointer-events-none mix-blend-screen animate-pulse" style={{ animationDuration: '12s' }}></div>
 
             <div className="relative z-10 w-full max-w-5xl mx-auto">
-                <h1 className="text-[8vw] sm:text-[3.25rem] md:text-[4.25rem] lg:text-[5rem] xl:text-[5.75rem] font-black leading-[1.12] tracking-tight mb-5 sm:mb-8">
+                <h1 className="text-[8.5vw] sm:text-[3.25rem] md:text-[4rem] lg:text-[4.75rem] xl:text-[5.5rem] font-black leading-[1.08] tracking-tighter mb-6 sm:mb-8">
                     <span className={`block whitespace-nowrap italic transition-all duration-1000 ease-out text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         More Than a Website.
                     </span>
@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
                 </h1>
                 <div className="px-2 md:px-0">
                     <p
-                        className={`text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed transition-all duration-1000 ease-out delay-500 ${
+                        className={`text-base sm:text-lg md:text-[1.125rem] lg:text-xl text-slate-300/90 max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed transition-all duration-1000 ease-out delay-500 ${
                             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                         }`}
                     >
@@ -60,19 +60,19 @@ const Hero: React.FC = () => {
                             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                         }`}
                     >
-                        {/* 2. Primary button using precise vivid cyan-blue gradient with high-contrast text and multi-layered glow */}
+                        {/* Primary button with precise layout, elegant tracking, and balanced, premium glow shadows */}
                         <a 
                             href={quoteHref} 
-                            className="w-full sm:w-auto h-12 sm:h-14 group inline-flex items-center justify-center space-x-2.5 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold text-base sm:text-lg px-6 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_20px_rgba(34,211,238,0.25)] hover:shadow-[0_4px_16px_rgba(59,130,246,0.2),_0_0_35px_rgba(34,211,238,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
+                            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-bold text-sm sm:text-[15.5px] py-3 px-7 sm:py-3.5 sm:px-9 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.1),_0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_16px_rgba(59,130,246,0.15),_0_0_30px_rgba(34,211,238,0.5)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
                         >
                             <span className="tracking-tight">Start Growing Today</span>
-                            <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-300 group-hover:translate-x-1.5" />
+                            <ArrowRightIcon className="w-4 h-4 sm:w-[18px] sm:h-[18px] text-white transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
-                        {/* 3. Secondary Glass Button with subtle hover border and drop shadow */}
+                        {/* Secondary Premium Glass Button, perfectly matched in height and padding proportions */}
                         <a 
                             href="#portfolio" 
                             aria-label="View our portfolio of recent work" 
-                            className="box-content w-full sm:w-auto h-12 sm:h-14 inline-flex items-center justify-center bg-slate-950/40 backdrop-blur-sm border border-slate-700/80 hover:bg-slate-900/60 hover:border-cyan-400/80 text-slate-200 hover:text-white font-bold text-base sm:text-lg px-6 sm:px-10 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.08)] shadow-black/10"
+                            className="w-full sm:w-auto inline-flex items-center justify-center bg-slate-950/40 backdrop-blur-sm border border-slate-700/80 hover:bg-slate-900/65 hover:border-cyan-400/80 text-slate-200 hover:text-white font-semibold text-sm sm:text-[15.5px] py-3 px-7 sm:py-3.5 sm:px-9 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-slate-800 shadow-md hover:shadow-[0_0_20px_rgba(34,211,238,0.06)] shadow-black/10"
                         >
                             View Our Work
                         </a>

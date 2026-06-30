@@ -132,33 +132,38 @@ const Header: React.FC = () => {
 
     return (
         <>
-            <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-30' : 'z-50'} ${isScrolled || isMenuOpen ? 'bg-slate-900/80 backdrop-blur-sm shadow-lg' : 'bg-gradient-to-b from-black/20 to-transparent'}`}>
-                <div className="container mx-auto px-6 lg:px-4 xl:px-6 py-4 flex justify-between items-center">
-                    <a href="/" onClick={handleLogoClick} aria-label="Cape May Web Design - Home" className="flex items-center mr-4 xl:mr-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300">
-                        <img src="https://kjmagill.com/img/logos/cmwd_logo_w_text.png" alt="Cape May Web Design" className="h-12 md:h-14 w-auto object-contain" referrerPolicy="no-referrer" />
+            <header className={`fixed top-0 left-0 right-0 transition-all duration-300 ${isMenuOpen ? 'z-30' : 'z-50'} ${isScrolled || isMenuOpen ? 'bg-slate-900/85 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.4)] border-b border-slate-800/40' : 'bg-gradient-to-b from-black/35 via-black/10 to-transparent'}`}>
+                <div className={`container mx-auto px-6 lg:px-4 xl:px-6 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-5 md:py-6'} flex justify-between items-center`}>
+                    <a href="/" onClick={handleLogoClick} aria-label="Cape May Web Design - Home" className="flex items-center mr-4 xl:mr-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-95 transition-opacity duration-300">
+                        <img 
+                            src="https://kjmagill.com/img/logos/cmwd_logo_w_text.png" 
+                            alt="Cape May Web Design" 
+                            className={`transition-all duration-300 ${isScrolled ? 'h-8.5 md:h-9' : 'h-10 md:h-11'} w-auto object-contain`} 
+                            referrerPolicy="no-referrer" 
+                        />
                     </a>
-                    <nav role="navigation" aria-label="Main" className="hidden xl:flex items-center space-x-6 xl:space-x-8">
+                    <nav role="navigation" aria-label="Main" className="hidden xl:flex items-center space-x-6 xl:space-x-7">
                         {navLinks.map((link) => (
                             <a 
                                 key={link.name} 
                                 href={link.href} 
-                                className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 font-sans text-sm font-medium tracking-wide after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-cyan-300 after:via-sky-400 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                                className="relative text-slate-300/90 hover:text-white transition-colors duration-200 py-1 font-sans text-[13px] xl:text-[14px] font-medium tracking-tight after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-cyan-300 after:via-sky-400 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                             >
                                 {link.name}
                             </a>
                         ))}
                         <a 
                             href="tel:6093006464" 
-                            className="relative text-slate-300 hover:text-white transition-colors duration-300 py-1 flex items-center space-x-2 font-sans text-sm font-medium tracking-wide after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-cyan-300 after:via-sky-400 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
+                            className="relative text-slate-300/90 hover:text-white transition-colors duration-200 py-1 flex items-center space-x-1.5 font-sans text-[13px] xl:text-[14px] font-medium tracking-tight after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-cyan-300 after:via-sky-400 after:to-blue-500 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:ease-out after:origin-left focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 rounded-sm"
                         >
-                            <PhoneIcon className="w-3.5 h-3.5" />
+                            <PhoneIcon className="w-3.5 h-3.5 text-slate-400 group-hover:text-cyan-400 transition-colors" />
                             <span>(609) 300-6464</span>
                         </a>
                         <a 
                             href={quoteHref} 
-                            className="group inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-extrabold py-2.5 px-5 xl:py-2.5 xl:px-6 rounded-full transition-all duration-300 transform hover:scale-[1.03] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.15),_0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_4px_12px_rgba(59,130,246,0.15),_0_0_25px_rgba(34,211,238,0.55)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
+                            className="group inline-flex items-center justify-center space-x-1.5 bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 hover:from-cyan-200 hover:via-sky-300 hover:to-blue-400 text-white text-shadow-cta font-bold py-1.5 px-4.5 xl:py-2 xl:px-5 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 shadow-[0_1px_2px_rgba(34,211,238,0.1),_0_0_12px_rgba(34,211,238,0.15)] hover:shadow-[0_4px_12px_rgba(59,130,246,0.12),_0_0_20px_rgba(34,211,238,0.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-slate-900"
                         >
-                           <span className="text-xs uppercase tracking-wider font-extrabold">Get a Quote</span>
+                           <span className="text-[12.5px] xl:text-[13px] font-semibold tracking-tight">Get a Quote</span>
                            <ArrowRightIcon className="w-3.5 h-3.5 text-white transition-transform duration-300 group-hover:translate-x-1" />
                         </a>
                     </nav>
