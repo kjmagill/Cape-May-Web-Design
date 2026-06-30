@@ -155,10 +155,16 @@ const App: React.FC = () => {
   
   switch (path) {
     case '/terms':
+    case '/terms/index.html':
+    case '/terms.html':
       return <TermsOfService />;
     case '/privacy':
+    case '/privacy/index.html':
+    case '/privacy.html':
       return <PrivacyPolicy />;
     case '/blog':
+    case '/blog/index.html':
+    case '/blog.html':
       return <BlogListingPage />;
     default:
       return <LandingPage />;

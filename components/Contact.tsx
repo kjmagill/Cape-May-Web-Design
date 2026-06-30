@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, AnimatedCheckCircleIcon, MapPinIcon, PhoneIcon, ExclamationCircleIcon, ClipboardDocumentListIcon, ChevronDownIcon, ClipboardIcon, CheckIcon } from './icons';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import React, { useState, useCallback } from 'react';
+import { motion } from 'motion/react';
+import { SpinnerIcon, ArrowRightIcon, UserIcon, EnvelopeIcon, AnimatedCheckCircleIcon, MapPinIcon, PhoneIcon, ClipboardDocumentListIcon, ChevronDownIcon, ClipboardIcon, CheckIcon } from './icons';
 
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxwUfQ1gDlEQSBKLRohNoVfV3zlRVR8m6aECn-WRQyQFKAc20MhLsXiwHzCbMYDP0SK/exec';
 
@@ -24,9 +24,74 @@ type ErrorState = Partial<FormState>;
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-const Contact: React.FC = () => {
-    const [sectionRef, isVisible] = useIntersectionObserver<HTMLElement>({ threshold: 0.2, triggerOnce: true });
+// Framer Motion Variants for scroll animation triggers
+const headerVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1] // Custom easeOutExpose
+        }
+    }
+};
 
+const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1],
+            staggerChildren: 0.12,
+            delayChildren: 0.15
+        }
+    }
+};
+
+const leftColumnVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+            stiffness: 60,
+            damping: 15,
+            duration: 0.8
+        }
+    }
+};
+
+const rightColumnVariants = {
+    hidden: { opacity: 0, x: 30 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: {
+            type: "spring",
+            stiffness: 60,
+            damping: 15,
+            duration: 0.8
+        }
+    }
+};
+
+const contactItemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            ease: "easeOut"
+        }
+    }
+};
+
+const Contact: React.FC = () => {
     const initialFormState: FormState = { name: '', email: '', phone: '', service: '', message: '' };
     const initialTouchState: TouchState = { name: false, email: false, phone: false, service: false, message: false };
 
@@ -81,8 +146,6 @@ const Contact: React.FC = () => {
         const newFormData = { ...formData, [name]: value };
         setFormData(newFormData);
 
-        // Re-validate only if the field has been touched (blurred) before.
-        // This gives instant feedback as the user corrects an error.
         if (touched[name as keyof TouchState]) {
             const validationErrors = validate(newFormData);
             setErrors(validationErrors);
@@ -95,23 +158,19 @@ const Contact: React.FC = () => {
 
     const handleBlur = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name } = event.target;
-        // Mark the field as touched so we know to validate it.
         setTouched(prev => ({ ...prev, [name as keyof TouchState]: true }));
-        // Run validation for the whole form when a field is blurred.
         const validationErrors = validate(formData);
         setErrors(validationErrors);
     };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        // Mark all fields as touched to show errors on all invalid fields upon submission.
         setTouched({ name: true, email: true, phone: true, service: true, message: true });
 
         const validationErrors = validate(formData);
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length > 0) {
-            // Focus the first field with an error for better UX and accessibility.
             const firstErrorKey = Object.keys(validationErrors)[0] as keyof FormState;
             const errorElement = document.getElementById(firstErrorKey);
             if (errorElement) {
@@ -259,17 +318,17 @@ const Contact: React.FC = () => {
     return (
         <section 
             id="contact" 
-            ref={sectionRef}
             className="py-24 md:py-32 bg-slate-800"
             aria-labelledby="contact-heading"
         >
             <div className="container mx-auto px-6 max-w-7xl">
-                <div 
-                    className={`text-center mb-20 transition-all duration-1000 ease-out ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                    }`}
+                <motion.div 
+                    className="text-center mb-20"
+                    variants={headerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
                 >
-                    {/* 3. Pre-header accent framing matching the logo's custom line elements */}
                     <div className="flex items-center justify-center gap-3.5 mb-4">
                         <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-cyan-500"></span>
                         <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-400 uppercase inline-block font-outfit">
@@ -281,29 +340,31 @@ const Contact: React.FC = () => {
                     <p className="text-slate-400 mt-4 text-lg max-w-2xl mx-auto leading-relaxed">
                         Tell us about your project. We'll provide a free, no-obligation quote and a clear strategy to help you achieve your goals online.
                     </p>
-                </div>
-                <div 
-                    className={`max-w-5xl mx-auto bg-slate-900 rounded-2xl shadow-2xl p-6 sm:p-10 md:p-16 border border-slate-700/50 transition-all duration-1000 ease-out ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-                    }`}
-                    style={{ transitionDelay: '200ms' }}
+                </motion.div>
+
+                <motion.div 
+                    className="max-w-5xl mx-auto bg-slate-900 rounded-2xl shadow-2xl p-6 sm:p-10 md:p-16 border border-slate-700/50"
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
                 >
                     <div className="grid md:grid-cols-2 md:gap-x-12">
                         {/* Left Column: Contact Info */}
-                        <div className="mb-12 md:mb-0">
+                        <motion.div className="mb-12 md:mb-0" variants={leftColumnVariants}>
                             <h3 className="text-2xl font-bold text-white mb-3">Contact Information</h3>
                             <p className="text-slate-400 mb-8">
                                 We're here to help. Reach out to us anytime and we'll happily answer your questions.
                             </p>
                             <ul className="space-y-6">
-                                <li className="flex items-start space-x-4">
+                                <motion.li className="flex items-start space-x-4" variants={contactItemVariants}>
                                     <div className="mt-1 flex-shrink-0"><PhoneIcon className="w-5 h-5 text-cyan-400"/></div>
                                     <div>
                                         <span className="text-white font-semibold">Phone</span><br/>
                                         <a href="tel:6093006464" className="text-slate-300 hover:text-cyan-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-cyan-400 focus-visible:ring-offset-1 focus-visible:ring-offset-slate-900 rounded-sm">(609) 300-6464</a>
                                     </div>
-                                </li>
-                                <li className="flex items-start space-x-4">
+                                </motion.li>
+                                <motion.li className="flex items-start space-x-4" variants={contactItemVariants}>
                                     <div className="mt-1 flex-shrink-0"><EnvelopeIcon className="w-5 h-5 text-cyan-400"/></div>
                                     <div className="min-w-0 flex-1">
                                         <span className="text-white font-semibold">Email</span><br/>
@@ -324,10 +385,10 @@ const Contact: React.FC = () => {
                                                     aria-label="Copy email address"
                                                 >
                                                     {copied ? (
-                                                        <CheckIcon className="w-4 h-4 text-emerald-400" />
-                                                     ) : (
-                                                        <ClipboardIcon className="w-4 h-4" />
-                                                     )}
+                                                         <CheckIcon className="w-4 h-4 text-emerald-400" />
+                                                      ) : (
+                                                         <ClipboardIcon className="w-4 h-4" />
+                                                      )}
                                                 </button>
                                                 {copied && (
                                                     <span role="tooltip" className="absolute left-1/2 -translate-x-1/2 -top-10 bg-slate-950 text-white text-xs px-2.5 py-1 rounded shadow-xl whitespace-nowrap transition-all duration-200 z-10 border border-slate-800">
@@ -337,18 +398,19 @@ const Contact: React.FC = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </li>
-                                <li className="flex items-start space-x-4">
+                                </motion.li>
+                                <motion.li className="flex items-start space-x-4" variants={contactItemVariants}>
                                     <div className="mt-1 flex-shrink-0"><MapPinIcon className="w-5 h-5 text-cyan-400"/></div>
                                     <div>
                                         <span className="text-white font-semibold">Service Area</span><br/>
                                         <span className="text-slate-300">Proudly serving Cape May, The Wildwoods, Ocean City, Sea Isle City, Avalon, Stone Harbor, and all of Cape May County.</span>
                                     </div>
-                                </li>
+                                </motion.li>
                             </ul>
-                        </div>
+                        </motion.div>
+
                         {/* Right Column: Form */}
-                        <div id="contact-form">
+                        <motion.div id="contact-form" variants={rightColumnVariants}>
                              {formStatus === 'success' ? (
                                 <div role="status" aria-live="polite" className="text-center h-full flex flex-col justify-center items-center py-10 transition-all duration-300 ease-in-out">
                                     <AnimatedCheckCircleIcon className="w-20 h-20 mx-auto" />
@@ -400,9 +462,9 @@ const Contact: React.FC = () => {
                                     </div>
                                 </form>
                             )}
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

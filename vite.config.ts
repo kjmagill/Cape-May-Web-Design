@@ -19,6 +19,19 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        rollupOptions: {
+          input: {
+            main: path.resolve(__dirname, 'index.html'),
+            terms: path.resolve(__dirname, 'terms.html'),
+            privacy: path.resolve(__dirname, 'privacy.html'),
+            blog: path.resolve(__dirname, 'blog.html'),
+            terms_dir: path.resolve(__dirname, 'terms/index.html'),
+            privacy_dir: path.resolve(__dirname, 'privacy/index.html'),
+            blog_dir: path.resolve(__dirname, 'blog/index.html'),
+          }
+        }
       }
     };
 });

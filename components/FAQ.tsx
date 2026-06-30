@@ -120,6 +120,21 @@ const FAQ: React.FC = () => {
         }));
     };
 
+    const faqSchema = useMemo(() => {
+        return {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqData.map(item => ({
+                "@type": "Question",
+                "name": item.question,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": item.answer
+                }
+            }))
+        };
+    }, []);
+
     return (
         <section 
             id="faq" 
@@ -127,6 +142,11 @@ const FAQ: React.FC = () => {
             className="py-24 md:py-32 bg-slate-800 border-y border-slate-700/30 overflow-hidden"
             aria-labelledby="faq-heading"
         >
+            {/* FAQ JSON-LD Schema Markup */}
+            <script 
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
             <div className="container mx-auto px-6 max-w-4xl relative">
                 {/* Visual Background Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.03)_0%,transparent_60%)] pointer-events-none" />
