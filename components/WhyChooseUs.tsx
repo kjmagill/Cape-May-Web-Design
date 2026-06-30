@@ -3,11 +3,11 @@ import { InterlockingCirclesIcon, MapPinIcon, ChartTrendingUpIcon, UserIcon, Inf
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className="group bg-slate-900/40 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-slate-700/50 text-center transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/10 flex flex-col h-full">
-        <div className="mx-auto mb-8 text-cyan-400 w-20 h-20 flex items-center justify-center rounded-2xl bg-slate-800/80 border border-slate-700 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:border-cyan-500/50 flex-shrink-0 shadow-inner">
+    <div className="group bg-slate-900/40 backdrop-blur-md p-10 rounded-2xl shadow-xl border border-slate-700/50 text-center transition-all duration-500 transform lg:hover:-translate-y-2 lg:hover:shadow-2xl lg:hover:shadow-cyan-500/10 flex flex-col h-full">
+        <div className="mx-auto mb-8 text-cyan-400 w-20 h-20 flex items-center justify-center rounded-2xl bg-slate-800/80 border border-slate-700 transition-all duration-500 lg:group-hover:scale-110 lg:group-hover:rotate-3 lg:group-hover:border-cyan-500/50 flex-shrink-0 shadow-inner">
             {icon}
         </div>
-        <h3 className="text-2xl font-black text-white mb-4 tracking-tight leading-tight transition-colors duration-300 group-hover:text-cyan-400">{title}</h3>
+        <h3 className="text-2xl font-black text-white mb-4 tracking-tight leading-tight transition-colors duration-300 lg:group-hover:text-cyan-400">{title}</h3>
         <p className="text-slate-400 leading-relaxed text-lg">{description}</p>
     </div>
 );
@@ -100,13 +100,13 @@ const WhyChooseUs: React.FC = () => {
                     {/* 3 Large, Impactful Cards */}
                     <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Card 1 */}
-                        <div className="group bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 hover:border-cyan-500/40 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20 hover:-translate-y-1">
+                        <div className="group bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 lg:hover:border-cyan-500/40 lg:hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20 lg:hover:-translate-y-1">
                             <div>
-                                <div className="text-cyan-400 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 border border-slate-700/60 group-hover:scale-110 group-hover:border-cyan-500/40 transition-all duration-300 mb-6 shadow-inner">
+                                <div className="text-cyan-400 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 border border-slate-700/60 lg:group-hover:scale-110 lg:group-hover:border-cyan-500/40 transition-all duration-300 mb-6 shadow-inner">
                                     <ChartTrendingUpIcon className="w-6 h-6" />
                                 </div>
                                 <span className="font-mono text-cyan-400 font-extrabold text-[11px] tracking-wider block mb-2">01 // AUTOMATIONS</span>
-                                <h4 className="text-white font-extrabold text-xl tracking-tight group-hover:text-cyan-300 transition-colors duration-300">Smart Pipelines</h4>
+                                <h4 className="text-white font-extrabold text-xl tracking-tight lg:group-hover:text-cyan-300 transition-colors duration-300">Smart Pipelines</h4>
                             </div>
                             <p className="text-slate-400 text-sm md:text-base mt-4 leading-relaxed">
                                 Automate lead capture, score prospects, draft service contracts, and synchronize your CRM platforms seamlessly with no manual data entry.
@@ -114,13 +114,13 @@ const WhyChooseUs: React.FC = () => {
                         </div>
 
                         {/* Card 2 */}
-                        <div className="group bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 hover:border-cyan-500/40 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20 hover:-translate-y-1">
+                        <div className="group bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 lg:hover:border-cyan-500/40 lg:hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20 lg:hover:-translate-y-1">
                             <div>
-                                <div className="text-cyan-400 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 border border-slate-700/60 group-hover:scale-110 group-hover:border-cyan-500/40 transition-all duration-300 mb-6 shadow-inner">
+                                <div className="text-cyan-400 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 border border-slate-700/60 lg:group-hover:scale-110 lg:group-hover:border-cyan-500/40 transition-all duration-300 mb-6 shadow-inner">
                                     <UserIcon className="w-6 h-6" />
                                 </div>
                                 <span className="font-mono text-cyan-400 font-extrabold text-[11px] tracking-wider block mb-2">02 // DIGITAL AGENTS</span>
-                                <h4 className="text-white font-extrabold text-xl tracking-tight group-hover:text-cyan-300 transition-colors duration-300">Digital Employees</h4>
+                                <h4 className="text-white font-extrabold text-xl tracking-tight lg:group-hover:text-cyan-300 transition-colors duration-300">Digital Employees</h4>
                             </div>
                             <p className="text-slate-400 text-sm md:text-base mt-4 leading-relaxed">
                                 Deploy highly trained conversational agents that answer customer inquiries, schedule client meetings, and qualify incoming South Jersey leads 24/7.
@@ -128,13 +128,13 @@ const WhyChooseUs: React.FC = () => {
                         </div>
 
                         {/* Card 3 */}
-                        <div className="group bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 hover:border-cyan-500/40 hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20 hover:-translate-y-1">
+                        <div className="group bg-slate-900/60 p-8 rounded-2xl border border-slate-700/50 lg:hover:border-cyan-500/40 lg:hover:bg-slate-900/80 transition-all duration-300 flex flex-col justify-between h-full shadow-lg shadow-black/20 lg:hover:-translate-y-1">
                             <div>
-                                <div className="text-cyan-400 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 border border-slate-700/60 group-hover:scale-110 group-hover:border-cyan-500/40 transition-all duration-300 mb-6 shadow-inner">
+                                <div className="text-cyan-400 w-12 h-12 flex items-center justify-center rounded-xl bg-slate-800/80 border border-slate-700/60 lg:group-hover:scale-110 lg:group-hover:border-cyan-500/40 transition-all duration-300 mb-6 shadow-inner">
                                     <InfinityIcon className="w-6 h-6" />
                                 </div>
                                 <span className="font-mono text-cyan-400 font-extrabold text-[11px] tracking-wider block mb-2">03 // INGESTION</span>
-                                <h4 className="text-white font-extrabold text-xl tracking-tight group-hover:text-cyan-300 transition-colors duration-300">System Glue</h4>
+                                <h4 className="text-white font-extrabold text-xl tracking-tight lg:group-hover:text-cyan-300 transition-colors duration-300">System Glue</h4>
                             </div>
                             <p className="text-slate-400 text-sm md:text-base mt-4 leading-relaxed">
                                 Connect legacy databases, email accounts, and billing software like QuickBooks directly to state-of-the-art AI systems with zero friction.

@@ -106,22 +106,22 @@ const Process: React.FC = () => {
                             }`}
                             style={{ transitionDelay: `${150 + index * 120}ms` }}
                         >
-                            <div className="group bg-slate-950/40 backdrop-blur-md p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-500 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/5 flex flex-col h-full relative overflow-hidden">
+                            <div className="group bg-slate-950/40 backdrop-blur-md p-8 sm:p-10 rounded-2xl shadow-xl border border-slate-700/50 lg:hover:border-cyan-500/30 transition-all duration-500 transform lg:hover:-translate-y-1 lg:hover:shadow-2xl lg:hover:shadow-cyan-500/5 flex flex-col h-full relative overflow-hidden">
                                 
                                 {/* Background Decorative Number */}
-                                <div className="absolute right-6 top-2 font-mono text-8xl font-black text-slate-800/10 pointer-events-none select-none transition-colors duration-500 group-hover:text-cyan-500/5">
+                                <div className="absolute right-6 top-2 font-mono text-8xl font-black text-slate-800/10 pointer-events-none select-none transition-colors duration-500 lg:group-hover:text-cyan-500/5">
                                     {step.number}
                                 </div>
 
                                 <div className="flex items-start gap-5 mb-6">
-                                    <div className="text-cyan-400 w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-900/85 border border-slate-700/80 transition-all duration-500 group-hover:scale-110 group-hover:border-cyan-500/50 flex-shrink-0 shadow-inner">
+                                    <div className="text-cyan-400 w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-900/85 border border-slate-700/80 transition-all duration-500 lg:group-hover:scale-110 lg:group-hover:border-cyan-500/50 flex-shrink-0 shadow-inner">
                                         {step.icon}
                                     </div>
                                     <div>
                                         <span className="font-mono text-cyan-400 font-extrabold text-[10px] sm:text-[11px] tracking-wider block mb-1 uppercase">
                                             {step.number} // {step.badge}
                                         </span>
-                                        <h3 className="text-2xl font-black text-white tracking-tight transition-colors duration-300 group-hover:text-cyan-400">
+                                        <h3 className="text-2xl font-black text-white tracking-tight transition-colors duration-300 lg:group-hover:text-cyan-400">
                                             {step.title}
                                         </h3>
                                     </div>
