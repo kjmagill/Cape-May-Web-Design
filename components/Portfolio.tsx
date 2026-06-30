@@ -52,22 +52,22 @@ const Portfolio: React.FC = () => {
 
     const projects = [
         { 
-            imgUrl: 'https://kjmagill.com/img/projects/hornless.jpg', 
-            title: 'Hornless Horse', 
-            category: 'Radically transparent open-source models', 
-            url: 'https://hornlesshorse.com' 
-        },
-        { 
             imgUrl: 'https://kjmagill.com/img/projects/backbay.jpg', 
             title: 'Back Bay Buggies', 
             category: 'Golf Cart Rentals & Booking', 
             url: 'https://backbaybuggies.com' 
         },
         { 
-            imgUrl: 'https://kjmagill.com/img/projects/gp_social.png', 
-            title: 'Golden Paver Restorations', 
-            category: 'Paver Cleaning and Restoration Services', 
-            url: 'https://goldenpaver.com' 
+            imgUrl: 'https://kjmagill.com/img/projects/hornless.jpg', 
+            title: 'Hornless Horse', 
+            category: 'Radically transparent open-source models', 
+            url: 'https://hornlesshorse.com' 
+        },
+        { 
+            imgUrl: 'https://kjmagill.com/img/projects/cantocurb_project.png', 
+            title: 'Can To Curb', 
+            category: 'Trash and Recycling Valet Services', 
+            url: 'https://cantocurb.com' 
         },
         { 
             imgUrl: 'https://kjmagill.com/img/projects/tmc_project.png', 
@@ -76,10 +76,10 @@ const Portfolio: React.FC = () => {
             url: 'https://tommagillconstruction.com' 
         },
         { 
-            imgUrl: 'https://kjmagill.com/img/projects/cantocurb_project.png', 
-            title: 'Can To Curb', 
-            category: 'Trash and Recycling Valet Services', 
-            url: 'https://cantocurb.com' 
+            imgUrl: 'https://kjmagill.com/img/projects/gp_social.png', 
+            title: 'Golden Paver Restorations', 
+            category: 'Paver Cleaning and Restoration Services', 
+            url: 'https://goldenpaver.com' 
         },
         { 
             imgUrl: 'https://kjmagill.com/img/projects/todesko_banner.jpg', 

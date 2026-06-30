@@ -32,10 +32,6 @@ const SERVICES_DATA = [
 
 const ServiceCard: React.FC<{ icon: React.ReactNode; title: string; description: string; indexVal: number }> = ({ icon, title, description, indexVal }) => (
     <div className="group bg-slate-800/50 backdrop-blur-sm p-10 rounded-2xl shadow-xl border border-slate-700/50 lg:hover:border-cyan-500/50 transition-all duration-500 transform lg:hover:-translate-y-2 lg:hover:shadow-2xl lg:hover:shadow-cyan-500/10 flex flex-col h-full relative overflow-hidden">
-        {/* Precise brand numbering style mapped after technical logs */}
-        <div className="absolute top-0 right-0 p-5 font-mono text-xs text-slate-700 lg:group-hover:text-cyan-500/20 font-semibold transition-colors duration-500 select-none">
-            [0{indexVal}]
-        </div>
         <div className="mb-6 text-cyan-400 transition-transform duration-500 lg:group-hover:scale-110 lg:group-hover:rotate-3">
             {icon}
         </div>
