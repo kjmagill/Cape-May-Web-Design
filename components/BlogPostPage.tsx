@@ -62,7 +62,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
             "name": "Cape May Web Design",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://kjmagill.com/img/logos/cmwd_logo.png"
+                "url": "https://www.capemaywebdesign.com/img/logos/cmwd_logo.png"
             }
         }
     } : null, [post]);

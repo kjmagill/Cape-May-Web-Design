@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
                             aria-label="Cape May Web Design - Home" 
                             className="flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-90 transition-opacity duration-300"
                         >
-                            <img src="https://kjmagill.com/img/logos/cmwd_logo_w_text.png" alt="Cape May Web Design" className="h-20 sm:h-24 w-auto object-contain" referrerPolicy="no-referrer" />
+                            <img src="/img/logos/cmwd_logo_w_text.png" alt="Cape May Web Design" className="h-20 sm:h-24 w-auto object-contain" referrerPolicy="no-referrer" />
                         </a>
                     </div>
 

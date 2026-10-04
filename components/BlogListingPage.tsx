@@ -15,7 +15,7 @@ const jsonLd = {
         "name": "Cape May Web Design",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://kjmagill.com/img/logos/cmwd_logo.png"
+            "url": "https://www.capemaywebdesign.com/img/logos/cmwd_logo.png"
         }
     },
     "blogPost": blogPosts.map(post => ({

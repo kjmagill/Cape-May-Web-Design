@@ -100,7 +100,7 @@ const App: React.FC = () => {
 
     const setFavicon = () => {
       try {
-        const faviconUrl = 'https://kjmagill.com/img/logos/cmwd_logo.png';
+        const faviconUrl = '/img/logos/cmwd_logo.png';
         const existingLinks = document.querySelectorAll<HTMLLinkElement>("link[rel*='icon']");
         existingLinks.forEach(link => link.parentNode?.removeChild(link));
 

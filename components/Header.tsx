@@ -136,7 +136,7 @@ const Header: React.FC = () => {
                 <div className={`container mx-auto px-6 lg:px-4 xl:px-6 transition-all duration-300 ${isScrolled ? 'py-3' : 'py-5 md:py-6'} flex justify-between items-center`}>
                     <a href="/" onClick={handleLogoClick} aria-label="Cape May Web Design - Home" className="flex items-center mr-4 xl:mr-8 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-md hover:opacity-95 transition-opacity duration-300">
                         <img 
-                            src="https://kjmagill.com/img/logos/cmwd_logo_w_text.png" 
+                            src="/img/logos/cmwd_logo_w_text.png" 
                             alt="Cape May Web Design" 
                             className={`transition-all duration-300 ${isScrolled ? 'h-8.5 md:h-9' : 'h-10 md:h-11'} w-auto object-contain`} 
                             referrerPolicy="no-referrer" 
@@ -210,7 +210,7 @@ const Header: React.FC = () => {
                 {/* 1. Top Brand Row (Header) - Compact Padding */}
                 <div className="px-5 py-3 flex items-center justify-between border-b border-slate-900/45 relative z-10">
                     <div className="flex items-center">
-                        <img src="https://kjmagill.com/img/logos/cmwd_logo_w_text.png" alt="Cape May Web Design Logo" className="h-7 w-auto object-contain" referrerPolicy="no-referrer" />
+                        <img src="/img/logos/cmwd_logo_w_text.png" alt="Cape May Web Design Logo" className="h-7 w-auto object-contain" referrerPolicy="no-referrer" />
                     </div>
                     {/* Spacer matching hamburger trigger size */}
                     <div className="w-11 h-11"></div>
