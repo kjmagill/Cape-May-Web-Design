@@ -3,8 +3,8 @@ import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { useImageLoader } from '../hooks/useImageLoader';
 import { ArrowRightIcon } from './icons';
 
-const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string }> = ({ imgUrl, title, category }) => {
-    const isLoading = useImageLoader(imgUrl);
+const PortfolioItem: React.FC<{ imgUrl: string; webpUrl?: string; title: string; category: string }> = ({ imgUrl, webpUrl, title, category }) => {
+    const isLoading = useImageLoader(webpUrl || imgUrl);
 
     return (
         <div className="group flex flex-col h-full">
@@ -12,13 +12,16 @@ const PortfolioItem: React.FC<{ imgUrl: string; title: string; category: string 
                 {isLoading && (
                     <div className="absolute inset-0 bg-slate-700 animate-pulse z-0"></div>
                 )}
-                <img 
-                    src={imgUrl} 
-                    alt={`Portfolio image for ${title}, a ${category} project.`} 
-                    loading="lazy"
-                    decoding="async"
-                    className={`w-full h-full object-cover transform lg:group-hover:scale-110 transition-all duration-700 ${isLoading ? 'opacity-0' : 'opacity-100'} filter brightness-[0.85] saturate-[0.8] lg:group-hover:brightness-50 lg:group-hover:blur-[2px]`} 
-                />
+                <picture>
+                    {webpUrl && <source srcSet={webpUrl} type="image/webp" />}
+                    <img 
+                        src={imgUrl} 
+                        alt={`Portfolio image for ${title}, a ${category} project.`} 
+                        loading="lazy"
+                        decoding="async"
+                        className={`w-full h-full object-cover transform lg:group-hover:scale-110 transition-all duration-700 ${isLoading ? 'opacity-0' : 'opacity-100'} filter brightness-[0.85] saturate-[0.8] lg:group-hover:brightness-50 lg:group-hover:blur-[2px]`} 
+                    />
+                </picture>
                 
                 {/* Desktop Hover Overlay - Hidden on Mobile */}
                 <div className="hidden lg:flex absolute inset-0 flex flex-col justify-center items-center p-6 text-center opacity-0 group-hover:opacity-100 transition-all duration-500 bg-slate-900/40 backdrop-blur-[2px]">
@@ -53,36 +56,42 @@ const Portfolio: React.FC = () => {
     const projects = [
         { 
             imgUrl: '/img/projects/backbay.jpg', 
+            webpUrl: '/img/projects/backbay.webp',
             title: 'Back Bay Buggies', 
             category: 'Golf Cart Rentals & Booking', 
             url: 'https://backbaybuggies.com' 
         },
         { 
             imgUrl: '/img/projects/hornless.jpg', 
+            webpUrl: '/img/projects/hornless.webp',
             title: 'Hornless Horse', 
             category: 'Radically transparent open-source models', 
             url: 'https://hornlesshorse.com' 
         },
         { 
             imgUrl: '/img/projects/cantocurb_project.png', 
+            webpUrl: '/img/projects/cantocurb.webp',
             title: 'Can To Curb', 
             category: 'Trash and Recycling Valet Services', 
             url: 'https://cantocurb.com' 
         },
         { 
             imgUrl: '/img/projects/tmc_project.png', 
+            webpUrl: '/img/projects/tmc.webp',
             title: 'Tom Magill Construction', 
             category: 'Premium Custom Home Building & Remodeling', 
             url: 'https://tommagillconstruction.com' 
         },
         { 
             imgUrl: '/img/projects/gp_social.png', 
+            webpUrl: '/img/projects/golden-paver.webp',
             title: 'Golden Paver Restorations', 
             category: 'Paver Cleaning and Restoration Services', 
             url: 'https://goldenpaver.com' 
         },
         { 
             imgUrl: '/img/projects/todesko_banner.jpg', 
+            webpUrl: '/img/projects/todesko.webp',
             title: 'Lauren Todesko Bookkeeping', 
             category: 'Professional Bookkeeping Services', 
             url: 'https://todeskobookkeeping.com' 
