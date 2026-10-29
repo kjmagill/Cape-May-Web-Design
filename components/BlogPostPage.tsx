@@ -265,7 +265,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
 
                                     {/* Share on X */}
                                     <a 
-                                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}&text=${encodeURIComponent(post.title)}`}
+                                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://www.capemaywebdesign.com/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="p-3 rounded-full text-slate-400 hover:text-sky-400 hover:bg-slate-800/60 border border-transparent transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
@@ -278,7 +278,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
 
                                     {/* Share on LinkedIn */}
                                     <a 
-                                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
+                                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://www.capemaywebdesign.com/blog/${post.slug}`)}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="p-3 rounded-full text-slate-400 hover:text-blue-500 hover:bg-slate-800/60 border border-transparent transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
@@ -436,7 +436,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
 
                                             {/* Twitter/X */}
                                             <a 
-                                                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}&text=${encodeURIComponent(post.title)}`}
+                                                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://www.capemaywebdesign.com/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-sky-400 border border-slate-800 hover:border-sky-500/30 transition-all duration-200"
@@ -449,7 +449,7 @@ const BlogPostPage: React.FC<{ slug: string }> = ({ slug }) => {
 
                                             {/* LinkedIn */}
                                             <a 
-                                                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
+                                                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://www.capemaywebdesign.com/blog/${post.slug}`)}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-blue-500 border border-slate-800 hover:border-blue-500/30 transition-all duration-200"

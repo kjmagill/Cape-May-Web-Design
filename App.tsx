@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TechStack from './components/TechStack';
@@ -33,6 +33,7 @@ interface SeoMetadata {
 // A helper function to read the embedded metadata from the DOM.
 // This function can be used across the application to get the base metadata.
 const getEmbeddedMetadata = (): SeoMetadata | null => {
+  if (typeof document === 'undefined') return null;
   try {
     const element = document.getElementById('seo-metadata');
     if (element && element.textContent) {
@@ -53,7 +54,7 @@ const LandingPage: React.FC = () => {
     keywords: metadata?.keywords || 'Cape May web design, Wildwood NJ web development, Ocean City NJ website design, local SEO Cape May, South Jersey app development',
     ogImage: metadata?.ogImage,
     twitterImage: metadata?.twitterImage,
-    canonicalUrl: metadata?.canonicalUrl,
+    canonicalUrl: metadata?.canonicalUrl || 'https://www.capemaywebdesign.com/',
   });
 
   return (
@@ -84,7 +85,7 @@ const LandingPage: React.FC = () => {
 };
 
 
-const App: React.FC = () => {
+const App: React.FC<{ pathname?: string }> = ({ pathname }) => {
   useSmoothScroll();
   useWebVitals();
   
@@ -116,26 +117,6 @@ const App: React.FC = () => {
     
     setFavicon();
 
-    const setCanonicalUrl = () => {
-      try {
-        let element = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-        if (!element) {
-          element = document.createElement('link');
-          element.setAttribute('rel', 'canonical');
-          document.head.appendChild(element);
-        }
-        
-        const metadata = getEmbeddedMetadata();
-        // Use the canonical from embedded metadata if it exists, otherwise default to the current URL.
-        const url = metadata?.canonicalUrl || window.location.href;
-        element.setAttribute('href', url);
-      } catch (error) {
-        console.error("Failed to set canonical URL:", error);
-      }
-    };
-
-    setCanonicalUrl();
-
     // Set site-wide static meta tags
     updateMetaTag('twitter:card', 'summary_large_image');
     updatePropertyMetaTag('og:type', 'website');
@@ -146,11 +127,11 @@ const App: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const path = window.location.pathname.replace(/\/$/, "");
+  const path = (pathname ?? window.location.pathname).replace(/\/$/, "");
 
   if (path.startsWith('/blog/')) {
     const slug = path.substring(path.lastIndexOf('/') + 1);
-    return <BlogPostPage slug={slug} />;
+    return blogPosts.some(post => post.slug === slug) ? <BlogPostPage slug={slug} /> : <NotFound />;
   }
   
   switch (path) {
@@ -166,9 +147,17 @@ const App: React.FC = () => {
     case '/blog/index.html':
     case '/blog.html':
       return <BlogListingPage />;
-    default:
+    case "":
+    case "/index.html":
       return <LandingPage />;
+    default:
+      return <NotFound />;
   }
 };
+
+function NotFound() {
+  useSeo({ title: 'Page Not Found | Cape May Web Design', description: 'This page could not be found. Explore Cape May Web Design services or contact us about your project.' });
+  return <><Header /><main className="min-h-screen bg-slate-900 px-6 pt-40 pb-20 text-center text-white"><h1 className="text-4xl font-bold">Page not found</h1><p className="mt-6 mb-8">The page may have moved, or the address may be incorrect.</p><a href="/" className="text-cyan-300 underline">Explore our services</a><span> · </span><a href="/#contact" className="text-cyan-300 underline">Contact us</a></main><Footer /></>;
+}
 
 export default App;

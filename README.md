@@ -77,3 +77,19 @@ You will need a local web server to handle module resolution correctly. The popu
 ## 📜 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Search-friendly static pages
+
+`npm run build` builds the client assets, then prerenders the existing React components for every sitemap route into HTML. Vercel serves those files with clean URLs; unknown paths receive the custom `404.html` and a 404 status rather than the homepage. Do not restore a catch-all homepage rewrite.
+
+Page metadata comes from the same `useSeo` calls used by the browser. The build-time collector is scoped to each render. React hydrates the generated content, and no-JavaScript visitors can read content otherwise concealed by reveal animations.
+
+After changing routes or page metadata, run:
+
+```sh
+npm run build
+npm run test:seo
+npm run lint
+```
+
+Add new public routes to `scripts/render.tsx` and the sitemap generator in `vite.config.ts`. The SEO checks verify that every sitemap URL has rendered content and its own canonical. The browser preview should also be checked for hydration errors after changes to render-time component state.

@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 
-interface SeoProps {
+export interface SeoProps {
     title: string;
     description: string;
     keywords?: string;
@@ -8,6 +8,8 @@ interface SeoProps {
     twitterImage?: string;
     canonicalUrl?: string;
 }
+
+export const SeoCollector = createContext<((metadata: SeoProps) => void) | null>(null);
 
 export const updateMetaTag = (name: string, content: string) => {
     try {
@@ -52,6 +54,8 @@ const updateLinkTag = (rel: string, href: string) => {
 }
 
 export const useSeo = ({ title, description, keywords, ogImage, twitterImage, canonicalUrl }: SeoProps) => {
+    const collect = useContext(SeoCollector);
+    collect?.({ title, description, keywords, ogImage, twitterImage, canonicalUrl });
     useEffect(() => {
         document.title = title;
 
